@@ -7,8 +7,9 @@ export const authenUser = ({username,password,push}) =>{
         return FetchData.post('http://localhost:9999/api/signin',{
             username,password
         }).then(({data})=>{
+            console.log(typeof(data.token));
             if (data.isLogin === true){
-                localStorage.setItem('access-token','test');
+                localStorage.setItem('access-token',data.token);
                 alert('Login Success');
                 dispatch({
                     type: authen_Success,
