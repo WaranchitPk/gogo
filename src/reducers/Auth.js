@@ -1,16 +1,24 @@
-import {authen_Success,authen_Failed} from '../actions/types';
+import {authen_Success,authen_Failed,user_logout} from '../actions/types';
 
 export function AuthenReducer(state={},action) {
     switch (action.type){
         case authen_Success:
             return {
                 ...state,
-                status: action.payload
+                token: action.payload,
+                isLogin: true
             };
         case authen_Failed:
             return {
                 ...state,
-                status: action.payload
+                token: null,
+                isLogin: false
+            };
+        case user_logout:
+            return {
+                ...state,
+                token: null,
+                isLogin: false
             };
         default:
             return state

@@ -1,2 +1,2 @@
 // export {is} from './AuthenRoute';
-export {getTokenInStorage} from './localstorage';
+export {getTokenInStorage,removeTokenINStorage} from './localstorage';

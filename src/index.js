@@ -10,15 +10,15 @@ import promiseMiddleware from 'redux-promise-middleware';
 import thunk from 'redux-thunk';
 import {getTokenInStorage} from './libs';
 import {authen_Success} from '../src/actions/types';
-// localStorage.setItem('access-token','test1234');
+import jwtDecode from 'jwt-decode';
 const store = createStore(reducers,applyMiddleware(promiseMiddleware(),thunk));
 
 const checkIsLogin = getTokenInStorage();
 if (checkIsLogin) {
-    const isLogin = true;
+    const token = jwtDecode(checkIsLogin);
     store.dispatch({
         type: authen_Success,
-        payload: isLogin
+        payload: token
     })
     console.log('login Success')
 }else{
