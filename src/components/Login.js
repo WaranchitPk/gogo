@@ -17,7 +17,7 @@ const styles = {
         marginBottom: '3%'
     },
     container: {
-        marginTop: '45%',
+        marginTop: '30%',
     },
     header: {
         textAlign: 'center'

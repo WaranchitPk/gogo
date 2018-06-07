@@ -5,15 +5,15 @@ import {getTokenInStorage} from '../libs';
 import swal from 'sweetalert';
 
 export const findName = () => {
-    const token = getTokenInStorage();
-
+    const gettoken = getTokenInStorage();
+    const TokenId = jwtDecode(localStorage.getItem('access-token')).userId;
     return dispatch => {
-        if (token === null){
+        if (TokenId === undefined){
             dispatch({
                 type: user_logout
             })
         } else{
-            return FetchData.get(`http://localhost:9999/api/users/${token.userId}`)
+            return FetchData.get(`http://localhost:9999/api/users/${TokenId}`)
                 .then(data => {
                     console.log(data.data.name);
                     dispatch({

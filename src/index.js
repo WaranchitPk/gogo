@@ -14,6 +14,7 @@ import jwtDecode from 'jwt-decode';
 const store = createStore(reducers,applyMiddleware(promiseMiddleware(),thunk));
 
 const checkIsLogin = getTokenInStorage();
+
 if (checkIsLogin) {
     const token = jwtDecode(checkIsLogin);
     store.dispatch({
