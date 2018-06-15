@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {AppBar, Typography,Toolbar,Button} from '@material-ui/core';
+import {AppBar, Typography, Toolbar, Button,Menu,MenuItem} from '@material-ui/core';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {Logout} from '../../actions/authen';
 import {findName} from '../../actions/users';
-import {withRouter,Redirect} from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
+
 const styles = {
     root: {
         flexGrow: 1,
@@ -14,38 +15,53 @@ const styles = {
         flex: 1,
     },
 };
+
 class Header extends Component {
-    LogoutHandle = () =>{
+    state = {
+        anchorEl: null
+    };
+    LogoutHandle = () => {
         this.props.dispatch(Logout())
     };
-    componentDidMount(){
-            this.props.dispatch(findName());
 
+    componentDidMount() {
+        // this.props.dispatch(findName());
     }
 
+    handleClick = event => {
+        this.setState({ anchorEl: event.currentTarget });
+    };
+
+    handleClose = () => {
+        this.setState({ anchorEl: null });
+    };
     render() {
-        const {checkIsLogin,token,name} = this.props;
+        const {checkIsLogin, token, name} = this.props;
+        const {anchorEl} = this.state;
         return (
             <div style={styles.root}>
                 {
                     checkIsLogin === true ? <Login
                         onLogout={this.LogoutHandle}
-                        name={name}/> : <NotLogin />
+                        name={name}/> : <NotLogin
+                        stateOpen={anchorEl}
+                        isOpen={this.handleClick}
+                        isClose={this.handleClose}/>
                 }
             </div>
         );
     }
 }
 
-class Login extends Component{
-    render(){
-        const {onLogout,name} = this.props;
-        return(
+class Login extends Component {
+    render() {
+        const {onLogout, name} = this.props;
+        return (
             <div style={styles.root}>
                 <AppBar position="static">
                     <Toolbar>
                         {/*<Typography variant="title" color="inherit" style={styles.flex}>*/}
-                            {/*GO-GYM*/}
+                        {/*GO-GYM*/}
                         {/*</Typography>*/}
                         <Button color="inherit" component={Link} to='/' style={styles.flex}>GO-GYM</Button>
                         <Button color="inherit" component={Link} to='/register'>Register</Button>
@@ -57,8 +73,10 @@ class Login extends Component{
         )
     }
 }
-class NotLogin extends Component{
+
+class NotLogin extends Component {
     render() {
+        const {stateOpen,isOpen,isClose} = this.props;
         return (
             <div style={styles.root}>
                 <AppBar position="static">
@@ -66,6 +84,19 @@ class NotLogin extends Component{
                         <Typography variant="title" color="inherit" style={styles.flex}>
                             GO-GYM
                         </Typography>
+                        <Button
+                            color="inherit"
+                            onClick={isOpen}>
+                            Calculator</Button>
+                        <Menu
+                            anchorEl={stateOpen}
+                            open={Boolean(stateOpen)}
+                            onClose={isClose}>
+                            <MenuItem onClick={isClose} component={Link} to='/calculator_tdee'>TDEE</MenuItem>
+                            <MenuItem onClick={isClose} component={Link} to='/calculator_bmr'>BMR</MenuItem>
+                            <MenuItem onClick={isClose} component={Link} to='/calculator_bmi'>BMI</MenuItem>
+                            <MenuItem onClick={isClose} component={Link} to='/calculator_mhr'>MHR</MenuItem>
+                        </Menu>
                         <Button color="inherit" component={Link} to='/login'>Login</Button>
                     </Toolbar>
                 </AppBar>
@@ -73,11 +104,15 @@ class NotLogin extends Component{
         )
     }
 }
+
+
+
 function mapStateToProps(state) {
-    return{
+    return {
         checkIsLogin: state.AuthenReducer.isLogin,
         token: state.AuthenReducer.token,
         name: state.findName.name
     }
 }
+
 export default connect(mapStateToProps)(withRouter((Header)));

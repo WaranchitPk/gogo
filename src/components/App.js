@@ -1,11 +1,20 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {Route, Redirect, Switch} from 'react-router-dom';
-import {LoginContainer, HomeContainer,RegisterContainer} from '../containers';
+import {
+    LoginContainer,
+    HomeContainer,
+    RegisterContainer,
+    CalculatorTDEEContainer,
+    CalculatorBMRContainer,
+    CalculatorBMIContainer,
+    CalculatorMHRContainer
+} from '../containers';
 import {Header} from '../layouts';
 import {Grid} from '@material-ui/core';
 import {Authenticate} from '../libs/AuthenRoute';
 import {getTokenInStorage} from '../libs'
+
 const NotIsLogin = true;
 
 class App extends Component {
@@ -18,13 +27,16 @@ class App extends Component {
                         <Header/>
                     </Grid>
                 </Grid>
-                        <Route path="/" component={(HomeContainer)} exact />
+                <Route path='/' component={(HomeContainer)} exact/>
+                <Route path='/login' component={LoginContainer}/>
+                <Route path='/register' component={RegisterContainer}/>
 
-                        {/*<Route path='/login' render={() =>(*/}
-                            {/*getTokenInStorage() ? (<Redirect to='/'/>): (<Route component={LoginContainer}/>)*/}
-                        {/*)}/>*/}
-                        <Route path='/login' component={LoginContainer} />
-                        <Route path='/register' component={RegisterContainer}/>
+                {/*Calculate Route*/}
+                <Route path='/calculator_tdee' component={CalculatorTDEEContainer}/>
+                <Route path='/calculator_bmr' component={CalculatorBMRContainer}/>
+                <Route path='/calculator_bmi' component={CalculatorBMIContainer}/>
+                <Route path='/calculator_mhr' component={CalculatorMHRContainer}/>
+
             </div>
         );
     }

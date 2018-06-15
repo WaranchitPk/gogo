@@ -20,7 +20,7 @@ if (checkIsLogin) {
     store.dispatch({
         type: authen_Success,
         payload: token
-    })
+    });
     console.log('login Success')
 }else{
     console.log('no login')
