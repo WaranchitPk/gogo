@@ -6,7 +6,6 @@ import {
     HomeContainer,
     RegisterContainer,
     CalculatorTDEEContainer,
-    CalculatorBMRContainer,
     CalculatorBMIContainer,
     CalculatorMHRContainer
 } from '../containers';
@@ -33,9 +32,9 @@ class App extends Component {
 
                 {/*Calculate Route*/}
                 <Route path='/calculator_tdee' component={CalculatorTDEEContainer}/>
-                <Route path='/calculator_bmr' component={CalculatorBMRContainer}/>
                 <Route path='/calculator_bmi' component={CalculatorBMIContainer}/>
                 <Route path='/calculator_mhr' component={CalculatorMHRContainer}/>
+
 
             </div>
         );

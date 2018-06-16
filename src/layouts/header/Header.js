@@ -18,7 +18,9 @@ const styles = {
 
 class Header extends Component {
     state = {
-        anchorEl: null
+        anchorEl: null,
+        mouseOverButton: false,
+        mouseOverMenu: false,
     };
     LogoutHandle = () => {
         this.props.dispatch(Logout())
@@ -93,7 +95,6 @@ class NotLogin extends Component {
                             open={Boolean(stateOpen)}
                             onClose={isClose}>
                             <MenuItem onClick={isClose} component={Link} to='/calculator_tdee'>TDEE</MenuItem>
-                            <MenuItem onClick={isClose} component={Link} to='/calculator_bmr'>BMR</MenuItem>
                             <MenuItem onClick={isClose} component={Link} to='/calculator_bmi'>BMI</MenuItem>
                             <MenuItem onClick={isClose} component={Link} to='/calculator_mhr'>MHR</MenuItem>
                         </Menu>
