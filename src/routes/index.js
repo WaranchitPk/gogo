@@ -1,0 +1,1 @@
+export {default as ExerciseRoute} from './exercise/Exercise';

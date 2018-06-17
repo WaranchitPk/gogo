@@ -9,6 +9,7 @@ import {
     CalculatorBMIContainer,
     CalculatorMHRContainer
 } from '../containers';
+import {ExerciseRoute} from '../routes';
 import {Header} from '../layouts';
 import {Grid} from '@material-ui/core';
 import {Authenticate} from '../libs/AuthenRoute';
@@ -35,7 +36,7 @@ class App extends Component {
                 <Route path='/calculator_bmi' component={CalculatorBMIContainer}/>
                 <Route path='/calculator_mhr' component={CalculatorMHRContainer}/>
 
-
+                <Route component={ExerciseRoute}/>
             </div>
         );
     }

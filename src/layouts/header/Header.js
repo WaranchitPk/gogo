@@ -88,6 +88,10 @@ class NotLogin extends Component {
                         </Typography>
                         <Button
                             color="inherit"
+                            component={Link} to='/exercise'>
+                            Exercise</Button>
+                        <Button
+                            color="inherit"
                             onClick={isOpen}>
                             Calculator</Button>
                         <Menu
