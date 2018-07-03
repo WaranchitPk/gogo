@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
 import {RegisterComponent} from '../components'
 import {createUser} from '../actions/users';
 import {connect} from 'react-redux';
+
 class Register extends Component {
     state = {
-        username:'',
+        username: '',
         password: '',
         gender: 'male',
         month: 1
@@ -13,15 +13,16 @@ class Register extends Component {
     handleChange = (event) => {
         this.setState({[event.target.name]: event.target.value});
     };
-    handleSubmit = () =>{
-        const {history: {push}}  = this.props;
+    handleSubmit = () => {
+        const {history: {push}} = this.props;
         const body = {
             ...this.state
         };
-        this.props.dispatch(createUser(body,push));
+        this.props.dispatch(createUser(body, push));
     };
+
     render() {
-    console.log(this.props);
+        console.log(this.props);
         return (
             <div>
                 <RegisterComponent
@@ -33,7 +34,5 @@ class Register extends Component {
         );
     }
 }
-
-Register.propTypes = {};
 
 export default connect(null)(Register);

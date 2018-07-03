@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import {CalculateTDEEComponent} from '../../components';
-import {bmr_Calculate,tdee_calculate} from '../../libs';
 import {connect} from 'react-redux';
 import {CalBMR_TDEE} from '../../actions/calculate';
+import {TDEE_BMR_Calculate} from '../../components';
+
 class Calculate_TDEE extends Component {
     state = {
         gender: 'male',
@@ -13,18 +13,20 @@ class Calculate_TDEE extends Component {
         resultBmr: '',
         resultTdee: ''
     };
+
     handleChange = (event) => {
         this.setState({[event.target.name]: event.target.value});
 
     };
-    onSubmit = () =>{
-        const {gender,height,weight,age,activity} = this.state;
-        this.props.dispatch(CalBMR_TDEE(gender,height,weight,age,activity))
+    onSubmit = () => {
+        const {gender, height, weight, age, activity} = this.state;
+        this.props.dispatch(CalBMR_TDEE(gender, height, weight, age, activity))
     };
+
     render() {
         return (
             <div>
-                <CalculateTDEEComponent
+                <TDEE_BMR_Calculate
                     valueGender={this.state.gender}
                     handleChange={this.handleChange}
                     valueActivity={this.state.activity}
@@ -35,8 +37,8 @@ class Calculate_TDEE extends Component {
     }
 }
 
-const mapStateToProps = (state) =>{
-    return{
+const mapStateToProps = (state) => {
+    return {
         result: state.CalculateReducers
     }
 };

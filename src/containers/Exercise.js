@@ -1,14 +1,16 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
 import {ExerciseComponent} from '../components';
+
 class Exercise extends Component {
     state = {
         value: 0,
     };
+
     handleChange = (event, value) => {
         console.log(value);
-        this.setState({ value });
+        this.setState({value});
     };
+
     render() {
         return (
             <div>
@@ -19,6 +21,5 @@ class Exercise extends Component {
         );
     }
 }
-
 
 export default Exercise;

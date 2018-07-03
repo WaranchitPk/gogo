@@ -29,6 +29,6 @@ const PushUp = () => (
             </ExpansionPanelDetails>
         </ExpansionPanel>
     </div>
-)
+);
 
 export default PushUp;

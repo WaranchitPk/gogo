@@ -11,6 +11,10 @@ import thunk from 'redux-thunk';
 import {getTokenInStorage} from './libs';
 import {authen_Success} from '../src/actions/types';
 import jwtDecode from 'jwt-decode';
+import MuiPickersUtilsProvider from 'material-ui-pickers/utils/MuiPickersUtilsProvider';
+
+import DateFnsUtils from 'material-ui-pickers/utils/date-fns-utils';
+
 const store = createStore(reducers,applyMiddleware(promiseMiddleware(),thunk));
 
 const checkIsLogin = getTokenInStorage();
@@ -28,7 +32,9 @@ if (checkIsLogin) {
 ReactDOM.render(
     <Provider store={store}>
         <Router>
-            <App/>
+            <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                <App/>
+            </MuiPickersUtilsProvider>
         </Router>
     </Provider>,
     document.getElementById('root'));

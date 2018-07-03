@@ -1,24 +1,28 @@
 import React, {Component} from 'react';
-import {CalculateMHRComponent} from '../../components';
+import {MHR_Calculate} from '../../components';
 import {CalMHR} from '../../actions/calculate';
 import {connect} from 'react-redux';
+
 class Calculate_MHR extends Component {
     state = {
         age: ''
-    }
-    handleChange = (event) =>{
+    };
+
+    handleChange = (event) => {
         this.setState({
             age: event.target.value
         })
     };
-    onSubmit = () =>{
-      const {age} = this.state;
-      this.props.dispatch(CalMHR(+age))
+
+    onSubmit = () => {
+        const {age} = this.state;
+        this.props.dispatch(CalMHR(+age))
     };
+
     render() {
         return (
             <div>
-                <CalculateMHRComponent
+                <MHR_Calculate
                     handleChange={this.handleChange}
                     onSubmit={this.onSubmit}
                     result={this.props.data.data}/>
@@ -26,9 +30,10 @@ class Calculate_MHR extends Component {
         );
     }
 }
-const mapStateToProps = (state) =>{
+
+const mapStateToProps = (state) => {
     return {
-        data:state.CalculateReducer_MHR
+        data: state.CalculateReducer_MHR
     }
 };
 

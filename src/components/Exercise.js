@@ -1,5 +1,5 @@
 import React from 'react';
-import {Grid, Paper, Button, AppBar, Tab, Tabs} from '@material-ui/core'
+import {AppBar, Tab, Tabs} from '@material-ui/core'
 import {Link} from 'react-router-dom';
 import '../style/exercise.css'
 
