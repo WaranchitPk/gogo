@@ -1,10 +1,11 @@
 import axios from 'axios';
 import {createStatHistory_Success,createStatHistory_Failed,showHistoryUser} from './types';
 import swal from 'sweetalert';
+import {path_API} from '../config';
 
 export const createHistory = (bodyData) => {
     return dispatch => {
-        return axios.post('http://localhost:9999/api/history', {
+        return axios.post(`${path_API}/history`, {
             detail: bodyData.Detail,
             statDate: bodyData.dateStr,
             id: bodyData.userId
@@ -24,7 +25,7 @@ export const createHistory = (bodyData) => {
 };
 export const showHistory = (id) =>{
     return dispatch =>{
-        return axios.get(`http://localhost:9999/api/history/${id}`)
+        return axios.get(`${path_API}/history/${id}`)
             .then((data) =>{
                 console.log(data)
                 dispatch({

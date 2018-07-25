@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import {RegisterComponent} from '../components'
-import {createUser} from '../actions/users';
 import {connect} from 'react-redux';
+import {createUser} from '../actions/users';
+import {RegisterComponent} from '../components';
 
 class Register extends Component {
     state = {
@@ -11,14 +11,20 @@ class Register extends Component {
         month: 1
     };
     handleChange = (event) => {
-        this.setState({[event.target.name]: event.target.value});
+        this.setState({
+            [event.target.name]: event.target.value
+        });
     };
     handleSubmit = () => {
-        const {history: {push}} = this.props;
+        const {history: {
+                push
+            }} = this.props;
         const body = {
             ...this.state
         };
-        this.props.dispatch(createUser(body, push));
+        this
+            .props
+            .dispatch(createUser(body, push));
     };
 
     render() {

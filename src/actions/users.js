@@ -3,7 +3,7 @@ import {authen_Success, user_find_name, user_create, user_logout} from './types'
 import jwtDecode from "jwt-decode";
 import {getTokenInStorage} from '../libs';
 import swal from 'sweetalert';
-
+import {path_API} from '../config';
 export const findName = () => {
     const gettoken = getTokenInStorage();
     const TokenId = jwtDecode(localStorage.getItem('access-token')).userId;
@@ -13,7 +13,7 @@ export const findName = () => {
                 type: user_logout
             })
         } else{
-            return FetchData.get(`http://localhost:9999/api/users/${TokenId}`)
+            return FetchData.get(`${path_API}/users/${TokenId}`)
                 .then(data => {
                     console.log(data.data.name);
                     dispatch({
@@ -31,7 +31,7 @@ export const createUser = (body, push) => {
     }
     console.log(test);
     return dispatch => {
-        return FetchData.post('http://localhost:9999/api/users', {
+        return FetchData.post(`${path_API}/users`, {
             ...test
         }).then(() => {
             dispatch({

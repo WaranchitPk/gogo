@@ -2,11 +2,12 @@ import FetchData from 'axios';
 import {authen_Success, authen_Failed,user_logout} from './types';
 import swal from 'sweetalert';
 import jwtDecode from 'jwt-decode';
+import {path_API} from '../config'
 import {removeTokenINStorage,getTokenInStorage} from '../libs';
 
 export const authenUser = ({username, password, push}) => {
     return dispatch => {
-        return FetchData.post('http://localhost:9999/api/signin', {
+        return FetchData.post(`${path_API}/signin`, {
             username, password
         }).then(({data}) => {
             console.log(typeof(data.token));

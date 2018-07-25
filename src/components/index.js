@@ -3,6 +3,7 @@ export {default as LoginComponent} from './Login';
 export {default as HomeComponent} from './Home';
 export {default as RegisterComponent} from './Register';
 export {default as HistoryComponent} from './History';
+export {default as NeutrianComponent} from './Neutrian';
 
 export {default as TDEE_BMR_Calculate} from './calculators/TDEE';
 export {default as MHR_Calculate} from './calculators/MHR';

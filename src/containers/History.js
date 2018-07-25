@@ -1,11 +1,8 @@
-import React, {Component} from 'react';
-import PropTypes from 'prop-types';
-import {HistoryComponent} from '../components';
 import moment from 'moment';
-import axios from 'axios';
-import {connect} from 'react-redux';
-import {createHistory, showHistory} from '../actions/historyUser';
-import {ShowHistoryUserReducer} from "../reducers/history_user";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { createHistory, showHistory } from '../actions/historyUser';
+import { HistoryComponent } from '../components';
 
 class History extends Component {
     state = {
