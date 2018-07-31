@@ -2,9 +2,9 @@ import axios from 'axios';
 import {
     loadNutrian,
     loadNeutriansAllFoods,
-    loadNeutriansAllDrinks,
-    loadNeutriansAllDessert,
-    loadNeutrianCate
+    loadNeutrianCate,
+    loadFoodsFromMenuID,
+    loadFoodFromSelect
 } from './types';
 import {path_API} from '../config';
 
@@ -17,42 +17,39 @@ export const loadNutrianData = () => {
     }
 }
 
-export const loadNutrianShowAllFoods = () => {
+export const loadNutrianShowAllFoods = (id) => {
     return dispatch => {
         dispatch({
             type: loadNeutriansAllFoods,
-            payload: axios.get(`${path_API}/nutrian/showAll/foods`)
-        })
-    }
-}
-
-export const loadNutrianShowAllDrinks = () => {
-    return dispatch => {
-        dispatch({
-            type: loadNeutriansAllDrinks,
-            payload: axios.get(`${path_API}/nutrian/showAll/drinks`)
+            payload: axios.get(`${path_API}/nutrian/showAll/foods/${id}`)
         })
     }
 };
 
-export const loadNutrianShowAllDessert = () => {
-    return dispatch => {
-        dispatch({
-            type: loadNeutriansAllDessert,
-            payload: axios.get(`${path_API}/nutrian/showAll/desserts`)
-        })
-    }
-};
 
 export const loadNeutrianShowCate = (cate) => {
-    // axios.get(`${path_API}/nutrian/show/${cate}`)
-    //     .then((data)=>{
-    //         console.log(data);
-    //     })
     return dispatch => {
         dispatch({
             type: loadNeutrianCate,
             payload: axios.get(`${path_API}/nutrian/show/${cate}`)
+        })
+    }
+};
+
+export const loadNeutrianFoods = (id) =>{
+    return dispatch =>{
+        dispatch({
+            type: loadFoodsFromMenuID,
+            payload: axios.get(`${path_API}/nutrian/show/foods/${id}`)
+        })
+    }
+};
+
+export const loadSelectNeutrian = selected =>{
+    return dispatch =>{
+        dispatch({
+            type: loadFoodFromSelect,
+            payload: axios.get(`${path_API}/nutrian/show/selectFood/${selected}`)
         })
     }
 };

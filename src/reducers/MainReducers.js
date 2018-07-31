@@ -13,11 +13,11 @@ import {
 } from "./history_user";
 import {NutrianReducer} from "./nutrian";
 import {
-    NeutrianAllFoodsReducers,
-    NeutrianAllDrinksReducers,
-    NeutrianAllDessertsReducers
+    NeutrianAllFoodsReducers
 } from "./Neutrians/showAll";
 import NeutrianCate from './Neutrians/showCate';
+import NeutrialFoods from './Neutrians/showFoods';
+import NeutrialSelectFoods from './Neutrians/showFoodFromSelect';
 
 const reducers = combineReducers({
     AuthenReducer,
@@ -31,8 +31,8 @@ const reducers = combineReducers({
     ShowHistoryUserReducer,
     NutrianReducer,
     NeutrianAllFoodsReducers,
-    NeutrianAllDrinksReducers,
-    NeutrianAllDessertsReducers,
-    NeutrianCate
+    NeutrianCate,
+    NeutrialFoods,
+    NeutrialSelectFoods
 });
 export default reducers;

@@ -1,18 +1,18 @@
-import {loadNeutrianCate} from '../../actions/types';
+import {loadFoodsFromMenuID, loadNeutrianCate} from '../../actions/types';
 
-const ShowNeutrianCate = (state = {}, action) => {
+const ShowNeutrianFoods = (state={},action) =>{
     switch (action.type) {
-        case `${loadNeutrianCate}_PENDING`:
-            return {
+        case `${loadFoodsFromMenuID}_PENDING`:
+            return{
                 ...state,
                 data: null
             };
-        case `${loadNeutrianCate}_FULFILLED`:
+        case `${loadFoodsFromMenuID}_FULFILLED`:
             return {
                 ...state,
                 data: action.payload
             };
-        case `${loadNeutrianCate}_REJECTED`:
+        case `${loadFoodsFromMenuID}_REJECTED`:
             return {
                 ...state,
                 err: "error"
@@ -21,4 +21,4 @@ const ShowNeutrianCate = (state = {}, action) => {
             return state;
     }
 };
-export default ShowNeutrianCate;
+export default ShowNeutrianFoods;

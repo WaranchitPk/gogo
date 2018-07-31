@@ -13,8 +13,10 @@ export const createStatHistory_Failed = 'History_CREATED_Failed';
 export const loadNutrian = 'LOAD_NUTRIAN';
 //find all neutrian
 export const loadNeutriansAllFoods = 'LOAD_ALLFOODS';
-export const loadNeutriansAllDrinks = 'LOAD_NUTRIAN_ALLDRINKS';
-export const loadNeutriansAllDessert = 'LOAD_NUTRIAN_ALLDESSERT';
 //find cate neutrian
 export const loadNeutrianCate = 'LOAD_NEUTRIAN_CATE';
+//find food from menu_id
+export const loadFoodsFromMenuID = 'LOAD_NEUTRIAN_FOODS';
+//find food for select food
+export const loadFoodFromSelect = 'LOAD_NEUTRIAN_SELECT';
 export const showHistoryUser = 'HISTORY_SHOW';

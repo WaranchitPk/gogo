@@ -3,20 +3,21 @@
   <component name="ChangeListManager">
     <list default="true" id="ba22003e-b1a6-4b76-95f0-e5a2b9b493f8" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actions/authen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/authen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actions/historyUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/historyUser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actions/nutrian.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/nutrian.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/actions/types.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/types.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actions/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/History.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/History.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Register.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layouts/header/login/member.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/header/login/member.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Neutrian.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Neutrian.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Neutrians/Show_All_Select/dessert.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Neutrians/Show_All_Select/dessert.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Neutrians/Show_All_Select/drinks.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Neutrians/Show_All_Select/drinks.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Neutrians/Show_All_Select/foods.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Neutrians/Show_All_Select/foods.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Neutrian.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Neutrian.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Neutrians/Show_All_Select/dessert.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Neutrians/Show_All_Select/dessert.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Neutrians/Show_All_Select/drinks.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Neutrians/Show_All_Select/drinks.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Neutrians/Show_All_Select/foods.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Neutrians/Show_All_Select/foods.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/reducers/MainReducers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/MainReducers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reducers/Neutrians/showAll.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/Neutrians/showAll.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reducers/Neutrians/showAll/desserts.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reducers/Neutrians/showAll/drinks.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reducers/Neutrians/showCate.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/Neutrians/showCate.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -31,30 +32,32 @@
     <session id="1434867881">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="4" />
           <entry key="project.open.time.13" value="1" />
+          <entry key="project.open.time.15" value="1" />
           <entry key="project.open.time.20" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.open.time.9" value="2" />
+          <entry key="project.opened" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="js" value="20" />
+          <entry key="js" value="70" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JavaScript" value="20" />
+          <entry key="JavaScript" value="70" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="js" value="3624" />
+          <entry key="js" value="8789" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JavaScript" value="3624" />
+          <entry key="JavaScript" value="8789" />
         </counts>
       </usages-collector>
     </session>
@@ -64,8 +67,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/containers/Neutrian.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="313">
-              <caret line="49" column="25" lean-forward="true" selection-start-line="49" selection-start-column="25" selection-end-line="49" selection-end-column="25" />
+            <state relative-caret-position="224">
+              <caret line="155" selection-start-line="155" selection-end-line="155" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -76,11 +79,77 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/Neutrian.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="61">
-              <caret line="46" selection-start-line="46" selection-end-line="46" />
+            <state relative-caret-position="450">
+              <caret line="261" column="88" selection-start-line="261" selection-start-column="88" selection-end-line="261" selection-end-column="88" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/containers/Register.js">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/Register.js">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/actions/nutrian.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="416">
+              <caret line="51" column="21" selection-start-line="51" selection-start-column="21" selection-end-line="51" selection-end-column="81" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/Neutrians/index.js">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/Home.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="286">
+              <caret line="70" column="53" lean-forward="true" selection-start-line="70" selection-start-column="53" selection-end-line="70" selection-end-column="81" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/Neutrians/Show_All_Select/foods.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="34" column="35" selection-start-line="34" selection-start-column="35" selection-end-line="34" selection-end-column="35" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/Neutrians/Show_All_Select/drinks.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="32" column="36" lean-forward="true" selection-start-line="32" selection-start-column="36" selection-end-line="32" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/Neutrians/Show_All_Select/dessert.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="249">
+              <caret line="30" column="40" lean-forward="true" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -106,15 +175,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/components/Exercises/sholder/Dumbbell_Rear_Delt_Fly.js" />
-        <option value="$PROJECT_DIR$/src/components/Exercises/sholder/Front_Plate_Raises.js" />
-        <option value="$PROJECT_DIR$/src/components/Exercises/sholders.js" />
-        <option value="$PROJECT_DIR$/src/components/Exercises/back/Pendlay_Row.js" />
-        <option value="$PROJECT_DIR$/src/components/Exercises/back/Deadlift.js" />
-        <option value="$PROJECT_DIR$/src/components/Exercises/back/T-Bar_Row.js" />
-        <option value="$PROJECT_DIR$/src/components/Exercises/back/Seated_Dumbbell_Low_Row.js" />
-        <option value="$PROJECT_DIR$/src/components/Exercises/back/Inverted_Row.js" />
-        <option value="$PROJECT_DIR$/src/components/Exercises/back/Kettlebell_Swing.js" />
         <option value="$PROJECT_DIR$/src/components/Exercises/back/Cable_Seated_Row.js" />
         <option value="$PROJECT_DIR$/src/components/Exercises/backs.js" />
         <option value="$PROJECT_DIR$/src/components/Exercises/leg/Barbell_Squat.js" />
@@ -149,12 +209,21 @@
         <option value="$PROJECT_DIR$/src/containers/History.js" />
         <option value="$PROJECT_DIR$/src/components/History.js" />
         <option value="$PROJECT_DIR$/src/style/history.css" />
-        <option value="$PROJECT_DIR$/src/components/Neutrians/Show_All_Select/foods.js" />
-        <option value="$PROJECT_DIR$/src/actions/types.js" />
-        <option value="$PROJECT_DIR$/src/actions/nutrian.js" />
         <option value="$PROJECT_DIR$/src/reducers/Neutrians/showAll/foods.js" />
+        <option value="$PROJECT_DIR$/src/containers/Neutrians/Show_All_Select/dessert.js" />
+        <option value="$PROJECT_DIR$/src/containers/Neutrians/Show_All_Select/drinks.js" />
+        <option value="$PROJECT_DIR$/src/reducers/Neutrians/showAll.js" />
+        <option value="$PROJECT_DIR$/src/containers/Neutrians/Show_All_Select/foods.js" />
         <option value="$PROJECT_DIR$/src/reducers/Neutrians/showCate.js" />
+        <option value="$PROJECT_DIR$/src/reducers/Neutrians/showFoods.js" />
+        <option value="$PROJECT_DIR$/src/actions/types.js" />
+        <option value="$PROJECT_DIR$/src/reducers/Neutrians/showfoodfromSelect.js" />
+        <option value="$PROJECT_DIR$/src/reducers/Neutrians/showFoodFromSelect.js" />
         <option value="$PROJECT_DIR$/src/reducers/MainReducers.js" />
+        <option value="$PROJECT_DIR$/src/actions/nutrian.js" />
+        <option value="$PROJECT_DIR$/src/components/Neutrians/Show_All_Select/foods.js" />
+        <option value="$PROJECT_DIR$/src/components/Neutrians/Show_All_Select/drinks.js" />
+        <option value="$PROJECT_DIR$/src/components/Neutrians/Show_All_Select/dessert.js" />
         <option value="$PROJECT_DIR$/src/containers/Neutrian.js" />
         <option value="$PROJECT_DIR$/src/components/Neutrian.js" />
       </list>
@@ -177,9 +246,9 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="5" />
-    <option name="y" value="60" />
-    <option name="width" value="1528" />
+    <option name="x" value="-103" />
+    <option name="y" value="54" />
+    <option name="width" value="1680" />
     <option name="height" value="955" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -204,7 +273,28 @@
               <item name="font-end" type="b2602c69:ProjectViewProjectNode" />
               <item name="font-end" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="actions" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="font-end" type="b2602c69:ProjectViewProjectNode" />
+              <item name="font-end" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="font-end" type="b2602c69:ProjectViewProjectNode" />
+              <item name="font-end" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="Neutrians" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="font-end" type="b2602c69:ProjectViewProjectNode" />
+              <item name="font-end" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="Neutrians" type="462c0819:PsiDirectoryNode" />
+              <item name="Show_All_Select" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="font-end" type="b2602c69:ProjectViewProjectNode" />
@@ -216,7 +306,21 @@
               <item name="font-end" type="b2602c69:ProjectViewProjectNode" />
               <item name="font-end" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="containers" type="462c0819:PsiDirectoryNode" />
+              <item name="Neutrians" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="font-end" type="b2602c69:ProjectViewProjectNode" />
+              <item name="font-end" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="reducers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="font-end" type="b2602c69:ProjectViewProjectNode" />
+              <item name="font-end" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="reducers" type="462c0819:PsiDirectoryNode" />
+              <item name="Neutrians" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -273,18 +377,21 @@
       <workItem from="1529588486277" duration="4242000" />
       <workItem from="1530513098295" duration="18653000" />
       <workItem from="1532423354522" duration="11432000" />
-      <workItem from="1532496782169" duration="2555000" />
+      <workItem from="1532496782169" duration="8261000" />
+      <workItem from="1532589236127" duration="17000" />
+      <workItem from="1532593344247" duration="3447000" />
+      <workItem from="1533024474868" duration="18010000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="80541000" />
+    <option name="totallyTimeSpent" value="107721000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="5" y="60" width="1528" height="955" extended-state="0" />
+    <frame x="-103" y="54" width="1680" height="955" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24950232" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22664255" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -311,51 +418,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/components/Exercises/belly/Stomach_vacuum.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="9" column="9" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Exercises/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1092">
-          <caret line="39" selection-start-line="39" selection-end-line="43" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Exercises/bellys.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1218">
-          <caret line="44" column="19" lean-forward="true" selection-start-line="44" selection-start-column="19" selection-end-line="44" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/layouts/header/login/employee.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="589">
-          <caret line="22" column="23" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/actions/calculate.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/layouts/header/exercise_cal.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="82">
-          <caret line="3" column="23" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/layouts/header/login/admin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
@@ -367,9 +429,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="325">
           <caret line="26" column="58" selection-start-line="26" selection-start-column="58" selection-end-line="26" selection-end-column="58" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -413,20 +472,10 @@
     <entry file="file://$PROJECT_DIR$/src/containers/Home.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/Exercise.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/containers/Login.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="39">
           <caret line="17" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-419">
-          <caret line="28" column="39" selection-start-line="28" selection-start-column="39" selection-end-line="28" selection-end-column="39" />
         </state>
       </provider>
     </entry>
@@ -452,13 +501,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/reducers/Auth.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="7" column="38" lean-forward="true" selection-start-line="7" selection-start-column="38" selection-end-line="7" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/layouts/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="28">
@@ -477,9 +519,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="446">
           <caret line="23" column="20" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -487,13 +526,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2100">
           <caret line="79" column="33" selection-start-line="79" selection-start-column="33" selection-end-line="79" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/History.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1428">
-          <caret line="72" column="77" selection-start-line="72" selection-start-column="77" selection-end-line="72" selection-end-column="77" />
         </state>
       </provider>
     </entry>
@@ -518,9 +550,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Home.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/style/history.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
@@ -528,48 +557,74 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Neutrians/Show_All_Select/foods.js">
+    <entry file="file://$PROJECT_DIR$/src/reducers/Neutrians/showAll/desserts.js" />
+    <entry file="file://$PROJECT_DIR$/src/reducers/calculate.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/reducers/Neutrians/showAll/drinks.js" />
+    <entry file="file://$PROJECT_DIR$/src/containers/Neutrians/Show_All_Select/dessert.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="21" column="80" selection-start-line="21" selection-start-column="80" selection-end-line="21" selection-end-column="80" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="450">
+          <caret line="46" column="2" selection-start-line="46" selection-start-column="2" selection-end-line="46" selection-end-column="2" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/Register.js">
+    <entry file="file://$PROJECT_DIR$/src/reducers/Neutrians/showAll/foods.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="588">
+          <caret line="21" column="8" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/reducers/Neutrians/showAll.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="28">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="28" column="39" selection-start-line="28" selection-start-column="39" selection-end-line="28" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/reducers/Auth.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="7" column="38" lean-forward="true" selection-start-line="7" selection-start-column="38" selection-end-line="7" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/History.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-381">
+          <caret line="72" column="77" selection-start-line="72" selection-start-column="77" selection-end-line="72" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/Exercise.js">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/Neutrians/Show_All_Select/drinks.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="40" column="1" selection-start-line="40" selection-start-column="1" selection-end-line="40" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/Neutrians/Show_All_Select/foods.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="30" selection-start-line="30" selection-end-line="33" selection-end-column="66" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/actions/types.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="18" column="53" selection-start-line="18" selection-start-column="53" selection-end-line="18" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/actions/nutrian.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="49" column="32" selection-start-line="49" selection-start-column="32" selection-end-line="49" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/reducers/Neutrians/showAll/drinks.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/reducers/Neutrians/showAll/desserts.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Register.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="506">
+          <caret line="20" column="57" selection-start-line="20" selection-start-column="57" selection-end-line="20" selection-end-column="57" />
         </state>
       </provider>
     </entry>
@@ -582,50 +637,91 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/Neutrians/Show_All_Select/foods.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="30" column="10" selection-start-line="30" selection-start-column="10" selection-end-line="30" selection-end-column="10" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/reducers/Neutrians/showCate.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="23" column="25" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
+        <state relative-caret-position="392">
+          <caret line="14" column="42" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="42" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/reducers/Neutrians/showAll/foods.js">
+    <entry file="file://$PROJECT_DIR$/src/reducers/Neutrians/showFoods.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="428">
-          <caret line="21" column="8" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#70#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="495">
+          <caret line="23" column="33" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="33" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/reducers/MainReducers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="27" column="17" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
+        <state relative-caret-position="496">
+          <caret line="35" column="23" selection-start-line="35" selection-start-column="4" selection-end-line="35" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/reducers/Neutrians/showAll.js">
+    <entry file="file://$PROJECT_DIR$/src/reducers/Neutrians/showFoodFromSelect.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="12" column="36" lean-forward="true" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Home.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="70" column="53" lean-forward="true" selection-start-line="70" selection-start-column="53" selection-end-line="70" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/actions/nutrian.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="51" column="21" selection-start-line="51" selection-start-column="21" selection-end-line="51" selection-end-column="81" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Neutrians/index.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/reducers/calculate.js">
+    <entry file="file://$PROJECT_DIR$/src/components/Neutrians/Show_All_Select/foods.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="34" column="35" selection-start-line="34" selection-start-column="35" selection-end-line="34" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Neutrians/Show_All_Select/drinks.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="32" column="36" lean-forward="true" selection-start-line="32" selection-start-column="36" selection-end-line="32" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Neutrians/Show_All_Select/dessert.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="30" column="40" lean-forward="true" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Register.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/Register.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/containers/Neutrian.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="49" column="25" lean-forward="true" selection-start-line="49" selection-start-column="25" selection-end-line="49" selection-end-column="25" />
+        <state relative-caret-position="224">
+          <caret line="155" selection-start-line="155" selection-end-line="155" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
@@ -634,8 +730,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Neutrian.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="61">
-          <caret line="46" selection-start-line="46" selection-end-line="46" />
+        <state relative-caret-position="450">
+          <caret line="261" column="88" selection-start-line="261" selection-start-column="88" selection-end-line="261" selection-end-column="88" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>

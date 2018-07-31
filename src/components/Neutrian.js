@@ -21,10 +21,22 @@ import {
     Paper,
     Select,
     MenuItem,
-    InputLabel,
     FormControl,
-    Menu
+    Table,
+    TableBody,
+    TableCell,
+    TableHead,
+    TableRow,
+    TablePagination,
+    Toolbar,
+    IconButton,
+    List,
+    ListItem,
+    ListItemText,
+    Divider,
+    Checkbox,
 } from "@material-ui/core";
+import CloseIcon from '@material-ui/icons/Close';
 import Drink from "@material-ui/icons/LocalDrink";
 import {
     ShowAllFoodsContainer,
@@ -39,7 +51,7 @@ const Transition = (props) => {
     return <Slide direction="up" {...props}/>
 };
 const getSteps = () => {
-    return ['เลือกรายการอาหาร,เครื่องดื่ม หรือ ขนม', 'เลือกประเภทอาหาร,เครื่องดื่ม หรือ ขนม', 'เลือกเมนูตามต้องการ'];
+    return ['เลือกรายการอาหาร,เครื่องดื่ม หรือ ขนม', 'เลือกประเภทอาหาร,เครื่องดื่ม หรือ ขนม'];
 };
 const stepContent1 = (valueCate, getValueCate) => (
     <form>
@@ -47,9 +59,9 @@ const stepContent1 = (valueCate, getValueCate) => (
             <Select
                 value={valueCate}
                 onChange={getValueCate}>
-                <MenuItem value="food">อาหาร</MenuItem>
-                <MenuItem value="drink">เครื่องดื่ม</MenuItem>
-                <MenuItem value="dessert">ขนม & ของหวาน</MenuItem>
+                <MenuItem value={1}>อาหาร</MenuItem>
+                <MenuItem value={2}>เครื่องดื่ม</MenuItem>
+                <MenuItem value={3}>ขนม & ของหวาน</MenuItem>
             </Select>
         </FormControl>
     </form>
@@ -73,6 +85,7 @@ const stepContent2 = (cate, valueMenu, getValueMenu) => (
         </form>
     )
 );
+
 const getStepContent = (step, valueCate, getValueCate, cate, valueMenu, getValueMenu) => {
     switch (step) {
         case 0:
@@ -83,11 +96,6 @@ const getStepContent = (step, valueCate, getValueCate, cate, valueMenu, getValue
             return (
                 stepContent2(cate, valueMenu, getValueMenu)
             );
-        case 2:
-            return `Try out different ad text to see what brings in the most customers,
-              and learn how to enhance your ads using features like ad extensions.
-              If you run into any problems with your ads, find out how to tell if
-              they're running and how to resolve approval issues.`;
         default:
             return 'Unknown step';
     }
@@ -105,7 +113,21 @@ const Neutrian = ({
                       getvalueCateNeutrian,
                       valueCate,
                       valueMenu,
-                      getValueMenu
+                      getValueMenu,
+                      valueFood,
+                      page,
+                      rowPerPage,
+                      onChangePage,
+                      onChangeRow,
+                      openFullDialog,
+                      onCloseFullDialog,
+                      selectFood,
+                      submitSelectFood,
+                      amount,
+                      selectAmount,
+                      resultSelect,
+                      openDialogResultSelectFood,
+                      changeIsCloseDialogResultSelectFood
                   }) => {
     const steps = getSteps();
     return (
@@ -122,8 +144,7 @@ const Neutrian = ({
                             </Button>
                             <Dialog open={openDialog}
                                     onClose={changeCloseDialog}
-                                    TransitionComponent={Transition}
-                            >
+                                    TransitionComponent={Transition}>
                                 <DialogTitle>
                                     {"คำนวนโภชนาการ"}
                                 </DialogTitle>
@@ -161,34 +182,190 @@ const Neutrian = ({
                             </Dialog>
                         </CardActions>
                     </Card>
+                    <Dialog
+                        fullScreen
+                        open={openFullDialog}
+                        onClose={onCloseFullDialog}
+                        TransitionComponent={Transition}
+                    >
+                        <AppBar>
+                            <Toolbar>
+                                <IconButton color="inherit" onClick={onCloseFullDialog}>
+                                    <CloseIcon/>
+                                </IconButton>
+                                <Typography variant="title" color="inherit">
+                                    Sound
+                                </Typography>
+                                <Button color="inherit">
+                                    save
+                                </Button>
+                            </Toolbar>
+                        </AppBar>
+                        <List>
+                            <ListItem button>
+                                <ListItemText primary="Phone ringtone" secondary="Titania"/>
+                            </ListItem>
+                            <Divider/>
+                            <ListItem>
+                                <Table>
+                                    <TableHead>
+                                        <TableCell>รายการอาหารที่ต้องการ</TableCell>
+                                        <TableCell>ชื่ออาหาร</TableCell>
+                                        <TableCell>แคลลอรี่ (กรัม)</TableCell>
+                                        <TableCell>โปรตีน (กรัม)</TableCell>
+                                        <TableCell>ไขมัน (กรัม)</TableCell>
+                                        <TableCell>คาร์โบไฮเดรต (กรัม)</TableCell>
+                                        <TableCell>ปริมาณ/หน่วยบริโภค</TableCell>
+                                        <TableCell>ปริมาณที่ต้องการ</TableCell>
+                                    </TableHead>
+                                    <TableBody>
+                                        {
+                                            valueFood && valueFood.data.result.slice(page * rowPerPage, page * rowPerPage + rowPerPage).map((value, index) => {
+                                                let amountId = '';
+                                                let amountNum = '';
+                                                if (amount.length !== 0) {
+                                                    if (amount[index] !== undefined) {
+                                                        amountId = amount[index].food_id;
+                                                        amountNum = amount[index].food_amount;
+                                                    }
+                                                }
+                                                return (
+                                                    <TableRow key={value.food_id} component="th" scope="row"
+                                                              tabIndex={-1}
+                                                              onClick={(event) => selectFood(event, value.food_id)}>
+                                                        <TableCell>
+                                                            <Checkbox/>
+                                                        </TableCell>
+                                                        <TableCell>{value.foods_name}</TableCell>
+                                                        <TableCell>{value.food_cal}</TableCell>
+                                                        <TableCell>{value.food_protien}</TableCell>
+                                                        <TableCell>{value.food_fat}</TableCell>
+                                                        <TableCell>{value.food_carb}</TableCell>
+                                                        <TableCell>{value.food_perUnit}</TableCell>
+                                                        <TableCell>
+                                                            {
+                                                                value.food_id === amountId ? (
+                                                                    <Select
+                                                                        value={amountNum}
+                                                                        onChange={event => selectAmount(event, value.food_id)}>
+                                                                        <MenuItem value={1}>1</MenuItem>
+                                                                        <MenuItem value={2}>2</MenuItem>
+                                                                        <MenuItem value={3}>3</MenuItem>
+                                                                    </Select>
+                                                                ) : (
+                                                                    <Select
+                                                                        value={0}
+                                                                        onChange={event => selectAmount(event, value.food_id)}>
+                                                                        <MenuItem value={1}>1</MenuItem>
+                                                                        <MenuItem value={2}>2</MenuItem>
+                                                                        <MenuItem value={3}>3</MenuItem>
+                                                                    </Select>
+                                                                )
+                                                            }
+
+                                                        </TableCell>
+
+                                                    </TableRow>
+
+                                                )
+                                            })
+                                        }
+                                    </TableBody>
+                                </Table>
+                            </ListItem>
+                            <ListItem>
+                                {
+                                    valueFood && (
+                                        <TablePagination
+                                            component="div"
+                                            count={valueFood.data.result.length}
+                                            rowsPerPage={rowPerPage}
+                                            page={page}
+                                            onChangePage={onChangePage}
+                                            onChangeRowsPerPage={onChangeRow}
+                                        />
+                                    )
+                                }
+                                <Button variant="fab" onClick={submitSelectFood}>Go</Button>
+                            </ListItem>
+                            <hr/>
+                            <Dialog
+                                open={openDialogResultSelectFood}
+                                onClose={changeIsCloseDialogResultSelectFood}
+                                TransitionComponent={Transition}
+                                maxWidth="md">
+                                <DialogContent>
+                                    <DialogContentText>
+                                        {
+                                            resultSelect && (
+                                                <Table>
+                                                    <TableHead>
+                                                        <TableCell>ชื่ออาหาร</TableCell>
+                                                        <TableCell>แคลลอรี่ (กรัม)</TableCell>
+                                                        <TableCell>โปรตีน (กรัม)</TableCell>
+                                                        <TableCell>ไขมัน (กรัม)</TableCell>
+                                                        <TableCell>คาร์โบไฮเดรต (กรัม)</TableCell>
+                                                        <TableCell>ปริมาณ/หน่วยบริโภค(ต่อ หน่วยบริโภค)</TableCell>
+                                                    </TableHead>
+                                                    <TableBody>
+                                                        {
+                                                            resultSelect.data.result.map((value, index) => {
+
+                                                                if (amount.length !== 0) {
+                                                                    const selectAmountNutrian = amount[index];
+                                                                    if (value.food_id === selectAmountNutrian.food_id) {
+                                                                        return (
+                                                                            <TableRow key={value.food_id} component="th"
+                                                                                      scope="row">
+                                                                                <TableCell>{value.foods_name}</TableCell>
+                                                                                <TableCell>{value.food_cal * selectAmountNutrian.food_amount}</TableCell>
+                                                                                <TableCell>{value.food_protien * selectAmountNutrian.food_amount}</TableCell>
+                                                                                <TableCell>{value.food_fat * selectAmountNutrian.food_amount}</TableCell>
+                                                                                <TableCell>{value.food_carb * selectAmountNutrian.food_amount}</TableCell>
+                                                                                <TableCell>{selectAmountNutrian.food_amount}</TableCell>
+                                                                            </TableRow>
+                                                                        )
+                                                                    }
+                                                                }
+
+                                                            })
+                                                        }
+                                                    </TableBody>
+                                                </Table>
+                                            )
+                                        }
+                                    </DialogContentText>
+                                </DialogContent>
+                            </Dialog>
+                        </List>
+                    </Dialog>
                 </Grid>
             </Grid>
-
-            {/*<Grid container justify="center">*/}
-            {/*<Grid item xs={12} sm={10}>*/}
-            {/*<Card>*/}
-            {/*<CardContent>*/}
-
-            {/*<Tabs*/}
-            {/*value={value}*/}
-            {/*onChange={changeTab}*/}
-            {/*fullWidth*/}
-            {/*centered*/}
-            {/*indicatorColor="secondary"*/}
-            {/*textColor="secondary"*/}
-            {/*className="spacingTable"*/}
-            {/*>*/}
-            {/*<Tab label="อาหาร"/>*/}
-            {/*<Tab icon={<Drink/>} label="เครื่องดื่ม"/>*/}
-            {/*<Tab label="ขนม & ของหวาน"/>*/}
-            {/*</Tabs>*/}
-            {/*{value === 0 && <ShowAllFoodsContainer/>}*/}
-            {/*{value === 1 && <ShowAllDrinksContainer/>}*/}
-            {/*{value === 2 && <ShowAllDessertContainer/>}*/}
-            {/*</CardContent>*/}
-            {/*</Card>*/}
-            {/*</Grid>*/}
-            {/*</Grid>*/}
+            {/*show All Food,Drinks,Desserts*/}
+            <Grid container justify="center">
+                <Grid item xs={12} sm={10}>
+                    <Card>
+                        <CardContent>
+                            <Tabs
+                                value={value}
+                                onChange={changeTab}
+                                fullWidth
+                                centered
+                                indicatorColor="secondary"
+                                textColor="secondary"
+                                className="spacingTable"
+                            >
+                                <Tab label="อาหาร"/>
+                                <Tab icon={<Drink/>} label="เครื่องดื่ม"/>
+                                <Tab label="ขนม & ของหวาน"/>
+                            </Tabs>
+                            {value === 0 && <ShowAllFoodsContainer/>}
+                            {value === 1 && <ShowAllDrinksContainer/>}
+                            {value === 2 && <ShowAllDessertContainer/>}
+                        </CardContent>
+                    </Card>
+                </Grid>
+            </Grid>
         </div>
     );
 };

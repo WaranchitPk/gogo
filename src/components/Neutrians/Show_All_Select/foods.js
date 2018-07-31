@@ -31,17 +31,17 @@ const foods = ({ data, page, rowPerPage, onChangePage, onChangeRow }) => {
               .slice(page * rowPerPage, page * rowPerPage + rowPerPage)
               .map(value => {
                 return (
-                  <TableRow key={value.food_id}>
-                    <TableCell component="th" scope="row">
-                      {value.food_id}
-                    </TableCell>
-                    <TableCell>{value.foods_name}</TableCell>
-                    <TableCell>{value.food_cal}</TableCell>
-                    <TableCell>{value.food_protien}</TableCell>
-                    <TableCell>{value.food_fat}</TableCell>
-                    <TableCell>{value.food_carb}</TableCell>
-                    <TableCell>{value.food_perUnit}</TableCell>
-                  </TableRow>
+                    <TableRow key={value.food_id}>
+                        <TableCell >
+                            {value.food_id}
+                        </TableCell>
+                        <TableCell>{value.foods_name}</TableCell>
+                        <TableCell>{value.food_cal}</TableCell>
+                        <TableCell>{value.food_protien}</TableCell>
+                        <TableCell>{value.food_fat}</TableCell>
+                        <TableCell>{value.food_carb}</TableCell>
+                        <TableCell>{value.food_perUnit}</TableCell>
+                    </TableRow>
                 );
               })}
           </TableBody>
