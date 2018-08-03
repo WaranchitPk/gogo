@@ -23,13 +23,14 @@ class Header extends Component {
         anchorEl: null,
         mouseOverButton: false,
         mouseOverMenu: false,
+        isOpenDrawer: false
     };
     LogoutHandle = () => {
         this.props.dispatch(Logout())
     };
 
     componentDidMount() {
-        // this.props.dispatch(findName());
+        this.props.dispatch(findName());
     }
 
     handleClick = event => {
@@ -39,10 +40,20 @@ class Header extends Component {
     handleClose = () => {
         this.setState({anchorEl: null});
     };
+    openDrawer = () => {
+        this.setState({
+            isOpenDrawer: true
+        })
+    };
+    closeDrawer = () => {
+        this.setState({
+            isOpenDrawer: false
+        })
+    };
 
     render() {
         const {checkIsLogin, token, name} = this.props;
-        const {anchorEl} = this.state;
+        const {anchorEl, isOpenDrawer} = this.state;
         return (
             <div style={styles.root}>
                 {
@@ -52,7 +63,10 @@ class Header extends Component {
                             type={token.userType}
                             stateOpen={anchorEl}
                             isOpen={this.handleClick}
-                            isClose={this.handleClose}/>
+                            isClose={this.handleClose}
+                            openDrawer={this.openDrawer}
+                            closeDrawer={this.closeDrawer}
+                            isOpenDrawer={isOpenDrawer}/>
                         : <NotLogin
                             stateOpen={anchorEl}
                             isOpen={this.handleClick}
@@ -63,29 +77,30 @@ class Header extends Component {
     }
 }
 
-class Login extends Component {
-    render() {
-        const {onLogout, name, type,stateOpen, isOpen, isClose} = this.props;
-        return (
-            <div style={styles.root}>
-                {
-                    type === 1 ? <AdminHeader
-                            styles={styles}
-                            onLogout={onLogout}
-                            isOpen={isOpen}
-                            stateOpen={stateOpen}
-                            isClose={isClose}/>
-                        : <MemberHeader
-                            styles={styles}
-                            onLogout={onLogout}
-                            isOpen={isOpen}
-                            stateOpen={stateOpen}
-                            isClose={isClose}/>
-                }
-            </div>
-        )
-    }
-}
+const Login = ({onLogout, name, type, stateOpen, isOpen, isClose, openDrawer, closeDrawer, isOpenDrawer}) => {
+    return (
+        <div style={styles.root}>
+            {
+                type === 1 ? <AdminHeader
+                        styles={styles}
+                        onLogout={onLogout}
+                        isOpen={isOpen}
+                        stateOpen={stateOpen}
+                        isClose={isClose}/>
+                    : <MemberHeader
+                        styles={styles}
+                        onLogout={onLogout}
+                        isOpen={isOpen}
+                        stateOpen={stateOpen}
+                        isClose={isClose}
+                        name={name}
+                        openDrawer={openDrawer}
+                        closeDrawer={closeDrawer}
+                        isOpenDrawer={isOpenDrawer}/>
+            }
+        </div>
+    )
+};
 
 //Home
 class NotLogin extends Component {
@@ -110,13 +125,12 @@ class NotLogin extends Component {
     }
 }
 
-
-function mapStateToProps(state) {
+const mapStateToProps = (state) => {
     return {
         checkIsLogin: state.AuthenReducer.isLogin,
         token: state.AuthenReducer.token,
-        name: state.findName.name
+        name: state.findName.data
     }
-}
+};
 
 export default connect(mapStateToProps)(withRouter((Header)));

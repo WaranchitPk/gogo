@@ -1,26 +1,41 @@
 import FetchData from 'axios';
-import {authen_Success, user_find_name, user_create, user_logout} from './types';
+import {user_find_name, user_create, user_logout, user_modifyInform} from './types';
 import jwtDecode from "jwt-decode";
-import {getTokenInStorage} from '../libs';
 import swal from 'sweetalert';
 import {path_API} from '../config';
+// export const a = () =>{
+//     const userId = jwtDecode(localStorage.getItem('access-token')).userId;
+//     return dispatch => {
+//         if (userId === undefined) {
+//             dispatch({
+//                 type: user_logout
+//             })
+//         } else {
+//             dispatch({
+//                 type: user_findInform,
+//                 payload: FetchData.get(`${path_API}/users/${userId}`)
+//             })
+//         }
+//     }
+// }
+
+export  const findInfomUser = async () => {
+    const userId = jwtDecode(localStorage.getItem('access-token')).userId;
+    return FetchData.get(`${path_API}/users/${userId}`);
+};
+
 export const findName = () => {
-    const gettoken = getTokenInStorage();
     const TokenId = jwtDecode(localStorage.getItem('access-token')).userId;
     return dispatch => {
-        if (TokenId === undefined){
+        if (TokenId === undefined) {
             dispatch({
                 type: user_logout
             })
-        } else{
-            return FetchData.get(`${path_API}/users/${TokenId}`)
-                .then(data => {
-                    console.log(data.data.name);
-                    dispatch({
-                        type: user_find_name,
-                        payload: data.data.name
-                    });
-                })
+        } else {
+            dispatch({
+                type: user_find_name,
+                payload: FetchData.get(`${path_API}/users/name/${TokenId}`)
+            })
         }
     }
 };
@@ -29,7 +44,6 @@ export const createUser = (body, push) => {
         ...body,
         type: 3
     }
-    console.log(test);
     return dispatch => {
         return FetchData.post(`${path_API}/users`, {
             ...test
@@ -37,9 +51,19 @@ export const createUser = (body, push) => {
             dispatch({
                 type: user_create
             });
-            swal('Register Success','','success').then(()=>{
+            swal('Register Success', '', 'success').then(() => {
                 push('/')
             })
         })
     }
+};
+export const updateData = (body,push) => {
+    const userId = jwtDecode(localStorage.getItem('access-token')).userId;
+    FetchData.patch(`${path_API}/users/${userId}`,{
+        ...body
+    }).then(() =>{
+        swal('Register Success', '', 'success').then(() => {
+            push('/')
+        })
+    })
 };

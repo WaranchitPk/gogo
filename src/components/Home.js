@@ -37,54 +37,54 @@ const Home = ({data}) => {
                 <img src={Banner} alt="" style={styles.img}/>
             </Grid>
         </Grid>
-        <Table>
-                <TableHead className='headTable'>
-                    <TableRow>
-                        <TableCell>
-                                <Typography variant='subheading'>ชื่ออาหาร</Typography>
-                        </TableCell>
-                        <TableCell>
-                                <Typography variant='subheading'>แคลลอรี่</Typography>
-                         </TableCell>
-                         <TableCell>
-                                <Typography variant='subheading'>โปรตีน</Typography>
-                         </TableCell>
-                         <TableCell>
-                                <Typography variant='subheading'>ไขมัน</Typography>
-                         </TableCell>
-                         <TableCell>
-                                <Typography variant='subheading'>จำนวน</Typography>
-                         </TableCell>
-                    </TableRow>
-                </TableHead>
-                <TableBody>
-                        {
-                          data ? data.data.result.map((result,index)=>{
-                            const selectAmountNutrian = arr2[index];
-                            if (result.food_id === selectAmountNutrian.food_id)
-                            return (
-                                <TableRow key={result.food_id}>
-                                <TableCell>
-                                    {result.foods_name}
-                                </TableCell>
-                                <TableCell>
-                                    {result.food_cal * selectAmountNutrian.amount}
-                                </TableCell>
-                                <TableCell>
-                                    {result.food_protien * selectAmountNutrian.amount}
-                                </TableCell>
-                                <TableCell>
-                                    {result.food_fat * selectAmountNutrian.amount}
-                                </TableCell>
-                                <TableCell>
-                                    {selectAmountNutrian.amount}
-                                </TableCell>
-                                </TableRow>
-                            )
-                          }) : ''  
-                        }
-                </TableBody>
-        </Table>
+        {/*<Table>*/}
+                {/*<TableHead className='headTable'>*/}
+                    {/*<TableRow>*/}
+                        {/*<TableCell>*/}
+                                {/*<Typography variant='subheading'>ชื่ออาหาร</Typography>*/}
+                        {/*</TableCell>*/}
+                        {/*<TableCell>*/}
+                                {/*<Typography variant='subheading'>แคลลอรี่</Typography>*/}
+                         {/*</TableCell>*/}
+                         {/*<TableCell>*/}
+                                {/*<Typography variant='subheading'>โปรตีน</Typography>*/}
+                         {/*</TableCell>*/}
+                         {/*<TableCell>*/}
+                                {/*<Typography variant='subheading'>ไขมัน</Typography>*/}
+                         {/*</TableCell>*/}
+                         {/*<TableCell>*/}
+                                {/*<Typography variant='subheading'>จำนวน</Typography>*/}
+                         {/*</TableCell>*/}
+                    {/*</TableRow>*/}
+                {/*</TableHead>*/}
+                {/*<TableBody>*/}
+                        {/*{*/}
+                          {/*data ? data.data.result.map((result,index)=>{*/}
+                            {/*const selectAmountNutrian = arr2[index];*/}
+                            {/*if (result.food_id === selectAmountNutrian.food_id)*/}
+                            {/*return (*/}
+                                {/*<TableRow key={result.food_id}>*/}
+                                {/*<TableCell>*/}
+                                    {/*{result.foods_name}*/}
+                                {/*</TableCell>*/}
+                                {/*<TableCell>*/}
+                                    {/*{result.food_cal * selectAmountNutrian.amount}*/}
+                                {/*</TableCell>*/}
+                                {/*<TableCell>*/}
+                                    {/*{result.food_protien * selectAmountNutrian.amount}*/}
+                                {/*</TableCell>*/}
+                                {/*<TableCell>*/}
+                                    {/*{result.food_fat * selectAmountNutrian.amount}*/}
+                                {/*</TableCell>*/}
+                                {/*<TableCell>*/}
+                                    {/*{selectAmountNutrian.amount}*/}
+                                {/*</TableCell>*/}
+                                {/*</TableRow>*/}
+                            {/*)*/}
+                          {/*}) : ''  */}
+                        {/*}*/}
+                {/*</TableBody>*/}
+        {/*</Table>*/}
         </div>
     );
 }

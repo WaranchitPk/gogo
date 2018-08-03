@@ -29,7 +29,7 @@ const foods = ({ data, page, rowPerPage, onChangePage, onChangeRow }) => {
           <TableBody className="bodyTable">
             {data.result
               .slice(page * rowPerPage, page * rowPerPage + rowPerPage)
-              .map(value => {
+              .map((value,index) => {
                 return (
                     <TableRow key={value.food_id}>
                         <TableCell >

@@ -16,3 +16,5 @@ export {default as SholdersExerciseComponent} from './Exercises/sholders';
 export {default as BacksExerciseComponent} from './Exercises/backs';
 export {default as LegsExerciseComponent} from './Exercises/legs';
 export {default as BellysExerciseComponent} from './Exercises/bellys';
+
+export {default as ProfileComponent} from './Profile';

@@ -16,9 +16,11 @@ class Register extends Component {
         });
     };
     handleSubmit = () => {
-        const {history: {
+        const {
+            history: {
                 push
-            }} = this.props;
+            }
+        } = this.props;
         const body = {
             ...this.state
         };

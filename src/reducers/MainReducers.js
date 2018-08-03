@@ -1,6 +1,6 @@
 import {combineReducers} from "redux";
 import {AuthenReducer} from "./Auth";
-import {findName, createUSer} from "./users";
+import {findName, createUSer,findUserData} from "./users";
 import {
     CalculateReducers,
     CalculateReducer_BMI,
@@ -21,6 +21,7 @@ import NeutrialSelectFoods from './Neutrians/showFoodFromSelect';
 
 const reducers = combineReducers({
     AuthenReducer,
+    findUserData,
     findName,
     createUSer,
     CalculateReducers,

@@ -8,9 +8,9 @@ import {
     CalculatorBMIContainer,
     CalculatorMHRContainer,
     HistoryContainer,
-    NeutrianContainer
+    ProfileContainer
 } from '../containers';
-import {ExerciseRoute,NeutrianRoute} from '../routes';
+import {ExerciseRoute, NeutrianRoute} from '../routes';
 import {Header} from '../layouts';
 import {Grid} from '@material-ui/core';
 
@@ -28,7 +28,9 @@ const App = () => (
         <Route component={NeutrianRoute}/>
         {/* History */}
         <Route path='/history' component={HistoryContainer}/>
-        
+
+        {/*Profile*/}
+        <Route path='/Profile' component={ProfileContainer}/>
         {/*Calculate Route*/}
         <Route path='/calculator_tdee' component={CalculatorTDEEContainer}/>
         <Route path='/calculator_bmi' component={CalculatorBMIContainer}/>

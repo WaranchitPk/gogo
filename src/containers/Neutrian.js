@@ -147,13 +147,11 @@ class Neutrian extends Component {
             })
         }
     };
-
+    isSelected = id => this.state.selected.indexOf(id) !== -1;
 
     render() {
-        const {value, isOpen, activeStep, categoriesNeutrian, valueMenu, page, rowsPerPage, openFullDialog, amount, isOpenSelectFood} = this.state;
+        const {selected,value, isOpen, activeStep, categoriesNeutrian, valueMenu, page, rowsPerPage, openFullDialog, amount, isOpenSelectFood} = this.state;
         const {result, resultFoods, resultSelect} = this.props;
-        console.log('selected',this.state.selected);
-
         return (
             <div>
                 <NeutrianComponent
@@ -179,10 +177,12 @@ class Neutrian extends Component {
                     selectFood={this.handleSelectFood}
                     submitSelectFood={this.handleSubmitSelectFood}
                     amount={amount}
+                    afterSelect={selected}
                     selectAmount={this.handleSelectAmountFood}
                     resultSelect={resultSelect}
                     openDialogResultSelectFood={isOpenSelectFood}
                     changeIsCloseDialogResultSelectFood={this.handleCloseDialogSelecteFood}
+                    statusSelected={this.isSelected}
                 />
                 {
                     // resultFoods && console.log(resultFoods.data)

@@ -5,6 +5,7 @@ import jwtDecode from 'jwt-decode';
 import {path_API} from '../config'
 import {removeTokenINStorage,getTokenInStorage} from '../libs';
 
+//login
 export const authenUser = ({username, password, push}) => {
     return dispatch => {
         return FetchData.post(`${path_API}/signin`, {
@@ -34,7 +35,7 @@ export const authenUser = ({username, password, push}) => {
     }
 };
 
-
+//logout
 export const Logout = () => {
     return dispatch => {
         removeTokenINStorage();
@@ -42,4 +43,4 @@ export const Logout = () => {
             type: user_logout
         })
     }
-}
+};
