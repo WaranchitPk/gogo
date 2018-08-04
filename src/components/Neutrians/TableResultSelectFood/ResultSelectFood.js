@@ -3,10 +3,16 @@ import {
     Dialog, DialogContent, DialogContentText,
     Slide,
     Table, TableBody, TableCell, TableHead, TableRow,
-    Card, CardContent
+    Card, CardContent,
+    Grid,
+    Typography
 } from "@material-ui/core";
 import {sumValueCal, sumValueProtien, sumValueFat, sumValueCarb} from './CalValueInTable';
-
+import CaloriesIcon from '../../../asset/icons/calculator.svg';
+import ProteinIcon from '../../../asset/icons/meat.svg';
+import FatIcon from '../../../asset/icons/fat.svg';
+import CarbIcon from '../../../asset/icons/diet.svg';
+import '../../../style/neutrian.css'
 const Transition = (props) => {
     return <Slide direction="up" {...props}/>
 };
@@ -14,10 +20,38 @@ const Transition = (props) => {
 const ShowSumCal = ({food}) => {
     return (
         <div>
-            <h1>Cal: {sumValueCal(food)} Kcal.</h1>
-            <h1>Protien: {sumValueProtien(food)} G.</h1>
-            <h1>Fat: {sumValueFat(food)} G.</h1>
-            <h1>Carb: {sumValueCarb(food)} G.</h1>
+            <Grid container>
+                <Grid item>
+                    <img src={CaloriesIcon} className="icon"/>
+                </Grid>
+                <Grid item>
+                    <Typography>Cal: {sumValueCal(food)} Kcal.</Typography>
+                </Grid>
+            </Grid>
+            <Grid container>
+                <Grid item>
+                    <img src={ProteinIcon} className="icon"/>
+                </Grid>
+                <Grid item>
+                    <Typography>Protien: {sumValueProtien(food)} G.</Typography>
+                </Grid>
+            </Grid>
+            <Grid container>
+                <Grid item>
+                    <img src={FatIcon} className="icon"/>
+                </Grid>
+                <Grid item>
+                    <Typography>Fat: {sumValueFat(food)} G.</Typography>
+                </Grid>
+            </Grid>
+            <Grid container>
+                <Grid item>
+                    <img src={CarbIcon} className="icon"/>
+                </Grid>
+                <Grid item>
+                    <Typography>Carb: {sumValueCarb(food)} G.</Typography>
+                </Grid>
+            </Grid>
         </div>
     )
 };

@@ -1,20 +1,16 @@
 import React from "react";
 import {
     AppBar,
-    Tab,
-    Tabs,
+    Tab, Tabs,
     Grid,
-    Card,
-    CardContent,
+    Card, CardContent,
     Typography,
     Button,
     Dialog,
     Slide,
     Toolbar,
     IconButton,
-    List,
-    ListItem,
-    ListItemText,
+    List, ListItem, ListItemText,
     Divider,
 } from "@material-ui/core";
 import CloseIcon from '@material-ui/icons/Close';

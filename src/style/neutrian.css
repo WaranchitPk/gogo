@@ -1,16 +1,23 @@
-.cardCalNeutrian{
+.cardCalNeutrian {
     margin-top: 5%;
     margin-left: 10%;
     margin-bottom: 3%;
 }
-.headTable{
+
+.headTable {
     background-color: bisque;
     opacity: 0.8;
 }
-.bodyTable{
+
+.bodyTable {
     background-color: aliceblue;
     opacity: 0.7;
 }
-.spacingTable{
+
+.spacingTable {
     margin-bottom: 2%;
+}
+
+.icon {
+    width: 100px;
 }
