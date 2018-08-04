@@ -4,7 +4,9 @@ import {connect} from 'react-redux';
 import {loadNeutrianShowCate, loadNeutrianFoods, loadSelectNeutrian} from '../actions/nutrian';
 import swal from 'sweetalert';
 import {path_API} from "../config";
-const amountSelect = [1,2,3];
+
+const amountSelect = [1, 2, 3];
+
 class Neutrian extends Component {
     state = {
         value: 0,
@@ -16,13 +18,13 @@ class Neutrian extends Component {
         page: 0,
         openFullDialog: false,
         selected: [],
-        amount: [],
         isOpenSelectFood: false
     };
 
-    componentDidMount(){
+    componentDidMount() {
 
     }
+
     //changeTabs
     handleChange = (event, value) => {
         console.log(value);
@@ -77,8 +79,8 @@ class Neutrian extends Component {
         this.setState({rowsPerPage: event.target.value});
     };
     //select foods
-    handleSelectFood = (event,id) => {
-        const { selected } = this.state;
+    handleSelectFood = (event, id) => {
+        const {selected} = this.state;
         const selectedIndex = selected.indexOf(id);
         let newSelected = [];
 
@@ -95,38 +97,17 @@ class Neutrian extends Component {
             );
         }
 
-        this.setState({ selected: newSelected });
+        this.setState({selected: newSelected});
 
     };
-    //select amount of foods
-    handleSelectAmountFood = (e, id) => {
-        const {amount} = this.state;
-        let arrSelected = [];
-        let newSelected = {
-            food_id: id,
-            food_amount: e.target.value
-        };
-        arrSelected = arrSelected.concat(amount, newSelected);
-        this.setState({
-            amount: arrSelected
-        })
-    };
+
     //submit show food
     handleSubmitSelectFood = _ => {
-        const {selected, amount} = this.state;
-        if (selected.length === 0) {
-            swal("Error!", "กรุณาเลือกรายการอาหาร", "error");
-        } else {
-            if (amount.length === 0) {
-                swal("Error!", "กรุณาเลือกจำนวนการบริโภค", "error");
-            } else {
-                this.props.dispatch(loadSelectNeutrian(selected));
-                this.setState({
-                    isOpenSelectFood: true
-                })
-            }
-        }
-
+        const {selected} = this.state;
+        this.props.dispatch(loadSelectNeutrian(selected));
+        this.setState({
+            isOpenSelectFood: true
+        })
     };
 
     //Stepper Next Button
@@ -150,7 +131,7 @@ class Neutrian extends Component {
     isSelected = id => this.state.selected.indexOf(id) !== -1;
 
     render() {
-        const {selected,value, isOpen, activeStep, categoriesNeutrian, valueMenu, page, rowsPerPage, openFullDialog, amount, isOpenSelectFood} = this.state;
+        const {selected, value, isOpen, activeStep, categoriesNeutrian, valueMenu, page, rowsPerPage, openFullDialog, isOpenSelectFood} = this.state;
         const {result, resultFoods, resultSelect} = this.props;
         return (
             <div>
@@ -176,17 +157,12 @@ class Neutrian extends Component {
                     onCloseFullDialog={this.handleCloseFullDialog}
                     selectFood={this.handleSelectFood}
                     submitSelectFood={this.handleSubmitSelectFood}
-                    amount={amount}
                     afterSelect={selected}
-                    selectAmount={this.handleSelectAmountFood}
                     resultSelect={resultSelect}
                     openDialogResultSelectFood={isOpenSelectFood}
                     changeIsCloseDialogResultSelectFood={this.handleCloseDialogSelecteFood}
                     statusSelected={this.isSelected}
                 />
-                {
-                    // resultFoods && console.log(resultFoods.data)
-                }
             </div>
         );
     }
