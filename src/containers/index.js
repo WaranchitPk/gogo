@@ -15,3 +15,4 @@ export {default as ShowAllDrinksContainer} from './Neutrians/Show_All_Select/dri
 export {default as ShowAllDessertContainer} from './Neutrians/Show_All_Select/dessert';
 
 export {default as ProfileContainer} from './Profile';
+export {default as AdminNeutrianContainer} from './Admin/Neutrians';

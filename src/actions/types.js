@@ -14,6 +14,7 @@ export const calculate_mhr = 'CALCULATE_MHR';
 export const createStatHistory_Success = 'History_CREATED_SUCCESS';
 export const createStatHistory_Failed = 'History_CREATED_Failed';
 
+//Neutrian Food
 export const loadNutrian = 'LOAD_NUTRIAN';
 //find all neutrian
 export const loadNeutriansAllFoods = 'LOAD_ALLFOODS';
@@ -24,3 +25,5 @@ export const loadFoodsFromMenuID = 'LOAD_NEUTRIAN_FOODS';
 //find food for select food
 export const loadFoodFromSelect = 'LOAD_NEUTRIAN_SELECT';
 export const showHistoryUser = 'HISTORY_SHOW';
+//createFood
+export const createDataFood = 'CREATE_FOOD';

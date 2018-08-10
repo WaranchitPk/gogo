@@ -18,3 +18,4 @@ export {default as LegsExerciseComponent} from './Exercises/legs';
 export {default as BellysExerciseComponent} from './Exercises/bellys';
 
 export {default as ProfileComponent} from './Profile';
+export {default as AdminNeutrianComponent} from './Admin/Neutrians';

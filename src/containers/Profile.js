@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import {findName, findInfomUser, updateData} from '../actions/users';
 import {CLOUDINARY_UPLOAD_URL, CLOUDINARY_UPLOAD_PRESET,showImage} from '../config';
 import request from 'superagent';
-
+import {withRouter} from 'react-router-dom';
 class Profile extends Component {
     state = {
         uploadedFile: null,
@@ -30,16 +30,22 @@ class Profile extends Component {
     //load User
     loadUser = async () => {
         let response = await findInfomUser();
-        let result = response.data.data;
-        const showImg = showImage(result[0].user_pic);
-        this.setState({
+        if (response !== ''){
+          let result = response.data.data;
+          let userPic = ''
+          if (result[0].user_pic !== null){
+            userPic = showImage(result[0].user_pic);
+          }
+          const showImg = userPic;
+          this.setState({
             fName: result[0].user_fName,
             lName: result[0].user_lName,
             age: result[0].user_age,
             gender: result[0].user_gender,
             email: result[0].user_email,
             showPic: showImg
-        })
+          })
+        }
     };
     //drop zone handle
     onImageDrop = (file) => {
@@ -108,13 +114,14 @@ class Profile extends Component {
                 email: email,
                 gender: gender,
             };
-            updateData(bodyData, push)
+            updateData(bodyData, )
         } else {
             this.uploadImg(fName, lName, age, email, gender,push);
         }
     };
 
     render() {
+        console.log('history',this.props.history)
         const {open, imgPreview, gender, fName, lName, age, email, loadingUpload,showPic} = this.state;
         const {name} = this.props;
         let shortName = '';
@@ -150,4 +157,4 @@ const mapStateToProps = (state) => {
         name: state.findName.data
     }
 };
-export default connect(mapStateToProps)(Profile);
+export default connect(mapStateToProps)(withRouter(Profile));

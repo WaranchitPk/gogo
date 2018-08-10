@@ -26,7 +26,8 @@ class Header extends Component {
         isOpenDrawer: false
     };
     LogoutHandle = () => {
-        this.props.dispatch(Logout())
+      const {history: {push}} = this.props;
+      this.props.dispatch(Logout(push))
     };
 
     componentDidMount() {
@@ -86,7 +87,10 @@ const Login = ({onLogout, name, type, stateOpen, isOpen, isClose, openDrawer, cl
                         onLogout={onLogout}
                         isOpen={isOpen}
                         stateOpen={stateOpen}
-                        isClose={isClose}/>
+                        isClose={isClose}
+                        openDrawer={openDrawer}
+                        closeDrawer={closeDrawer}
+                        isOpenDrawer={isOpenDrawer}/>
                     : <MemberHeader
                         styles={styles}
                         onLogout={onLogout}
@@ -102,7 +106,7 @@ const Login = ({onLogout, name, type, stateOpen, isOpen, isClose, openDrawer, cl
     )
 };
 
-//Home
+// //Home
 class NotLogin extends Component {
     render() {
         const {stateOpen, isOpen, isClose} = this.props;
@@ -124,7 +128,7 @@ class NotLogin extends Component {
         )
     }
 }
-
+//
 const mapStateToProps = (state) => {
     return {
         checkIsLogin: state.AuthenReducer.isLogin,

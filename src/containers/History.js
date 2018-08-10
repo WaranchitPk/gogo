@@ -15,8 +15,11 @@ class History extends Component {
     };
 
     componentDidMount() {
+      if (this.props.token !== undefined){
         const {token: {userId}} = this.props;
         this.props.dispatch(showHistory(userId))
+      }
+      // console.log('userId',this.props.token)
     }
 
     handleOpen = () => {

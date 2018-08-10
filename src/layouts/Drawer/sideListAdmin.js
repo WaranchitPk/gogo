@@ -11,7 +11,7 @@ import DraftsIcon from "@material-ui/icons/Drafts";
 import HistoryIcon from '@material-ui/icons/History'
 import { Link } from 'react-router-dom';
 
-const SideDrawer = ({ logout }) => (
+const SideDrawerLogin = ({ logout }) => (
   <div>
     <ListItem button component={Link} to='/Profile'>
       <ListItemIcon>
@@ -25,7 +25,7 @@ const SideDrawer = ({ logout }) => (
       </ListItemIcon>
       <ListItemText primary="ประวัติการใช้งานยิม"/>
     </ListItem>
-    <ListItem button component={Link} to='/neutrian'>
+    <ListItem button component={Link} to='/admin/neutrian'>
       <ListItemIcon>
         <SendIcon/>
       </ListItemIcon>
@@ -40,4 +40,4 @@ const SideDrawer = ({ logout }) => (
   </div>
 );
 
-export default SideDrawer;
+export default SideDrawerLogin;
