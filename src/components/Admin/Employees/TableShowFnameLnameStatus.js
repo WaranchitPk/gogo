@@ -24,7 +24,8 @@ const TableShowFnameLnameStatus = ({
   rowsPerPage,
   page,
   onChangePage,
-  onClickFormChange
+  onClickFormChange,
+  onDeleteDataEmp
 }) => {
   return (
     <Grid container justify="center" className='centeredCardShowDataFnameLname'>
@@ -54,7 +55,8 @@ const TableShowFnameLnameStatus = ({
                               onClick={() => onClickShowData(result.employee_id)}><SearchIcon/></Button>
                       <Button variant="fab" size="small" color='primary'
                               onClick={() => onClickFormChange(result.employee_id)}><ChangeIcon/></Button>
-                      <Button variant="fab" size="small" color="secondary"><DeleteIcon/></Button>
+                      <Button variant="fab" size="small" color="secondary"
+                              onClick={() => onDeleteDataEmp(result.employee_id)}><DeleteIcon/></Button>
                     </TableCell>
                   </TableRow>
                 ))

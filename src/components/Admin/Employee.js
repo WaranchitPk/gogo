@@ -44,7 +44,8 @@ const Employee = ({
   isOpenFormChange,
   onClickFormChange,
   onCloseDialogFormChange,
-  onSubmitFormChange
+  onSubmitFormChange,
+  onDeleteDataEmp
 }) => {
   return (
     <div>
@@ -58,7 +59,8 @@ const Employee = ({
         rowsPerPage={rowsPerPage}
         page={page}
         onChangePage={onChangePage}
-        onClickFormChange={onClickFormChange}/>
+        onClickFormChange={onClickFormChange}
+        onDeleteDataEmp={onDeleteDataEmp}/>
 
       {/*Dialog Add Data - Employee*/}
       <DialogAddDataEmp

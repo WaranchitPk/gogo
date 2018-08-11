@@ -4,7 +4,8 @@ import {
   createDate,
   findAllData,
   showDataForUpdate,
-  UpdateDataEmp
+  UpdateDataEmp,
+  DeleteDataEmp
 } from '../../actions/employees';
 import { connect } from 'react-redux';
 import { AdminEmployeeComponent } from '../../components';
@@ -122,8 +123,6 @@ class Employee extends Component {
   };
   // on close Dialog Form Change
   handleCloseDialogFormChange = () => {
-    const { empFname, empLname, empBirthDate, empAge, empAddress, empTel, empSalary, empStartDate } = this.state;
-
     this.setState({
       isOpenFormChange: false
     })
@@ -146,7 +145,12 @@ class Employee extends Component {
       startDate: moment(empBirthDate).format('YYYY-MM-DD'),
 
     };
+    //update data - action
     UpdateDataEmp(bodyEmp, userId,this.props.dispatch)
+  };
+  //click to delete data employee
+  handleDeleteDataEmp = (id) => {
+    DeleteDataEmp(id,this.props.dispatch)
   };
   clearStateAfterSubmit = () => {
     this.setState({
@@ -199,7 +203,8 @@ class Employee extends Component {
           onCloseDialogShowData={this.handleCloseDialogShowAllData}
           onClickFormChange={this.handleClickFormChange}
           onCloseDialogFormChange={this.handleCloseDialogFormChange}
-          onSubmitFormChange={this.handleSubmitAfterChangeInForm}/>
+          onSubmitFormChange={this.handleSubmitAfterChangeInForm}
+          onDeleteDataEmp={this.handleDeleteDataEmp}/>
       </div>
     )
   }
