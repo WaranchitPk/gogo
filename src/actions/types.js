@@ -30,3 +30,5 @@ export const createDataFood = 'CREATE_FOOD';
 
 //load data Employee id fname lname
 export const loadDataEmployee = 'LOAD_EMPLOYEE';
+//load All Data Employee
+export const loadAllDataEmployee = 'LOAD_ALLDATA_EMPLOYEE';

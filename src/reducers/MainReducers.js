@@ -22,7 +22,7 @@ import {
 import NeutrianCate from './Neutrians/showCate';
 import NeutrialFoods from './Neutrians/showFoods';
 import NeutrialSelectFoods from './Neutrians/showFoodFromSelect';
-import { loadData } from './employees';
+import { loadData ,loadAllData} from './employees';
 
 const reducers = combineReducers({
   AuthenReducer,
@@ -40,6 +40,7 @@ const reducers = combineReducers({
   NeutrianCate,
   NeutrialFoods,
   NeutrialSelectFoods,
-  loadData
+  loadData,
+  loadAllData
 });
 export default reducers;
