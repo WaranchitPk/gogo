@@ -9,7 +9,8 @@ import {
   CalculatorMHRContainer,
   HistoryContainer,
   ProfileContainer,
-  AdminNeutrianContainer
+  AdminNeutrianContainer,
+  AdminEmployeeContainer
 } from '../containers';
 
 import {
@@ -50,6 +51,7 @@ const App = () => (
     <Route path='/history' component={Authenticate(HistoryContainer)}/>
     {/*Admin Route*/}
     <Route path='/admin/neutrian' component={Authenticate(AdminNeutrianContainer)}/>
+    <Route path='/admin/employee' component={Authenticate(AdminEmployeeContainer)}/>
   </div>
 );
 

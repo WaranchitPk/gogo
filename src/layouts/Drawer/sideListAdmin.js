@@ -13,17 +13,17 @@ import { Link } from 'react-router-dom';
 
 const SideDrawerLogin = ({ logout }) => (
   <div>
-    <ListItem button component={Link} to='/Profile'>
+    <ListItem button component={Link} to='/admin/employee'>
       <ListItemIcon>
         <AccountCircleIcon/>
       </ListItemIcon>
-      <ListItemText primary="ข้อมูลส่วนตัว"/>
+      <ListItemText primary="ข้อมูลพนักงาน"/>
     </ListItem>
     <ListItem button component={Link} to='/history'>
       <ListItemIcon>
         <HistoryIcon/>
       </ListItemIcon>
-      <ListItemText primary="ประวัติการใช้งานยิม"/>
+      <ListItemText primary="ข้อมูลข่าวสารภายในยิม"/>
     </ListItem>
     <ListItem button component={Link} to='/admin/neutrian'>
       <ListItemIcon>

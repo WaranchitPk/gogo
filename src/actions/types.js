@@ -27,3 +27,6 @@ export const loadFoodFromSelect = 'LOAD_NEUTRIAN_SELECT';
 export const showHistoryUser = 'HISTORY_SHOW';
 //createFood
 export const createDataFood = 'CREATE_FOOD';
+
+//load data Employee id fname lname
+export const loadDataEmployee = 'LOAD_EMPLOYEE';

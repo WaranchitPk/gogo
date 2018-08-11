@@ -13,10 +13,10 @@ import {
 } from '../libs';
 
 //login
-export const authenUser = ({ username, password, push }) => {
+export const authenUser = ({ username, password, push, userType }) => {
   return dispatch => {
     return FetchData.post(`${path_API}/signin`, {
-      username, password
+      username, password ,userType
     }).then(({ data }) => {
       console.log(typeof(data.token));
       if (data.isLogin === true) {

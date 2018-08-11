@@ -8,6 +8,7 @@ import {
   createDataFood
 } from './types';
 import { path_API } from '../config';
+import swal from "sweetalert";
 
 export const loadNutrianData = () => {
   return dispatch => {
@@ -56,19 +57,10 @@ export const loadSelectNeutrian = selected => {
 };
 
 export const createData = (body,dispatch) => {
-  // if (body.valueCate === 1) {
-  //   console.log('load cate 1')
-  //   loadNutrianShowAllFoods(1)
-  // } else if (body.valueCate === 2) {
-  //   loadNutrianShowAllFoods(2)
-  //   console.log('load cate 2')
-  // } else if (body.valueCate === 3) {
-  //   loadNutrianShowAllFoods(3)
-  //   console.log('load cate 3')
-  // }
   axios.post(`${path_API}/nutrian`, {
     ...body
   }).then(_ => {
+    swal('เพิ่มข้อมูลสำเร็จ', '', 'success')
     if (body.valueCate === 1) {
       dispatch(loadNutrianShowAllFoods(1))
     } else if (body.valueCate === 2) {

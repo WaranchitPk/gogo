@@ -16,3 +16,4 @@ export {default as ShowAllDessertContainer} from './Neutrians/Show_All_Select/de
 
 export {default as ProfileContainer} from './Profile';
 export {default as AdminNeutrianContainer} from './Admin/Neutrians';
+export {default as AdminEmployeeContainer} from './Admin/Employee';
