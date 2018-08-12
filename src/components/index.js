@@ -20,3 +20,4 @@ export {default as BellysExerciseComponent} from './Exercises/bellys';
 export {default as ProfileComponent} from './Profile';
 export {default as AdminNeutrianComponent} from './Admin/Neutrians';
 export {default as AdminEmployeeComponent} from './Admin/Employee';
+export {default as AdminIncomeComponent} from './Admin/Incomes';

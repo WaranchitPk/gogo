@@ -2,4 +2,6 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, rgba(153,218,255,1)), color-stop(11%, rgba(153,218,255,1)), color-stop(100%, rgba(0,138,138,1)));
+  /*background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, rgba(255,255,255,1)), color-stop(100%, rgba(0,255,255,1))); !* safari4+,chrome *!*/
 }

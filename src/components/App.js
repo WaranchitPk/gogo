@@ -10,7 +10,8 @@ import {
   HistoryContainer,
   ProfileContainer,
   AdminNeutrianContainer,
-  AdminEmployeeContainer
+  AdminEmployeeContainer,
+  AdminIncomeContainer
 } from '../containers';
 
 import {
@@ -52,6 +53,7 @@ const App = () => (
     {/*Admin Route*/}
     <Route path='/admin/neutrian' component={Authenticate(AdminNeutrianContainer)}/>
     <Route path='/admin/employee' component={Authenticate(AdminEmployeeContainer)}/>
+    <Route path='/admin/incomes_expenses/income' component={Authenticate(AdminIncomeContainer)}/>
   </div>
 );
 

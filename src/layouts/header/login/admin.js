@@ -7,8 +7,20 @@ import {
 } from '@material-ui/core';
 import { Exercise_calculate } from '../../';
 import LoginDrawer from "../../Drawer/loginAdmin";
+import { AdminHeader } from "../../index";
 
-const admin = ({ styles, onLogout, isOpen, stateOpen, isClose, openDrawer, isOpenDrawer, closeDrawer }) => {
+const admin = ({
+  styles,
+  onLogout,
+  isOpen,
+  stateOpen,
+  isClose,
+  openDrawer,
+  isOpenDrawer,
+  closeDrawer,
+  isOpenListNestedIncome,
+  onClickOpenNestedIncome
+}) => {
   return (
     <div style={styles.root}>
       <AppBar position="static">
@@ -25,7 +37,9 @@ const admin = ({ styles, onLogout, isOpen, stateOpen, isClose, openDrawer, isOpe
             isOpenDrawer={isOpenDrawer}
             openDrawer={openDrawer}
             closeDrawer={closeDrawer}
-            logout={onLogout}/>
+            logout={onLogout}
+            isOpenListNestedIncome={isOpenListNestedIncome}
+            onClickOpenNestedIncome={onClickOpenNestedIncome}/>
         </Toolbar>
       </AppBar>
     </div>

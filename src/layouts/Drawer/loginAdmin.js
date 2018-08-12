@@ -7,16 +7,31 @@ import {
 } from "@material-ui/core";
 import SideDrawer from "./sideListAdmin";
 
-const SideList = ({ logout }) => (
+const SideList = ({
+  logout,
+  isOpenListNestedIncome,
+  onClickOpenNestedIncome
+}) => (
   <div>
     <Typography variant="display1" align="center" noWrap>Admin</Typography>
     <Divider/>
     <List>
-      <SideDrawer logout={logout}/>
+      <SideDrawer
+        logout={logout}
+        isOpenListNestedIncome={isOpenListNestedIncome}
+        onClickOpenNestedIncome={onClickOpenNestedIncome}/>
     </List>
   </div>
 );
-const bodyDrawer = ({ isOpenDrawer, openDrawer, closeDrawer, logout }) => {
+const bodyDrawer = ({
+  isOpenDrawer,
+  openDrawer,
+  closeDrawer,
+  logout,
+  isOpenListNestedIncome,
+  onClickOpenNestedIncome
+}) => {
+  console.log('body drawer')
   return (
     <SwipeableDrawer
       open={isOpenDrawer}
@@ -28,7 +43,9 @@ const bodyDrawer = ({ isOpenDrawer, openDrawer, closeDrawer, logout }) => {
         onClick={openDrawer}
         onKeyDown={closeDrawer}>
         <SideList
-          logout={logout}/>
+          logout={logout}
+          isOpenListNestedIncome={isOpenListNestedIncome}
+          onClickOpenNestedIncome={onClickOpenNestedIncome}/>
       </div>
     </SwipeableDrawer>
   );

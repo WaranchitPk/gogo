@@ -32,3 +32,6 @@ export const createDataFood = 'CREATE_FOOD';
 export const loadDataEmployee = 'LOAD_EMPLOYEE';
 //load All Data Employee
 export const loadAllDataEmployee = 'LOAD_ALLDATA_EMPLOYEE';
+
+//load Data Income
+export const loadDataIncome = 'LOAD_DATA_INCOME';
