@@ -18,21 +18,21 @@ const Traisition = (props) => {
   return <Slide direction="up" {...props}/>
 };
 
-const FormIncome = ({
-  isOpenDialogAddIncome,
+const FormExpenses = ({
+  isOpenDialogAddExpenses,
   onCloseDialogAdd,
   onChangeInput,
-  incomeName,
-  incomeDetail,
-  incomeAmount,
-  incomeDate,
-  onChangeDateIncome,
-  onSubmitAddIncome
+  expensesName,
+  expensesDetail,
+  expensesAmount,
+  expensesDate,
+  onChangeDateexpenses,
+  onSubmitAddexpenses
 }) => {
   return (
     <div>
       <Dialog
-        open={isOpenDialogAddIncome}
+        open={isOpenDialogAddExpenses}
         onClose={onCloseDialogAdd}
         TransitionComponent={Traisition}>
         <DialogTitle id="alert-dialog-slide-title">
@@ -42,17 +42,17 @@ const FormIncome = ({
         <DialogContent>
           <DialogContentText>
             <FormControl component='p' margin="normal" required fullWidth>
-              <TextField label="ชื่อ" value={incomeName} onChange={onChangeInput} name="incomeName"/>
+              <TextField label="ชื่อ" value={expensesName} onChange={onChangeInput} name="expensesName"/>
             </FormControl>
             <FormControl component='p' margin="normal" required fullWidth>
-              <TextField label="รายละเอียด" value={incomeDetail} onChange={onChangeInput} name="incomeDetail"/>
+              <TextField label="รายละเอียด" value={expensesDetail} onChange={onChangeInput} name="expensesDetail"/>
             </FormControl>
             <FormControl component='p' margin="normal" required fullWidth>
               <TextField
                 label="จำนวน"
-                value={incomeAmount}
+                value={expensesAmount}
                 onChange={onChangeInput}
-                name="incomeAmount"
+                name="expensesAmount"
                 InputProps={{
                   endAdornment: <InputAdornment position="end">บาท</InputAdornment>,
                 }}
@@ -62,12 +62,12 @@ const FormIncome = ({
               <DatePicker
                 label="วัน/เดือน/ปี"
                 format="DD/MM/YYYY"
-                value={incomeDate}
+                value={expensesDate}
                 placeholder="10/10/2018"
                 // handle clearing outside => pass plain array if you are not controlling value outside
                 mask={value => (value ? [/\d/, /\d/, '/', /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/] : [])}
                 disableOpenOnEnter
-                onChange={onChangeDateIncome}
+                onChange={onChangeDateexpenses}
                 animateYearScrolling={false}/>
             </FormControl>
           </DialogContentText>
@@ -76,7 +76,7 @@ const FormIncome = ({
           <Button color="primary" onClick={onCloseDialogAdd}>
             ยกเลิก
           </Button>
-          <Button color="primary" onClick={onSubmitAddIncome}>
+          <Button color="primary" onClick={onSubmitAddexpenses}>
             ตกลง
           </Button>
         </DialogActions>
@@ -85,4 +85,4 @@ const FormIncome = ({
   );
 };
 
-export default FormIncome;
+export default FormExpenses;

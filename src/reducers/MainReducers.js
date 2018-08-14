@@ -24,6 +24,7 @@ import NeutrialFoods from './Neutrians/showFoods';
 import NeutrialSelectFoods from './Neutrians/showFoodFromSelect';
 import { loadData ,loadAllData} from './employees';
 import {DataIncome} from './incomes';
+import {DataExpenses,YearSelectExpenses,MonthSelectExpenses} from './expenses';
 const reducers = combineReducers({
   AuthenReducer,
   findUserData,
@@ -42,6 +43,9 @@ const reducers = combineReducers({
   NeutrialSelectFoods,
   loadData,
   loadAllData,
-  DataIncome
+  DataIncome,
+  DataExpenses,
+  YearSelectExpenses,
+  MonthSelectExpenses
 });
 export default reducers;

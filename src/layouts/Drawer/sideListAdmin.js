@@ -64,7 +64,7 @@ const SideDrawerLogin = ({
           </ListItemIcon>
           <ListItemText inset primary="รายรับ"/>
         </ListItem>
-        <ListItem button>
+        <ListItem button component={Link} to='/admin/incomes_expenses/expenses'>
           <ListItemIcon>
             <StarBorder/>
           </ListItemIcon>

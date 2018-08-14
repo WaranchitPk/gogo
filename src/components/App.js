@@ -11,7 +11,8 @@ import {
   ProfileContainer,
   AdminNeutrianContainer,
   AdminEmployeeContainer,
-  AdminIncomeContainer
+  AdminIncomeContainer,
+  AdminExpensesContainer
 } from '../containers';
 
 import {
@@ -54,6 +55,7 @@ const App = () => (
     <Route path='/admin/neutrian' component={Authenticate(AdminNeutrianContainer)}/>
     <Route path='/admin/employee' component={Authenticate(AdminEmployeeContainer)}/>
     <Route path='/admin/incomes_expenses/income' component={Authenticate(AdminIncomeContainer)}/>
+    <Route path='/admin/incomes_expenses/expenses' component={Authenticate(AdminExpensesContainer)}/>
   </div>
 );
 

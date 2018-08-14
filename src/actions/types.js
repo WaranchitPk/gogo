@@ -35,3 +35,9 @@ export const loadAllDataEmployee = 'LOAD_ALLDATA_EMPLOYEE';
 
 //load Data Income
 export const loadDataIncome = 'LOAD_DATA_INCOME';
+//load Data Expenses
+export const loadDataExpenses = 'LOAD_DATA_EXPENSES';
+//load select year
+export const loadYearSelect = 'LOAD_YEAR_SELECT';
+//load month select
+export const loadMonthSelect = 'LOAD_MONTH_SELECT';

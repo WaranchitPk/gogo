@@ -3,7 +3,7 @@ import { AdminIncomeComponent } from '../../components';
 import {
   dataIncome,
   createIncome
-} from '../../actions/incomes';
+} from '../../actions/IncomesExpenses';
 import { connect } from 'react-redux';
 import swal from 'sweetalert';
 
@@ -40,13 +40,13 @@ class Incomes extends Component {
   handleChangeRowsPerPage = event => {
     this.setState({ rowsPerPage: event.target.value });
   };
-  //open dialog add data incomes
+  //open dialog add data incomes-expenses
   handleOpenDialogAddIncome = () => {
     this.setState({
       isOpenDialogAddIncome: true
     })
   };
-  //close dialog add data incomes
+  //close dialog add data incomes-expenses
   handleCloseDialogAddIncome = () => {
     this.setState({
       isOpenDialogAddIncome: false
@@ -56,21 +56,21 @@ class Incomes extends Component {
   handleSubmitFormAddIncome = () => {
     const { incomeName, incomeDetail, incomeAmount, incomeDate } = this.state;
     const { dispatch } = this.props;
-    swal("รายรับ", "เพิ่มข้อมูลรายรับสำเร็จ", "success").then(() => {
-      this.setState({
-        isOpenDialogAddIncome: false
-      });
-      const body = {
-        IncomeName: incomeName,
-        IncomeDetail: incomeDetail,
-        IncomeAmount: incomeAmount,
-        IncomeDate: incomeDate
-      };
-      createIncome(body).then((result) => {
-        console.log(result);
-        dispatch(dataIncome())
-      })
-    })
+    // swal("รายรับ", "เพิ่มข้อมูลรายรับสำเร็จ", "success").then(() => {
+    //   this.setState({
+    //     isOpenDialogAddIncome: false
+    //   });
+    //   const body = {
+    //     IncomeName: incomeName,
+    //     IncomeDetail: incomeDetail,
+    //     IncomeAmount: incomeAmount,
+    //     IncomeDate: incomeDate
+    //   };
+    //   createIncome(body).then((result) => {
+    //     console.log(result);
+    //     dispatch(dataIncome())
+    //   })
+    // })
   };
 
   render() {
