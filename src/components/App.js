@@ -12,7 +12,8 @@ import {
   AdminNeutrianContainer,
   AdminEmployeeContainer,
   AdminIncomeContainer,
-  AdminExpensesContainer
+  AdminExpensesContainer,
+  PromotionContainer
 } from '../containers';
 
 import {
@@ -24,6 +25,7 @@ import { Header } from '../layouts';
 import { Grid } from '@material-ui/core';
 import { hot } from 'react-hot-loader';
 import { Authenticate } from '../libs/AuthenRoute';
+import Promotions from "../containers/Pricing";
 
 const App = () => (
   <div>
@@ -35,6 +37,7 @@ const App = () => (
     {/*Public Route*/}
     <Route path='/' component={(HomeContainer)} exact/>
     <Route path='/login' component={LoginContainer}/>
+    <Route path='/pricing' component={Promotions}/>
     {/*Calculate Route*/}
     <Route path='/calculator_tdee' component={CalculatorTDEEContainer}/>
     <Route path='/calculator_bmi' component={CalculatorBMIContainer}/>
@@ -56,6 +59,7 @@ const App = () => (
     <Route path='/admin/employee' component={Authenticate(AdminEmployeeContainer)}/>
     <Route path='/admin/incomes_expenses/income' component={Authenticate(AdminIncomeContainer)}/>
     <Route path='/admin/incomes_expenses/expenses' component={Authenticate(AdminExpensesContainer)}/>
+
   </div>
 );
 

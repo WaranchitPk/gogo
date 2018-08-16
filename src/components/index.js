@@ -22,3 +22,5 @@ export {default as AdminNeutrianComponent} from './Admin/Neutrians';
 export {default as AdminEmployeeComponent} from './Admin/Employee';
 export {default as AdminIncomeComponent} from './Admin/Incomes';
 export {default as AdminExpensesComponent} from './Admin/Expenses';
+
+export {default as PricingComponent} from './Pricing';

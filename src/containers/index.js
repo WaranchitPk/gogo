@@ -19,3 +19,5 @@ export {default as AdminNeutrianContainer} from './Admin/Neutrians';
 export {default as AdminEmployeeContainer} from './Admin/Employee';
 export {default as AdminIncomeContainer} from './Admin/Incomes';
 export {default as AdminExpensesContainer} from './Admin/Expenses';
+
+export {default as PromotionContainer} from './Pricing';

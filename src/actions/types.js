@@ -41,3 +41,8 @@ export const loadDataExpenses = 'LOAD_DATA_EXPENSES';
 export const loadYearSelect = 'LOAD_YEAR_SELECT';
 //load month select
 export const loadMonthSelect = 'LOAD_MONTH_SELECT';
+
+//load pricing
+export const loadPricing = 'LOAD_PRICING';
+//load Pricing data
+export const loadPromotionPrice = 'LOAD_DATA_PROMOTION';

@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import {
   AppBar,
   Toolbar,
-  Button
+  Button,
+  Typography
 } from '@material-ui/core';
 import { Exercise_calculate } from '../../';
 import LoginDrawer from "../../Drawer/loginAdmin";
@@ -25,7 +26,9 @@ const admin = ({
     <div style={styles.root}>
       <AppBar position="static">
         <Toolbar>
-          <Button color="inherit" component={Link} to='/' style={styles.flex}>GO-GYM</Button>
+          <Typography variant="title" color="inherit" style={styles.flex} component={Link} to='/'>
+            GO-GYM
+          </Typography>
           <Exercise_calculate
             isOpen={isOpen}
             stateOpen={stateOpen}
