@@ -16,7 +16,6 @@ class Calculate_TDEE extends Component {
 
     handleChange = (event) => {
         this.setState({[event.target.name]: event.target.value});
-
     };
     onSubmit = () => {
         const {gender, height, weight, age, activity} = this.state;

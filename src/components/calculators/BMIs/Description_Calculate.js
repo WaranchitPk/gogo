@@ -20,8 +20,7 @@ const DescriptionCalculator = ({Data_BMI, styles}) => (
             </ExpansionPanelSummary>
             <ExpansionPanelDetails>
                 <Typography variant='body1'>
-                    <Typography variant='subheading'>ดัชนีมวลกาย(BODY MASS
-                        INDEX(BMI))หมายถึง</Typography>
+                    <Typography variant='subheading'>ดัชนีมวลกาย(BODY MASS INDEX(BMI))หมายถึง</Typography>
                     <ul>
                         <li>เครื่องมือเพียงชนิดเดียวที่ใช้วัดไขมันในร่างกาย (body fat)
                             ที่ยังไม่สมบูรณ์แบบนัก

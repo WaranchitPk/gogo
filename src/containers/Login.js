@@ -3,6 +3,7 @@ import { LoginComponent } from '../components';
 import { authenUser } from '../actions/authen';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import swal from 'sweetalert';
 
 class Login extends Component {
   state = {
@@ -19,7 +20,7 @@ class Login extends Component {
 
   login = () => {
     if (this.state.username === '' || this.state.password === '' || this.state.userType === '') {
-      alert('Please Input Email or Password or User Type')
+      swal("กรุณากรอกข้อมูลให้ครบ", "You clicked the button!", "warning");
     } else {
       // console.log({...this.state})
       const { history: { push } } = this.props;
@@ -32,7 +33,7 @@ class Login extends Component {
   };
 
   render() {
-    const {username,password,userType} = this.state;
+    const { username, password, userType } = this.state;
     return (
       <div>
         <LoginComponent

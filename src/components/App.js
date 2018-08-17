@@ -13,7 +13,9 @@ import {
   AdminEmployeeContainer,
   AdminIncomeContainer,
   AdminExpensesContainer,
-  PromotionContainer
+  PromotionContainer,
+  CalculatorContainer,
+  NeutrianContainer
 } from '../containers';
 
 import {
@@ -45,13 +47,13 @@ const App = () => (
     {/* Exercise */}
     <Route component={ExerciseRoute}/>
 
-
+    <Route path='/calculator' component={CalculatorContainer}/>
     {/*Private Route*/}
     {/*Profile*/}
     <Route path='/Profile' component={Authenticate(ProfileContainer)}/>
     <Route path='/register' component={Authenticate(RegisterContainer)}/>
     {/* Neutrian */}
-    <Route component={NeutrianRoute}/>
+    <Route path="/neutrian" component={Authenticate(NeutrianContainer)} />
     {/* History */}
     <Route path='/history' component={Authenticate(HistoryContainer)}/>
     {/*Admin Route*/}

@@ -17,7 +17,7 @@ const ShowFooterPrice = ({
     <Grid container justify="center" className={classes.rootButtonMoreDetail}>
       <Grid item>
         <Button variant="raised" onClick={onOpenDialogMoreDetail} className={classes.button}>
-          <ContactIcon className={classes.contactIcon}/>รายละเอียดเพิ่มเติม
+          <ContactIcon className={classes.contactIcon}/>สนใจสมัครเป็นสมาชิก คลิก.
         </Button>
       </Grid>
     </Grid>

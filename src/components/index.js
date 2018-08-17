@@ -24,3 +24,5 @@ export {default as AdminIncomeComponent} from './Admin/Incomes';
 export {default as AdminExpensesComponent} from './Admin/Expenses';
 
 export {default as PricingComponent} from './Pricing';
+
+export {default as CalculatorComponent} from './Calculator';

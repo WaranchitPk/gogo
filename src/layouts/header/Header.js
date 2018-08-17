@@ -13,6 +13,7 @@ import { connect } from 'react-redux';
 import { Logout } from '../../actions/authen';
 import { findName } from '../../actions/users';
 import { withRouter } from 'react-router-dom';
+import {HeaderStyleJs} from '../../style_js';
 
 import {
   Exercise_calculate,
@@ -143,16 +144,22 @@ class NotLogin extends Component {
     const { stateOpen, isOpen, isClose } = this.props;
     return (
       <div style={styles.root}>
-        <AppBar position="static">
+        <AppBar position="static" style={HeaderStyleJs.AppBar}>
           <Toolbar>
             <Typography variant="title" color="inherit" style={styles.flex}>
               GO-GYM
             </Typography>
-            <Exercise_calculate
-              isOpen={isOpen}
-              stateOpen={stateOpen}
-              isClose={isClose}/>
-            <Button color="inherit" component={Link} to='/login'>Login</Button>
+            <Button color="inherit" component={Link} to='/calculator'>
+              <Typography variant="subheading" color="inherit">
+                คำนวนค่าต่างๆ
+              </Typography>
+            </Button>
+            <Button color="inherit" component={Link} to='/pricing'>ค่าใช้จ่าย</Button>
+            {/*<Exercise_calculate*/}
+              {/*isOpen={isOpen}*/}
+              {/*stateOpen={stateOpen}*/}
+              {/*isClose={isClose}/>*/}
+            <Button variant="outlined" color="inherit" component={Link} to='/login'>เข้าสู่ระบบ</Button>
           </Toolbar>
         </AppBar>
       </div>

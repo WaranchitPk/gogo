@@ -18,7 +18,6 @@ export const authenUser = ({ username, password, push, userType }) => {
     return FetchData.post(`${path_API}/signin`, {
       username, password ,userType
     }).then(({ data }) => {
-      console.log(typeof(data.token));
       if (data.isLogin === true) {
         localStorage.setItem('access-token', data.token);
 

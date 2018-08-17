@@ -1,6 +1,14 @@
 import {calculate,calculate_bmi,calculate_mhr} from './types';
 import {bmr_Calculate,tdee_calculate,bmi_Calculate,bmi_status} from '../libs';
 
+export const unmountValueCal = () =>(
+  dispatch => {
+    dispatch({
+      type: calculate,
+      payload: ""
+    })
+  }
+);
 export const CalBMR_TDEE = (gender,height,weight,age,activity) =>{
     return dispatch => {
         const bmr = new Promise((resolve) => {
@@ -16,7 +24,8 @@ export const CalBMR_TDEE = (gender,height,weight,age,activity) =>{
             dispatch({
                 type: calculate,
                 payload: data
-            })
+            });
+            CalMHR(+age)
         })
     }
 };
