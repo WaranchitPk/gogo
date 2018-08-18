@@ -26,3 +26,4 @@ export {default as AdminExpensesComponent} from './Admin/Expenses';
 export {default as PricingComponent} from './Pricing';
 
 export {default as CalculatorComponent} from './Calculator';
+export {default as ExerciseDiaryComponent} from './ExerciseDiary';

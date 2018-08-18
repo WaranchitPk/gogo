@@ -46,3 +46,6 @@ export const loadMonthSelect = 'LOAD_MONTH_SELECT';
 export const loadPricing = 'LOAD_PRICING';
 //load Pricing data
 export const loadPromotionPrice = 'LOAD_DATA_PROMOTION';
+
+//exercise_Diary
+export const ExerciseDiaryloadAllData = 'LOAD_DATA_EXERCISE_DIARY';

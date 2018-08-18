@@ -22,3 +22,5 @@ export {default as AdminExpensesContainer} from './Admin/Expenses';
 
 export {default as PromotionContainer} from './Pricing';
 export {default as CalculatorContainer} from './Calculater';
+
+export {default as ExerciseDiaryContainer} from './ExerciseDiary';

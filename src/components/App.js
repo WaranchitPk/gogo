@@ -15,7 +15,8 @@ import {
   AdminExpensesContainer,
   PromotionContainer,
   CalculatorContainer,
-  NeutrianContainer
+  NeutrianContainer,
+  ExerciseDiaryContainer
 } from '../containers';
 
 import {
@@ -53,7 +54,7 @@ const App = () => (
     <Route path='/Profile' component={Authenticate(ProfileContainer)}/>
     <Route path='/register' component={Authenticate(RegisterContainer)}/>
     {/* Neutrian */}
-    <Route path="/neutrian" component={Authenticate(NeutrianContainer)} />
+    <Route path="/neutrian" component={Authenticate(NeutrianContainer)}/>
     {/* History */}
     <Route path='/history' component={Authenticate(HistoryContainer)}/>
     {/*Admin Route*/}
@@ -61,7 +62,7 @@ const App = () => (
     <Route path='/admin/employee' component={Authenticate(AdminEmployeeContainer)}/>
     <Route path='/admin/incomes_expenses/income' component={Authenticate(AdminIncomeContainer)}/>
     <Route path='/admin/incomes_expenses/expenses' component={Authenticate(AdminExpensesContainer)}/>
-
+    <Route path='/ExerciseDiary/showData' component={ExerciseDiaryContainer}/>
   </div>
 );
 
