@@ -3,10 +3,14 @@ import { connect } from 'react-redux';
 import {
   loadAllData,
   createData,
-  updateData
+  updateData,
+  loadStatusData,
+  loadAllDataForUpdate,
+  updateAllData
 } from '../actions/exerciseDiary';
 import { ExerciseDiaryComponent } from '../components';
 import moment from 'moment';
+import jwtDecode from "jwt-decode";
 
 class ExerciseDiary extends Component {
   state = {
@@ -17,7 +21,8 @@ class ExerciseDiary extends Component {
     diaryDetail: '',
     diaryStatus: "มา",
     isOpenChangeStatus: false,
-    idDiary: ''
+    idDiary: '',
+    isOpenDialogFormUpdate: false
   };
 
   componentDidMount() {
@@ -48,7 +53,7 @@ class ExerciseDiary extends Component {
   //Close Dialog Update Status
   handleCloseDialogUpdate = () => {
     this.setState({
-      isOpenChangeStatus: true
+      isOpenChangeStatus: false
     })
   };
   //Change Date Form
@@ -61,12 +66,49 @@ class ExerciseDiary extends Component {
       [name]: value,
     })
   };
-  //On Change status
+  //On Change status Open Dialog
   handleChangeStatus = (id) => {
     this.setState({
       isOpenChangeStatus: true,
       idDiary: id
     })
+    loadStatusData(id).then(value => {
+      this.setState({
+        diaryStatus: value.data.result[0].exDiary_status
+      })
+    })
+  };
+  //Open Dialog Form Update
+  handleOpenDialogFormUpdate = (id) => {
+    this.setState({
+      isOpenDialogFormUpdate: true,
+      idDiary: id
+    })
+    loadAllDataForUpdate(id).then(value => {
+      this.setState({
+        diaryDate: value.data.result[0].exDiary_date,
+        diaryDetail: value.data.result[0].exDiary_details,
+      })
+    })
+  };
+  //Close Dialog Form Update
+  handleCloseDialogFormUpdate = () => {
+    this.setState({
+      isOpenDialogFormUpdate: false
+    })
+  }
+  //onSUbmitUpdateAllData
+  handleSubmitUpdateAllData = () => {
+    const { diaryDate, diaryDetail, idDiary } = this.state;
+    const { dispatch } = this.props;
+    this.setState({
+      isOpenDialogFormUpdate: false
+    });
+    const body = {
+      date: moment(diaryDate).format('YYYY-MM-DD'),
+      details: diaryDetail,
+    };
+    updateAllData(body, idDiary, dispatch)
   };
   //On Submit form Update Diary
   handleSubmitUpdate = () => {
@@ -80,6 +122,7 @@ class ExerciseDiary extends Component {
       isOpenChangeStatus: false
     });
   };
+
   //On Submit form Diary
   handleSubmitFormDiary = () => {
     const { diaryDate, diaryDetail, diaryStatus } = this.state;
@@ -97,7 +140,7 @@ class ExerciseDiary extends Component {
   };
 
   render() {
-    const { page, rowsPerPage, isOpenDialogForm, diaryDate, diaryDetail, diaryStatus, isOpenChangeStatus } = this.state;
+    const { page, rowsPerPage, isOpenDialogForm, diaryDate, diaryDetail, diaryStatus, isOpenChangeStatus, isOpenDialogFormUpdate } = this.state;
     const { AllData } = this.props;
     let resultDataExerciseDiary = [];
     let resultDataExerciseDiaryLength = '';
@@ -127,7 +170,11 @@ class ExerciseDiary extends Component {
           onChangeStatus={this.handleChangeStatus}
           isOpenDialogUpdate={isOpenChangeStatus}
           onCloseDialogUpdate={this.handleCloseDialogUpdate}
-          onSubmitUpdate={this.handleSubmitUpdate}/>
+          onSubmitUpdate={this.handleSubmitUpdate}
+          isOpenDialogFormUpdate={isOpenDialogFormUpdate}
+          onOpenDialogFormUpdate={this.handleOpenDialogFormUpdate}
+          onCloseDialogFormUpdate={this.handleCloseDialogFormUpdate}
+          onSubmitFormUpdate={this.handleSubmitUpdateAllData}/>
       </div>
     );
   }

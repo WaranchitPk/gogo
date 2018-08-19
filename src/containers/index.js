@@ -24,3 +24,6 @@ export {default as PromotionContainer} from './Pricing';
 export {default as CalculatorContainer} from './Calculater';
 
 export {default as ExerciseDiaryContainer} from './ExerciseDiary';
+
+export {default as EmployeeShowUserForChooseContainer} from './Employee/ShowUser';
+export {default as EmployeeShowUserTrainingContainer} from './Employee/ShowUserTraining';

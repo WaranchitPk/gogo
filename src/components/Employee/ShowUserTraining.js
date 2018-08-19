@@ -1,113 +1,178 @@
 import React from 'react';
-import { ExerciseDiaryComponent } from "./index";
 import {
   Grid,
   Table,
   TableHead,
   TableCell,
-  TableRow,
   TableBody,
-  TablePagination,
+  TableRow,
   Paper,
+  Typography,
+  Button,
   Dialog,
+  AppBar,
+  List,
+  ListItem,
+  Toolbar,
+  ListItemText,
+  IconButton,
+  Divider,
   DialogTitle,
   DialogContent,
   DialogContentText,
-  DialogActions,
-  Button,
   FormControl,
   TextField,
-  Radio,
+  DialogActions,
+  FormLabel,
   RadioGroup,
   FormControlLabel,
-  FormLabel
+  Radio
 } from '@material-ui/core';
-import moment from 'moment'
-import AddIcon from "@material-ui/icons/Add";
+import SearchIcon from '@material-ui/icons/Search';
+import { EmployeeShowUserTraining } from "../index";
+import CloseIcon from '@material-ui/icons/Close';
+import Slide from "@material-ui/core/Slide";
+import moment from "moment";
 import { DatePicker } from "material-ui-pickers";
-import Slide from '@material-ui/core/Slide';
 
 const Transition = (props) => (
   <Slide direction="up" {...props} />
 );
 
-const ExerciseDiary = ({
-  TablePage,
-  TableRowsPerPage,
-  TableOnChangePage,
-  TableOnChangeRowsPerPage,
-  dataExerciseDiaryInTable,
-  dataExerciseDiaryLengthInTable,
-  isOpenDialogCreatedData,
-  DialogCreatedDataOnOpen,
-  DialogCreatedDataOnClose,
+const styles = {
+  root: {
+    marginTop: '5%'
+  },
+  HeadTitle: {
+    paddingTop: '1%',
+    paddingBottom: '1%'
+  }
+}
+
+const UserTraining = ({
+  resultUserTraining,
+  isOpenDialogExerciseDiary,
+  onOpenDialogExerciseDiary,
+  onCloseDialogExerciseDiary,
+  resultUserExerciseDiary,
+  isOpenDialogFormUpdate,
+  onChangeStatus,
+  onOpenDialogFormUpdate,
+  onCloseDialogFormUpdate,
   diaryDate,
   onDateFormDiary,
   diaryDetail,
   onChangeDataForm,
-  diaryStatus,
-  onSubmitFormDiary,
-  onChangeStatus,
+  diaryRecomend,
+  onSubmitFormUpdate,
   isOpenDialogUpdate,
   onCloseDialogUpdate,
+  diaryStatus,
+  isOpenDialogCreatedData,
+  DialogCreatedDataOnClose,
   onSubmitUpdate,
-  isOpenDialogFormUpdate,
-  onOpenDialogFormUpdate,
-  onCloseDialogFormUpdate,
-  onSubmitFormUpdate
+  onSubmitFormDiary
 }) => {
   return (
     <div>
-      <Grid container justify="center">
+      <Grid container justify="center" style={styles.root}>
         <Grid item xs={10} sm={8}>
-          <Button variant='fab' color="primary" onClick={DialogCreatedDataOnOpen}><AddIcon/></Button>
           <Paper elevation={5}>
+            <Typography align="center" variant="title" style={styles.HeadTitle}>ข้อมูลผู้ใช้</Typography>
             <Table>
               <TableHead component="tr">
-                <TableCell component="th">วันที่ออกกำลังกาย</TableCell>
-                <TableCell component="th">รายละเอียดการออกกำลังกาย</TableCell>
-                <TableCell component="th">สถานะการเล่น</TableCell>
-                <TableCell component="th">คำแนะนำจากเทรนเนอร์</TableCell>
-                <TableCell component="th">แก้ไขสถานะการเล่น</TableCell>
-                <TableCell component="th">แก้ไขข้อมูลการเล่น</TableCell>
+                <TableCell component="th">ชื่อ</TableCell>
+                <TableCell component="th">นามสกุล</TableCell>
+                <TableCell component="th">เพศ</TableCell>
+                <TableCell component="th">อายุ</TableCell>
+                <TableCell component="th">เบอร์โทรศัพท์</TableCell>
+                <TableCell component="th">บันทึกการออกกำลัง</TableCell>
               </TableHead>
               <TableBody>
                 {
-                  dataExerciseDiaryInTable.map(result => (
-                    <TableRow key={result.exDiary_id} component="tr">
-                      <TableCell component="td">{moment(result.exDiary_date).format('DD-MM-YYYY')}</TableCell>
-                      <TableCell component="td">{result.exDiary_details}</TableCell>
-                      <TableCell component="td">{result.exDiary_status}</TableCell>
-                      <TableCell component="td">{result.exDiary_recomend}</TableCell>
+                  resultUserTraining.map(result => (
+                    <TableRow
+                      key={result.user_id}
+                      component="tr">
+                      <TableCell component="td">{result.user_fName}</TableCell>
+                      <TableCell component="td">{result.user_lName}</TableCell>
+                      <TableCell component="td">{result.user_gender}</TableCell>
+                      <TableCell component="td">{result.user_age}</TableCell>
+                      <TableCell component="td">{result.user_tel}</TableCell>
                       <TableCell component="td">
-                        <Button variant="outlined" color="secondary"
-                                onClick={() => onChangeStatus(result.exDiary_id)}>แก้ไขสถานะ</Button>
-                      </TableCell>
-                      <TableCell component="td">
-                        <Button variant="outlined" color="secondary"
-                                onClick={() => onOpenDialogFormUpdate(result.exDiary_id)}>แก้ไขข้อมูล</Button>
+                        <Button variant="contained" color="primary"
+                                onClick={() => onOpenDialogExerciseDiary(result.user_id)}>
+                          <SearchIcon/> ค้นหา
+                        </Button>
                       </TableCell>
                     </TableRow>
                   ))
                 }
               </TableBody>
             </Table>
-            <TablePagination
-              component='div'
-              count={dataExerciseDiaryLengthInTable}
-              rowsPerPage={TableRowsPerPage}
-              page={TablePage}
-              onChangePage={TableOnChangePage}
-              onChangeRowsPerPage={TableRowsPerPage}/>
           </Paper>
         </Grid>
       </Grid>
-      {/*form Update All Data*/}
+      <Dialog
+        fullScreen
+        open={isOpenDialogExerciseDiary}
+        onClose={onCloseDialogExerciseDiary}
+        TransitionComponent={Transition}>
+        <AppBar>
+          <Toolbar>
+            <IconButton color="inherit" onClick={onCloseDialogExerciseDiary}>
+              <CloseIcon/>
+            </IconButton>
+            บักทึกการออกกำลังกายของผู้ใช้
+          </Toolbar>
+        </AppBar>
+        <List>
+          <ListItem button>
+            <ListItemText primary="Phone ringtone" secondary="Titania"/>
+          </ListItem>
+          <Divider/>
+          <ListItem button>
+            <ListItemText primary="Default notification ringtone" secondary="Tethys"/>
+          </ListItem>
+        </List>
+        <List>
+          <Table>
+            <TableHead component="tr">
+              <TableCell component="th">วันที่ออกกำลังกาย</TableCell>
+              <TableCell component="th">รายละเอียดการออกกำลังกาย</TableCell>
+              <TableCell component="th">สถานะการเล่น</TableCell>
+              <TableCell component="th">คำแนะนำจากเทรนเนอร์</TableCell>
+              <TableCell component="th">แก้ไขสถานะการเล่น</TableCell>
+              <TableCell component="th">แก้ไขข้อมูลการเล่น</TableCell>
+            </TableHead>
+            <TableBody>
+              {
+                resultUserExerciseDiary.map(result => (
+                  <TableRow key={result.exDiary_id} component="tr">
+                    <TableCell component="td">{moment(result.exDiary_date).format('DD-MM-YYYY')}</TableCell>
+                    <TableCell component="td">{result.exDiary_details}</TableCell>
+                    <TableCell component="td">{result.exDiary_status}</TableCell>
+                    <TableCell component="td">{result.exDiary_recomend}</TableCell>
+                    <TableCell component="td">
+                      <Button variant="outlined" color="secondary"
+                              onClick={() => onChangeStatus(result.exDiary_id)}>แก้ไขสถานะ</Button>
+                    </TableCell>
+                    <TableCell component="td">
+                      <Button variant="outlined" color="secondary"
+                              onClick={() => onOpenDialogFormUpdate(result.exDiary_id)}>แก้ไขข้อมูล</Button>
+                    </TableCell>
+                  </TableRow>
+                ))
+              }
+            </TableBody>
+          </Table>
+        </List>
+      </Dialog>
       <Dialog
         open={isOpenDialogFormUpdate}
         onClose={onCloseDialogFormUpdate}
         TransitionComponent={Transition}>
-        <DialogTitle>เพิ่มบันทึกการออกกำลังกาย</DialogTitle>
+        <DialogTitle>แก้ไขบันทึกการออกกำลังกาย</DialogTitle>
         <DialogContent>
           <DialogContentText>
             <FormControl component='p' margin="normal" required fullWidth>
@@ -125,6 +190,10 @@ const ExerciseDiary = ({
             <FormControl component='p' margin="normal" required fullWidth>
               <TextField label="รายละเอียด" value={diaryDetail} onChange={onChangeDataForm} name="diaryDetail"/>
             </FormControl>
+            <FormControl component='p' margin="normal" required fullWidth>
+              <TextField label="คำแนะนำของเทรนเนอร์" value={diaryRecomend} onChange={onChangeDataForm}
+                         name="diaryRecomend"/>
+            </FormControl>
           </DialogContentText>
         </DialogContent>
         <DialogActions>
@@ -136,7 +205,6 @@ const ExerciseDiary = ({
           </Button>
         </DialogActions>
       </Dialog>
-      {/*Change Status*/}
       <Dialog
         open={isOpenDialogUpdate}
         onClose={onCloseDialogUpdate}>
@@ -196,9 +264,6 @@ const ExerciseDiary = ({
                 <FormControlLabel value="ไม่มา" control={<Radio/>} label="ไม่มา"/>
               </RadioGroup>
             </FormControl>
-            {/*<FormControl component='p' margin="normal" required fullWidth>*/}
-              {/*<TextField label="คำแนะนำจากเทรนเนอร์" value={diaryDetail} onChange={onChangeDataForm} name="diaryDetail"/>*/}
-            {/*</FormControl>*/}
           </DialogContentText>
         </DialogContent>
         <DialogActions>
@@ -214,4 +279,4 @@ const ExerciseDiary = ({
   );
 };
 
-export default ExerciseDiary;
+export default UserTraining;

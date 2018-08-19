@@ -6,8 +6,24 @@ import {
   Button,
   Typography
 } from '@material-ui/core';
+import {
+  EmployeeHeader,
+  Exercise_calculate
+} from "../../index";
+import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+import LoginDrawer from "../../Drawer/loginEmployee";
 
-const employee = ({ styles, onLogout }) => {
+const employee = ({
+  styles,
+  onLogout,
+  isOpen,
+  stateOpen,
+  isClose,
+  name,
+  openDrawer,
+  closeDrawer,
+  isOpenDrawer
+}) => {
   return (
     <div style={styles.root}>
       <AppBar position="static">
@@ -15,10 +31,26 @@ const employee = ({ styles, onLogout }) => {
           <Typography variant="title" color="inherit" style={styles.flex}>
             GO-GYM
           </Typography>
-          {/*<Button color="inherit" component={Link} to='/' style={styles.flex}>GO-GYM</Button>*/}
+          <Toolbar>
+            <Typography variant="title" color="inherit" style={styles.flex}>
+              GO-GYM
+            </Typography>
+
+
+          </Toolbar>
           <Button color="inherit" component={Link} to='/register'>Register</Button>
-          {name}
-          <Button color="inherit" onClick={onLogout}>Logout</Button>
+          <Button variant="fab" color="secondary" onClick={openDrawer}>
+            {
+              name !== null && name !== undefined ? name.data.name : (<AccountCircleIcon/>)
+            }
+          </Button>
+          <LoginDrawer
+            isOpenDrawer={isOpenDrawer}
+            openDrawer={openDrawer}
+            closeDrawer={closeDrawer}
+            logout={onLogout}
+            fullName={name}/>
+          {/*<Button color="inherit" onClick={onLogout}>Logout</Button>*/}
         </Toolbar>
       </AppBar>
     </div>

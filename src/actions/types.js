@@ -49,3 +49,10 @@ export const loadPromotionPrice = 'LOAD_DATA_PROMOTION';
 
 //exercise_Diary
 export const ExerciseDiaryloadAllData = 'LOAD_DATA_EXERCISE_DIARY';
+
+//employee show user choose
+export const loadDataUserForChoose = 'LOAD_DATA_USER_CHOOSE';
+
+export const loadFindDataUserTraining = "LOAD_DATA_TRAINING";
+
+export const loadFindDataUserDiaryExercise = "LOAD_DATA_EXDIARY";

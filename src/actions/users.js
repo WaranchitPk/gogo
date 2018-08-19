@@ -42,9 +42,10 @@ export const findName = () => {
       })
     } else {
       const userId = jwtDecode(localStorage.getItem('access-token')).userId;
+      const typeUser = jwtDecode(localStorage.getItem('access-token')).userType;
       dispatch({
         type: user_find_name,
-        payload: FetchData.get(`${path_API}/users/name/${userId}`)
+        payload: FetchData.get(`${path_API}/users/name/${userId}/${typeUser}`)
       })
     }
   }

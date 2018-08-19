@@ -31,6 +31,12 @@ const SideDrawer = ({ logout }) => (
       </ListItemIcon>
       <ListItemText primary="โภชนาการอาหาร"/>
     </ListItem>
+    <ListItem button component={Link} to='/ExerciseDiary/showData'>
+      <ListItemIcon>
+        <SendIcon/>
+      </ListItemIcon>
+      <ListItemText primary="บันทึกการออกกำลังกาย"/>
+    </ListItem>
     <ListItem button onClick={logout}>
       <ListItemIcon>
         <DraftsIcon/>

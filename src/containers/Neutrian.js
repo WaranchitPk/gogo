@@ -96,9 +96,7 @@ class Neutrian extends Component {
                 selected.slice(selectedIndex + 1),
             );
         }
-
         this.setState({selected: newSelected});
-
     };
 
     //submit show food

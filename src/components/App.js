@@ -16,7 +16,9 @@ import {
   PromotionContainer,
   CalculatorContainer,
   NeutrianContainer,
-  ExerciseDiaryContainer
+  ExerciseDiaryContainer,
+  EmployeeShowUserForChooseContainer,
+  EmployeeShowUserTrainingContainer
 } from '../containers';
 
 import {
@@ -50,6 +52,11 @@ const App = () => (
 
     <Route path='/calculator' component={CalculatorContainer}/>
     {/*Private Route*/}
+
+    {/*Employee*/}
+    {/*show User*/}
+    <Route path='/employee/showUser' component={Authenticate(EmployeeShowUserForChooseContainer)}/>
+    <Route path='/employee/showUserTraining' component={Authenticate(EmployeeShowUserTrainingContainer)}/>
     {/*Profile*/}
     <Route path='/Profile' component={Authenticate(ProfileContainer)}/>
     <Route path='/register' component={Authenticate(RegisterContainer)}/>

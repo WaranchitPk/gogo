@@ -13,12 +13,13 @@ import { connect } from 'react-redux';
 import { Logout } from '../../actions/authen';
 import { findName } from '../../actions/users';
 import { withRouter } from 'react-router-dom';
-import {HeaderStyleJs} from '../../style_js';
+import { HeaderStyleJs } from '../../style_js';
 
 import {
   Exercise_calculate,
   AdminHeader,
-  MemberHeader
+  MemberHeader,
+  EmployeeHeader
 } from '../';
 
 const styles = {
@@ -29,6 +30,68 @@ const styles = {
     flex: 1,
   },
 };
+
+const ShowForUse = ({
+  type,
+  styles,
+  onLogout,
+  isOpen,
+  stateOpen,
+  isClose,
+  openDrawer,
+  closeDrawer,
+  isOpenDrawer,
+  isOpenListNestedIncome,
+  onClickOpenNestedIncome,
+  name
+}) => {
+  if (type === 1) {
+    return (
+      <AdminHeader
+        styles={styles}
+        onLogout={onLogout}
+        isOpen={isOpen}
+        stateOpen={stateOpen}
+        isClose={isClose}
+        openDrawer={openDrawer}
+        closeDrawer={closeDrawer}
+        isOpenDrawer={isOpenDrawer}
+        isOpenListNestedIncome={isOpenListNestedIncome}
+        onClickOpenNestedIncome={onClickOpenNestedIncome}/>
+
+    )
+  } else if (type === 2) {
+    return (
+      <EmployeeHeader
+        styles={styles}
+        onLogout={onLogout}
+        isOpen={isOpen}
+        stateOpen={stateOpen}
+        isClose={isClose}
+        name={name}
+        openDrawer={openDrawer}
+        closeDrawer={closeDrawer}
+        isOpenDrawer={isOpenDrawer}/>
+    )
+  } else if (type === 3) {
+    return (
+      <MemberHeader
+        styles={styles}
+        onLogout={onLogout}
+        isOpen={isOpen}
+        stateOpen={stateOpen}
+        isClose={isClose}
+        name={name}
+        openDrawer={openDrawer}
+        closeDrawer={closeDrawer}
+        isOpenDrawer={isOpenDrawer}/>
+    )
+  } else {
+    return (
+      <h1>4</h1>
+    )
+  }
+}
 
 class Header extends Component {
   state = {
@@ -70,7 +133,7 @@ class Header extends Component {
 
   render() {
     const { checkIsLogin, token, name } = this.props;
-    const { anchorEl, isOpenDrawer,open } = this.state;
+    const { anchorEl, isOpenDrawer, open } = this.state;
     return (
       <div style={styles.root}>
         {
@@ -96,6 +159,7 @@ class Header extends Component {
   }
 }
 
+
 const Login = ({
   onLogout,
   name,
@@ -109,31 +173,22 @@ const Login = ({
   isOpenListNestedIncome,
   onClickOpenNestedIncome
 }) => {
+
   return (
     <div style={styles.root}>
-      {
-        type === 1 ? <AdminHeader
-            styles={styles}
-            onLogout={onLogout}
-            isOpen={isOpen}
-            stateOpen={stateOpen}
-            isClose={isClose}
-            openDrawer={openDrawer}
-            closeDrawer={closeDrawer}
-            isOpenDrawer={isOpenDrawer}
-            isOpenListNestedIncome={isOpenListNestedIncome}
-            onClickOpenNestedIncome={onClickOpenNestedIncome}/>
-          : <MemberHeader
-            styles={styles}
-            onLogout={onLogout}
-            isOpen={isOpen}
-            stateOpen={stateOpen}
-            isClose={isClose}
-            name={name}
-            openDrawer={openDrawer}
-            closeDrawer={closeDrawer}
-            isOpenDrawer={isOpenDrawer}/>
-      }
+      <ShowForUse
+        type={type}
+        styles={styles}
+        onLogout={onLogout}
+        isOpen={isOpen}
+        stateOpen={stateOpen}
+        isClose={isClose}
+        openDrawer={openDrawer}
+        closeDrawer={closeDrawer}
+        isOpenDrawer={isOpenDrawer}
+        isOpenListNestedIncome={isOpenListNestedIncome}
+        onClickOpenNestedIncome={onClickOpenNestedIncome}
+        name={name}/>
     </div>
   )
 };
@@ -156,9 +211,9 @@ class NotLogin extends Component {
             </Button>
             <Button color="inherit" component={Link} to='/pricing'>ค่าใช้จ่าย</Button>
             {/*<Exercise_calculate*/}
-              {/*isOpen={isOpen}*/}
-              {/*stateOpen={stateOpen}*/}
-              {/*isClose={isClose}/>*/}
+            {/*isOpen={isOpen}*/}
+            {/*stateOpen={stateOpen}*/}
+            {/*isClose={isClose}/>*/}
             <Button variant="outlined" color="inherit" component={Link} to='/login'>เข้าสู่ระบบ</Button>
           </Toolbar>
         </AppBar>
