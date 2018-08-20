@@ -147,5 +147,18 @@ export const updateAllDataEmployee = (body, id, dispatch,userId) => {
       dispatch(FindDaraExcerciseDiary(userId))
     })
   }
-
+};
+export const createDataUserData = (body, dispatch,userId) => {
+  if (localStorage.getItem('access-token') === null) {
+    return '';
+  } else {
+    const userType = jwtDecode(localStorage.getItem('access-token')).userType;
+    axios.post(`${path_API}/exercise_Diary`, {
+      ...body,
+      userId: userId,
+      userType: userType
+    }).then(() => {
+      dispatch(FindDaraExcerciseDiary(userId))
+    })
+  }
 };

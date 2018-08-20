@@ -5,8 +5,28 @@ import ButtonBase from '@material-ui/core/ButtonBase';
 import Typography from '@material-ui/core/Typography';
 import Banner from '../asset/banner.jpg';
 import { withStyles } from '@material-ui/core/styles';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import Carousel from 'nuka-carousel';
+import Img1 from '../asset/home/slide/1.jpg'
+import Img2 from '../asset/home/slide/2.jpg'
+import Img3 from '../asset/home/slide/3.jpg'
+import Img4 from '../asset/home/slide/4.jpg'
+import Img5 from '../asset/home/slide/5.jpg'
+import Img6 from '../asset/home/slide/6.jpg'
+import Img7 from '../asset/home/slide/7.jpg'
+import Img8 from '../asset/home/slide/8.jpg'
+import Img9 from '../asset/home/slide/9.jpg'
+import Img10 from '../asset/home/slide/10.jpg'
+
+import {
+  Card,
+  Divider,
+  List,
+  ListItem,
+  ListItemText
+} from '@material-ui/core';
 import Slider from "react-slick";
+
 const styles = theme => ({
   root: {
     display: 'flex',
@@ -16,10 +36,10 @@ const styles = theme => ({
   },
   image: {
     position: 'relative',
-    height: 200,
+    height: 400,
     [theme.breakpoints.down('xs')]: {
       width: '100% !important', // Overrides inline-style
-      height: 100,
+      height: 300,
     },
     '&:hover, &$focusVisible': {
       zIndex: 1,
@@ -78,7 +98,34 @@ const styles = theme => ({
     left: 'calc(50% - 9px)',
     transition: theme.transitions.create('opacity'),
   },
+  hobbie: {
+    marginTop: theme.spacing.unit * 4,
+  },
+  imageOrther: {
+    position: 'relative',
+    height: 200,
+    [theme.breakpoints.down('xs')]: {
+      width: '100% !important', // Overrides inline-style
+      height: 300,
+    },
+    '&:hover, &$focusVisible': {
+      zIndex: 1,
+      '& $imageBackdrop': {
+        opacity: 0.15,
+      },
+      '& $imageMarked': {
+        opacity: 0,
+      },
+      '& $imageTitle': {
+        border: '4px solid currentColor',
+      },
+    },
+  },
+  fontTitle: {
+    fontFamily: 'monospace',
+  }
 });
+
 const settings = {
   dots: true,
   infinite: true,
@@ -93,61 +140,127 @@ const Home = ({
 }) => {
   return (
     <div>
-      <Slider {...settings}>
-        <div>
-          <h3>1</h3>
-        </div>
-        <div>
-          <h3>2</h3>
-        </div>
-        <div>
-          <h3>3</h3>
-        </div>
-        <div>
-          <h3>4</h3>
-        </div>
-        <div>
-          <h3>5</h3>
-        </div>
-        <div>
-          <h3>6</h3>
-        </div>
-      </Slider>
-      {/*<ButtonBase*/}
-        {/*focusRipple*/}
-        {/*className={classes.image}*/}
-        {/*focusVisibleClassName={classes.focusVisible}*/}
-        {/*component={Link}*/}
-        {/*to='/calculator'*/}
-        {/*style={{*/}
-          {/*width: '600px',*/}
-        {/*}}>*/}
-          {/*<span*/}
-            {/*className={classes.imageSrc}*/}
-            {/*style={{*/}
-              {/*backgroundImage: `url(${Banner})`,*/}
-            {/*}}*/}
-          {/*/>*/}
-        {/*<span className={classes.imageBackdrop}/>*/}
-        {/*<span className={classes.imageButton}>*/}
-            {/*<Typography*/}
-              {/*component="span"*/}
-              {/*variant="display2"*/}
-              {/*color="inherit"*/}
-              {/*className={classes.imageTitle}*/}
-            {/*>*/}
-              {/*คำนวณค่าต่างๆ*/}
-              {/*<span className={classes.imageMarked}/>*/}
-            {/*</Typography>*/}
-          {/*</span>*/}
-      {/*</ButtonBase>*/}
-      {/*<Grid container>*/}
-        {/*<Grid item xs={12} sm={12}>*/}
-          {/*<img src={Banner} alt="" style={styles.img}/>*/}
-        {/*</Grid>*/}
-      {/*</Grid>*/}
+      <Grid container>
+        <Grid item xs={12} sm={12}>
+          <div className={classes.image}>
+          <span
+            className={classes.imageSrc}
+            style={{
+              backgroundImage: `url(${Banner})`,
+            }}/>
+            <span className={classes.imageBackdrop}/>
+            <span className={classes.imageButton}>
+            <Typography
+              component="span"
+              variant="display3"
+              color="inherit"
+              className={classes.imageTitle}>
+              GO-GYM
+              <span className={classes.imageMarked}/>
+            </Typography>
+          </span>
+          </div>
+        </Grid>
+      </Grid>
+      {/*hobbies*/} <Divider className={classes.hobbie}/>
+      <List>
+        <ListItem>
+          <ListItemText>
+            <Typography variant="display1" color="textSecondary" classes={classes.fontTitle}>ภาพกิจกรรมต่างๆ ภายในยิม</Typography>
+          </ListItemText>
+        </ListItem>
+        <ListItem>
+          <Grid container justify="center">
+            <Carousel
+              autoplay={true}
+              autoplayInterval={3000}
+              width="600px">
+              <img src={Img1} />
+              <img src={Img2} />
+              <img src={Img3} />
+              <img src={Img4} />
+              <img src={Img5} />
+              <img src={Img6} />
+              <img src={Img7} />
+              <img src={Img8} />
+              <img src={Img9} />
+              <img src={Img10} />
+            </Carousel>
+          </Grid>
+        </ListItem>
+      </List>
+      <Divider className={classes.hobbie}/>
+      <List>
+        <ListItem>
+          <ListItemText>
+            <Typography variant="display1" color="textSecondary" classes={classes.fontTitle}>อื่นๆ</Typography>
+          </ListItemText>
+        </ListItem>
+        <ListItem>
+          <Grid container justify="center" spacing={40}>
+            <Grid item>
+              <ButtonBase
+                focusRipple
+                className={classes.imageOrther}
+                focusVisibleClassName={classes.focusVisible}
+                component={Link}
+                to='/calculator'
+                style={{
+                  width: '600px',
+                }}>
+              <span
+                className={classes.imageSrc}
+                style={{
+                  backgroundImage: `url(${Img10})`,
+                }}/>
+                <span className={classes.imageBackdrop}/>
+                <span className={classes.imageButton}>
+              <Typography
+                component="span"
+                variant="display2"
+                color="inherit"
+                className={classes.imageTitle}>
+              คำนวณค่าต่างๆ
+              <span className={classes.imageMarked}/>
+              </Typography>
+              </span>
+              </ButtonBase>
+            </Grid>
+            <Grid item>
+              <ButtonBase
+                focusRipple
+                className={classes.imageOrther}
+                focusVisibleClassName={classes.focusVisible}
+                component={Link}
+                to='/pricing'
+                style={{
+                  width: '600px',
+                }}>
+                <span
+                  className={classes.imageSrc}
+                  style={{
+                    backgroundImage: `url(${Img5})`,
+                  }}/>
+                <span className={classes.imageBackdrop}/>
+                <span className={classes.imageButton}>
+                <Typography
+                  component="span"
+                  variant="display2"
+                  color="inherit"
+                  className={classes.imageTitle}>
+                ค่าใช้จ่ายต่างๆ
+                <span className={classes.imageMarked}/>
+                </Typography>
+                </span>
+              </ButtonBase>
+            </Grid>
+          </Grid>
+        </ListItem>
+      </List>
+      <Divider/>
     </div>
   );
 };
+
 
 export default withStyles(styles)(withRouter(Home))

@@ -11,6 +11,7 @@
     "jwt-decode": "^2.2.0",
     "material-ui-pickers": "^1.0.0-rc.10",
     "moment": "^2.22.2",
+    "nuka-carousel": "^4.3.6",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-dropzone": "^4.2.13",

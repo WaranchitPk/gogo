@@ -30,9 +30,12 @@ export const createData = (body, dispatch) => {
     return '';
   } else {
     const userId = jwtDecode(localStorage.getItem('access-token')).userId;
+    const userType = jwtDecode(localStorage.getItem('access-token')).userType;
+
     axios.post(`${path_API}/exercise_Diary`, {
       ...body,
-      userId: userId
+      userId: userId,
+      userType: userType
     }).then(() => {
       dispatch(loadAllData())
     })

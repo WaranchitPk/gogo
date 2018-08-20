@@ -19,11 +19,22 @@ import {
   ExpansionPanelSummary,
   ExpansionPanelDetails,
   Paper,
-  Divider
+  Divider,
+  Dialog,
+  AppBar,
+  Toolbar,
+  IconButton,
+  List,
+  ListItem,
+  ListItemText
 } from "@material-ui/core";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { Link } from 'react-router-dom';
-
+import { CalculatorComponent } from "./index";
+import CloseIcon from "@material-ui/icons/Close";
+import MainThin from './CalculateExercise/thin/mainThin'
+import MainSmart from './CalculateExercise/smart/mainSmart'
+import MainFat from './CalculateExercise/fat/mainFat'
 const styles = {
   buttonBlue: {
     background: 'linear-gradient(45deg, #2196F3 30%, #21CBF3 90%)',
@@ -49,6 +60,27 @@ const styles = {
     marginTop: '5%'
   }
 };
+const ExerciseRecomend = ({ bmi }) => {
+  if (bmi < 18.5) {
+    return (
+      <div>
+        <MainThin />
+      </div>
+    )
+  } else if (bmi >= 18.5 && bmi <= 22.9) {
+    return (
+      <div>
+        <MainSmart />
+      </div>
+    )
+  } else if (bmi >= 23.0) {
+    return (
+      <div>
+        <MainFat />
+      </div>
+    )
+  }
+};
 const ShowCalculator = ({
   valueGender,
   onChangeInput,
@@ -58,7 +90,10 @@ const ShowCalculator = ({
   resultBmr,
   resultMhr,
   resultBmiData,
-  resultBmiStatus
+  resultBmiStatus,
+  isOpenDialogShowExercise,
+  onOpenDialogShowExercise,
+  onCloseDialogShowExercise,
 }) => {
   return (
     <div>
@@ -276,9 +311,43 @@ const ShowCalculator = ({
                       </Typography>
                     </ExpansionPanelDetails>
                   </ExpansionPanel>
+                  <ExpansionPanel>
+                    <ExpansionPanelSummary expandIcon={<ExpandMoreIcon/>}>
+                      <Typography variant="subheading" color="textSecondary">คำแนะนำ</Typography>
+                    </ExpansionPanelSummary>
+                    <ExpansionPanelDetails>
+                      <Typography variant='subheading'>
+                        <p>จากผลลัพธ์มวลร่างกายของคุณ หากคุณต้องการ</p>
+                        <p> - ฟิตหุ่น หรือลดไขมัน ให้คุณรับประทานอาหารหรืออื่นๆให้ได้ปริมาณแคลลอรี่
+                          = <b>{resultTdee - 500} แคลลอรี่ ต่อ วัน</b></p>
+                        <p> - เพิ่มน้ำหนัก หรือเพิ่มกล้ามเนื้อ ให้คุณรับประทานอาหารหรืออื่นๆให้ได้ปริมาณแคลลอรี่
+                          = <b>{resultTdee + 500} แคลลอรี่ ต่อ วัน</b></p>
+                        <p>หากคุณต้องการดูท่าออกกำลังกายพื้นฐานที่เหมาะสมกับมวลร่างกายของคุณ คลิก</p>
+                        <Button style={styles.buttonBlue} onClick={onOpenDialogShowExercise}>คลิก</Button>
+                      </Typography>
+                    </ExpansionPanelDetails>
+                  </ExpansionPanel>
                 </Card>
               </Grid>
             </Grid>
+            <Dialog
+              fullScreen
+              open={isOpenDialogShowExercise}
+              onClose={onCloseDialogShowExercise}>
+              <AppBar position="static">
+                <Toolbar>
+                  <IconButton color="inherit" onClick={onCloseDialogShowExercise}>
+                    <CloseIcon/>
+                  </IconButton>
+                  บักทึกการออกกำลังกายของผู้ใช้
+                </Toolbar>
+              </AppBar>
+              <List>
+                <ListItem>
+                  <ExerciseRecomend bmi={resultBmiData}/>
+                </ListItem>
+              </List>
+            </Dialog>
           </div>
         )
       }

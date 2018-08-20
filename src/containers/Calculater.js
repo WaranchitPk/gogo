@@ -19,12 +19,11 @@ class Calculator extends Component {
     weight: '',
     activity: '',
     resultBmr: '',
-    resultTdee: ''
+    resultTdee: '',
+    isOpenDialogShowExercise: false,
+    bmi: ''
   };
 
-  // componentDidMount(){
-  //   this.props.dispatch(unmountValueCal());
-  // }
   handleChangeInput = (event) => {
     this.setState({ [event.target.name]: event.target.value });
   };
@@ -46,9 +45,20 @@ class Calculator extends Component {
       dispatch(CalBMI(+height, +weight))
     }
   };
+  handleOpenDialogShowExercise = () => {
+    this.setState({
+      isOpenDialogShowExercise: true
+    })
+  };
+  handleCloseDialogShowExercise = () => {
+    this.setState({
+      isOpenDialogShowExercise: false
+    })
+  };
 
   render() {
     const { resultTDEE, resultMHR, resultBMI } = this.props;
+    const { isOpenDialogShowExercise } = this.state;
     let tdee = "";
     let bmr = "";
     let mhr = "";
@@ -77,7 +87,10 @@ class Calculator extends Component {
           resultBmr={bmr}
           resultMhr={mhr}
           resultBmiData={bmiData}
-          resultBmiStatus={bmiStatus}/>
+          resultBmiStatus={bmiStatus}
+          isOpenDialogShowExercise={isOpenDialogShowExercise}
+          onOpenDialogShowExercise={this.handleOpenDialogShowExercise}
+          onCloseDialogShowExercise={this.handleCloseDialogShowExercise}/>
       </div>
     );
   }

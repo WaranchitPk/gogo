@@ -201,7 +201,7 @@ class NotLogin extends Component {
       <div style={styles.root}>
         <AppBar position="static" style={HeaderStyleJs.AppBar}>
           <Toolbar>
-            <Typography variant="title" color="inherit" style={styles.flex}>
+            <Typography variant="title" color="inherit" style={styles.flex} component={Link} to="/">
               GO-GYM
             </Typography>
             <Button color="inherit" component={Link} to='/calculator'>

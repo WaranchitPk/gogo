@@ -34,6 +34,7 @@ import CloseIcon from '@material-ui/icons/Close';
 import Slide from "@material-ui/core/Slide";
 import moment from "moment";
 import { DatePicker } from "material-ui-pickers";
+import AddIcon from "@material-ui/icons/Add";
 
 const Transition = (props) => (
   <Slide direction="up" {...props} />
@@ -71,7 +72,8 @@ const UserTraining = ({
   isOpenDialogCreatedData,
   DialogCreatedDataOnClose,
   onSubmitUpdate,
-  onSubmitFormDiary
+  onSubmitFormDiary,
+  onOpenDialogFormCreateDataDiary
 }) => {
   return (
     <div>
@@ -136,6 +138,7 @@ const UserTraining = ({
           </ListItem>
         </List>
         <List>
+          <Button variant='fab' color="primary" onClick={onOpenDialogFormCreateDataDiary}><AddIcon/></Button>
           <Table>
             <TableHead component="tr">
               <TableCell component="th">วันที่ออกกำลังกาย</TableCell>
@@ -263,6 +266,10 @@ const UserTraining = ({
                 <FormControlLabel value="มา" control={<Radio/>} label="มา"/>
                 <FormControlLabel value="ไม่มา" control={<Radio/>} label="ไม่มา"/>
               </RadioGroup>
+            </FormControl>
+            <FormControl component='p' margin="normal" required fullWidth>
+              <TextField label="คำแนะนำของเทรนเนอร์" value={diaryRecomend} onChange={onChangeDataForm}
+                         name="diaryRecomend"/>
             </FormControl>
           </DialogContentText>
         </DialogContent>

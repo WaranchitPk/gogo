@@ -4,7 +4,8 @@ import {
   FindDataTraining,
   FindDaraExcerciseDiary,
   updateDataStatus,
-  updateAllDataEmployee
+  updateAllDataEmployee,
+  createDataUserData
 } from '../../actions/employees';
 import {
   EmployeeShowUserTraining,
@@ -23,7 +24,7 @@ class UserTraining extends Component {
     isOpenDialogFormUpdate: false,
     isOpenChangeStatus: false,
     isOpenDialogCreatedData: false,
-    diaryDate: '',
+    diaryDate: new Date(),
     diaryDetail: '',
     diaryRecomend: '',
     diaryStatus: '',
@@ -84,24 +85,29 @@ class UserTraining extends Component {
       isOpenChangeStatus: false
     })
   };
+  handleOpenDialogCreated = () => {
+    this.setState({
+      isOpenDialogCreatedData: true
+    })
+  };
   handleCloseDialogCreated = () => {
     this.setState({
-      isOpenDialogForm: false
+      isOpenDialogCreatedData: false
     })
   };
   handleSubmitUpdate = () => {
-    const { diaryStatus, idDiary,userId } = this.state;
+    const { diaryStatus, idDiary, userId } = this.state;
     const { dispatch } = this.props;
     const bodyStatus = {
       status: diaryStatus
     };
-    updateDataStatus(bodyStatus, idDiary, dispatch,userId);
+    updateDataStatus(bodyStatus, idDiary, dispatch, userId);
     this.setState({
       isOpenChangeStatus: false
     });
   };
   handleSubmitUpdateAllData = () => {
-    const { diaryDate, diaryDetail, idDiary,diaryRecomend,userId } = this.state;
+    const { diaryDate, diaryDetail, idDiary, diaryRecomend, userId } = this.state;
     const { dispatch } = this.props;
     this.setState({
       isOpenDialogFormUpdate: false
@@ -111,20 +117,21 @@ class UserTraining extends Component {
       details: diaryDetail,
       recomend: diaryRecomend
     };
-    updateAllDataEmployee(body, idDiary, dispatch,userId)
+    updateAllDataEmployee(body, idDiary, dispatch, userId)
   };
   handleSubmitFormDiary = () => {
-    const { diaryDate, diaryDetail, diaryStatus } = this.state;
+    const { diaryDate, diaryDetail, diaryStatus,diaryRecomend,userId } = this.state;
     const { dispatch } = this.props;
     this.setState({
-      isOpenDialogForm: false
+      isOpenDialogCreatedData: false
     });
     const body = {
       date: moment(diaryDate).format('YYYY-MM-DD'),
       status: diaryStatus,
       details: diaryDetail,
+      recomend: diaryRecomend
     };
-    createData(body, dispatch);
+    createDataUserData(body, dispatch,userId);
     // console.log(`date: ${diaryDate}, Detail: ${diaryDetail}, Status: ${diaryStatus}`)
   };
 
@@ -168,7 +175,8 @@ class UserTraining extends Component {
           isOpenDialogCreatedData={isOpenDialogCreatedData}
           DialogCreatedDataOnClose={this.handleCloseDialogCreated}
           onSubmitUpdate={this.handleSubmitUpdate}
-          onSubmitFormDiary={this.handleSubmitFormDiary}/>
+          onSubmitFormDiary={this.handleSubmitFormDiary}
+          onOpenDialogFormCreateDataDiary={this.handleOpenDialogCreated}/>
       </div>
     );
   }
