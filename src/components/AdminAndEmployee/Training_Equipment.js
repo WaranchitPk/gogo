@@ -11,21 +11,41 @@ import {
   Typography
 } from '@material-ui/core';
 import TabHome from './Training_Equipment/Home'
+import MachineForCate from './Training_Equipment/MachineForCategory';
+import { TrainingEquipmentComponent } from "../index";
 
 const styles = {
   root: {
     marginTop: '2%'
   }
 };
+
 const Training_Equipment = ({
   resultDataShowHome,
+  resultDataSumMachineInHome,
+  resultDataMachineForCate,
+  resultDataFullMachine,
   tabValue,
   onChangeTab,
   valueTableChangePageHome,
   valueTableChangeRowPerPageHome,
   changeTablePageHome,
   changeTableRowPerPageHome,
-  resultDataSumMachineInHome
+  clickShowFulldataMachine,
+  isOpenDialogFullDataMachine,
+  onCloseDialogFullDataMachine,
+  isOpenDialogAddMachine,
+  onOpenDialogAddMachine,
+  onCloseDialogAddMachine,
+  valueMachineName,
+  valueMachineBuyDate,
+  valueMachinePrice,
+  onChangeInputAddMachine,
+  onChangeDateAddMachine,
+  onImageDrop,
+  imgPreviewAddMachine,
+  loadingUpload,
+  onSubmitAddMachine
 }) => {
   return (
     <div>
@@ -55,11 +75,126 @@ const Training_Equipment = ({
               TableChangeRowPerPageHome={valueTableChangeRowPerPageHome}
               onTableChangePageHome={changeTablePageHome}
               onTableChangeRowPerPageHome={changeTableRowPerPageHome}/>}
-            {tabValue === 1 && (<h1>tab2</h1>)}
-            {tabValue === 2 && (<h1>tab3</h1>)}
-            {tabValue === 3 && (<h1>tab4</h1>)}
-            {tabValue === 4 && (<h1>tab5</h1>)}
-            {tabValue === 5 && (<h1>tab6</h1>)}
+            {tabValue === 1 && <MachineForCate
+              name="แขน"
+              dataMachine={resultDataMachineForCate}
+              dataFullMachine={resultDataFullMachine}
+              TableChangePageHome={valueTableChangePageHome}
+              TableChangeRowPerPageHome={valueTableChangeRowPerPageHome}
+              onTableChangePageHome={changeTablePageHome}
+              onTableChangeRowPerPageHome={changeTableRowPerPageHome}
+              onClickShowFullDataMachine={clickShowFulldataMachine}
+              isOpenDialogShowFullDataMachine={isOpenDialogFullDataMachine}
+              onCloseDialogShowFullDataMachine={onCloseDialogFullDataMachine}
+              isOpenDialogAddMachine={isOpenDialogAddMachine}
+              onOpenDialogAddMachine={onOpenDialogAddMachine}
+              onCloseDialogAddMachine={onCloseDialogAddMachine}
+              changeInput={onChangeInputAddMachine}
+              onChangeDateMachine={onChangeDateAddMachine}
+              machine_name={valueMachineName}
+              machine_BuyDate={valueMachineBuyDate}
+              machine_Price={valueMachinePrice}
+              onImageDrop={onImageDrop}
+              imgPreviewAddMachine={imgPreviewAddMachine}
+              onSubmitAddMachine={onSubmitAddMachine}
+              loadingUpload={loadingUpload}
+              cateMachine={1}/>}
+            {tabValue === 2 && <MachineForCate
+              name="อก"
+              dataMachine={resultDataMachineForCate}
+              dataFullMachine={resultDataFullMachine}
+              TableChangePageHome={valueTableChangePageHome}
+              TableChangeRowPerPageHome={valueTableChangeRowPerPageHome}
+              onTableChangePageHome={changeTablePageHome}
+              onTableChangeRowPerPageHome={changeTableRowPerPageHome}
+              onClickShowFullDataMachine={clickShowFulldataMachine}
+              isOpenDialogShowFullDataMachine={isOpenDialogFullDataMachine}
+              onCloseDialogShowFullDataMachine={onCloseDialogFullDataMachine}
+              isOpenDialogAddMachine={isOpenDialogAddMachine}
+              onOpenDialogAddMachine={onOpenDialogAddMachine}
+              onCloseDialogAddMachine={onCloseDialogAddMachine}
+              changeInput={onChangeInputAddMachine}
+              onChangeDateMachine={onChangeDateAddMachine}
+              machine_name={valueMachineName}
+              machine_BuyDate={valueMachineBuyDate}
+              machine_Price={valueMachinePrice}
+              onImageDrop={onImageDrop}
+              imgPreviewAddMachine={imgPreviewAddMachine}
+              onSubmitAddMachine={onSubmitAddMachine}
+              loadingUpload={loadingUpload}
+              cateMachine={2}/>}
+            {tabValue === 3 && <MachineForCate
+              name="ไหล่"
+              dataMachine={resultDataMachineForCate}
+              dataFullMachine={resultDataFullMachine}
+              TableChangePageHome={valueTableChangePageHome}
+              TableChangeRowPerPageHome={valueTableChangeRowPerPageHome}
+              onTableChangePageHome={changeTablePageHome}
+              onTableChangeRowPerPageHome={changeTableRowPerPageHome}
+              onClickShowFullDataMachine={clickShowFulldataMachine}
+              isOpenDialogShowFullDataMachine={isOpenDialogFullDataMachine}
+              onCloseDialogShowFullDataMachine={onCloseDialogFullDataMachine}
+              isOpenDialogAddMachine={isOpenDialogAddMachine}
+              onOpenDialogAddMachine={onOpenDialogAddMachine}
+              onCloseDialogAddMachine={onCloseDialogAddMachine}
+              changeInput={onChangeInputAddMachine}
+              onChangeDateMachine={onChangeDateAddMachine}
+              machine_name={valueMachineName}
+              machine_BuyDate={valueMachineBuyDate}
+              machine_Price={valueMachinePrice}
+              onImageDrop={onImageDrop}
+              imgPreviewAddMachine={imgPreviewAddMachine}
+              onSubmitAddMachine={onSubmitAddMachine}
+              loadingUpload={loadingUpload}
+              cateMachine={3}/>}
+            {tabValue === 4 && <MachineForCate
+              name="หลัง"
+              dataMachine={resultDataMachineForCate}
+              dataFullMachine={resultDataFullMachine}
+              TableChangePageHome={valueTableChangePageHome}
+              TableChangeRowPerPageHome={valueTableChangeRowPerPageHome}
+              onTableChangePageHome={changeTablePageHome}
+              onTableChangeRowPerPageHome={changeTableRowPerPageHome}
+              onClickShowFullDataMachine={clickShowFulldataMachine}
+              isOpenDialogShowFullDataMachine={isOpenDialogFullDataMachine}
+              onCloseDialogShowFullDataMachine={onCloseDialogFullDataMachine}
+              isOpenDialogAddMachine={isOpenDialogAddMachine}
+              onOpenDialogAddMachine={onOpenDialogAddMachine}
+              onCloseDialogAddMachine={onCloseDialogAddMachine}
+              changeInput={onChangeInputAddMachine}
+              onChangeDateMachine={onChangeDateAddMachine}
+              machine_name={valueMachineName}
+              machine_BuyDate={valueMachineBuyDate}
+              machine_Price={valueMachinePrice}
+              onImageDrop={onImageDrop}
+              imgPreviewAddMachine={imgPreviewAddMachine}
+              onSubmitAddMachine={onSubmitAddMachine}
+              loadingUpload={loadingUpload}
+              cateMachine={4}/>}
+            {tabValue === 5 && <MachineForCate
+              name="ลู่วิ่ง และ จักรยาน"
+              dataMachine={resultDataMachineForCate}
+              dataFullMachine={resultDataFullMachine}
+              TableChangePageHome={valueTableChangePageHome}
+              TableChangeRowPerPageHome={valueTableChangeRowPerPageHome}
+              onTableChangePageHome={changeTablePageHome}
+              onTableChangeRowPerPageHome={changeTableRowPerPageHome}
+              onClickShowFullDataMachine={clickShowFulldataMachine}
+              isOpenDialogShowFullDataMachine={isOpenDialogFullDataMachine}
+              onCloseDialogShowFullDataMachine={onCloseDialogFullDataMachine}
+              isOpenDialogAddMachine={isOpenDialogAddMachine}
+              onOpenDialogAddMachine={onOpenDialogAddMachine}
+              onCloseDialogAddMachine={onCloseDialogAddMachine}
+              changeInput={onChangeInputAddMachine}
+              onChangeDateMachine={onChangeDateAddMachine}
+              machine_name={valueMachineName}
+              machine_BuyDate={valueMachineBuyDate}
+              machine_Price={valueMachinePrice}
+              onImageDrop={onImageDrop}
+              imgPreviewAddMachine={imgPreviewAddMachine}
+              onSubmitAddMachine={onSubmitAddMachine}
+              loadingUpload={loadingUpload}
+              cateMachine={5}/>}
           </Paper>
         </Grid>
       </Grid>

@@ -22,15 +22,34 @@ import {
 import NeutrianCate from './Neutrians/showCate';
 import NeutrialFoods from './Neutrians/showFoods';
 import NeutrialSelectFoods from './Neutrians/showFoodFromSelect';
-import { loadData ,loadAllData,loadDataUserForChooseReducer,loadFindDataUserTrainingReducer,loadFindDataUserDiaryExerciseReducer} from './employees';
-import {DataIncome} from './incomes';
-import {DataExpenses,YearSelectExpenses,MonthSelectExpenses} from './expenses';
-import {loadPricingReducer,loadPromotionPriceReducer} from './home';
+import {
+  loadData,
+  loadAllData,
+  loadDataUserForChooseReducer,
+  loadFindDataUserTrainingReducer,
+  loadFindDataUserDiaryExerciseReducer
+} from './employees';
+import { DataIncome } from './incomes';
+import {
+  DataExpenses,
+  YearSelectExpenses,
+  MonthSelectExpenses
+} from './expenses';
+import {
+  loadPricingReducer,
+  loadPromotionPriceReducer
+} from './home';
 
 //training_equipment
-import {ShowDataInHomeReducer,ShowDataSumMachineInHomeReducer} from './trainingEquipment';
+import {
+  ShowDataInHomeReducer,
+  ShowDataSumMachineInHomeReducer,
+  ShowDataCateMachineInHomeReducer,
+  ShowDataFullMachineReducer
+} from './trainingEquipment';
 //ExerciseDiary
-import {ExerciseDiaryLoadAllData} from './exerciseDiary';
+import { ExerciseDiaryLoadAllData } from './exerciseDiary';
+
 const reducers = combineReducers({
   AuthenReducer,
   findUserData,
@@ -60,6 +79,8 @@ const reducers = combineReducers({
   loadFindDataUserTrainingReducer,
   loadFindDataUserDiaryExerciseReducer,
   ShowDataInHomeReducer,
-  ShowDataSumMachineInHomeReducer
+  ShowDataSumMachineInHomeReducer,
+  ShowDataCateMachineInHomeReducer,
+  ShowDataFullMachineReducer
 });
 export default reducers;

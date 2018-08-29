@@ -60,3 +60,5 @@ export const loadFindDataUserDiaryExercise = "LOAD_DATA_EXDIARY";
 //Training Equipment
 export const loadDataShowInHome = "LOAD_DATA_HOME";
 export const loadDataSumMachineInHome = "LOAD_DATA_SUM_MACHINE_HOME";
+export const loadDataForCategoryMachine = "LOAD_DATA_CATE_MACHINE";
+export const loadDataFullMachine = "LOAd_DATA_ALL_MACHINE";
