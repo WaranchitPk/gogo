@@ -45,7 +45,13 @@ const Training_Equipment = ({
   onImageDrop,
   imgPreviewAddMachine,
   loadingUpload,
-  onSubmitAddMachine
+  onSubmitAddMachine,
+  userType,
+  isOpenDialogStatusMachine,
+  onOpenDialogInformMachine,
+  onCloseDialogInformMachine,
+  valueMachineStatus,
+  onSubmitStatusMachine
 }) => {
   return (
     <div>
@@ -98,7 +104,13 @@ const Training_Equipment = ({
               imgPreviewAddMachine={imgPreviewAddMachine}
               onSubmitAddMachine={onSubmitAddMachine}
               loadingUpload={loadingUpload}
-              cateMachine={1}/>}
+              cateMachine={1}
+              userType={userType}
+              isOpenDialogChange={isOpenDialogStatusMachine}
+              onOpenDialogInformMachine={onOpenDialogInformMachine}
+              onCloseDialogInformMachine={onCloseDialogInformMachine}
+              valueMachineStatus={valueMachineStatus}
+              onSubmitStatusMachine={onSubmitStatusMachine}/>}
             {tabValue === 2 && <MachineForCate
               name="อก"
               dataMachine={resultDataMachineForCate}
@@ -122,7 +134,13 @@ const Training_Equipment = ({
               imgPreviewAddMachine={imgPreviewAddMachine}
               onSubmitAddMachine={onSubmitAddMachine}
               loadingUpload={loadingUpload}
-              cateMachine={2}/>}
+              cateMachine={2}
+              userType={userType}
+              isOpenDialogChange={isOpenDialogStatusMachine}
+              onOpenDialogInformMachine={onOpenDialogInformMachine}
+              onCloseDialogInformMachine={onCloseDialogInformMachine}
+              valueMachineStatus={valueMachineStatus}
+              onSubmitStatusMachine={onSubmitStatusMachine}/>}
             {tabValue === 3 && <MachineForCate
               name="ไหล่"
               dataMachine={resultDataMachineForCate}
@@ -146,7 +164,13 @@ const Training_Equipment = ({
               imgPreviewAddMachine={imgPreviewAddMachine}
               onSubmitAddMachine={onSubmitAddMachine}
               loadingUpload={loadingUpload}
-              cateMachine={3}/>}
+              cateMachine={3}
+              userType={userType}
+              isOpenDialogChange={isOpenDialogStatusMachine}
+              onOpenDialogInformMachine={onOpenDialogInformMachine}
+              onCloseDialogInformMachine={onCloseDialogInformMachine}
+              valueMachineStatus={valueMachineStatus}
+              onSubmitStatusMachine={onSubmitStatusMachine}/>}
             {tabValue === 4 && <MachineForCate
               name="หลัง"
               dataMachine={resultDataMachineForCate}
@@ -170,7 +194,13 @@ const Training_Equipment = ({
               imgPreviewAddMachine={imgPreviewAddMachine}
               onSubmitAddMachine={onSubmitAddMachine}
               loadingUpload={loadingUpload}
-              cateMachine={4}/>}
+              cateMachine={4}
+              userType={userType}
+              isOpenDialogChange={isOpenDialogStatusMachine}
+              onOpenDialogInformMachine={onOpenDialogInformMachine}
+              onCloseDialogInformMachine={onCloseDialogInformMachine}
+              valueMachineStatus={valueMachineStatus}
+              onSubmitStatusMachine={onSubmitStatusMachine}/>}
             {tabValue === 5 && <MachineForCate
               name="ลู่วิ่ง และ จักรยาน"
               dataMachine={resultDataMachineForCate}
@@ -194,7 +224,13 @@ const Training_Equipment = ({
               imgPreviewAddMachine={imgPreviewAddMachine}
               onSubmitAddMachine={onSubmitAddMachine}
               loadingUpload={loadingUpload}
-              cateMachine={5}/>}
+              cateMachine={5}
+              userType={userType}
+              isOpenDialogChange={isOpenDialogStatusMachine}
+              onOpenDialogInformMachine={onOpenDialogInformMachine}
+              onCloseDialogInformMachine={onCloseDialogInformMachine}
+              valueMachineStatus={valueMachineStatus}
+              onSubmitStatusMachine={onSubmitStatusMachine}/>}
           </Paper>
         </Grid>
       </Grid>

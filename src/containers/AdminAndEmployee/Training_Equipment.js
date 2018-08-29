@@ -5,7 +5,9 @@ import {
   DaTaSumMachineInHome,
   DataCateMachine,
   DataFullMachine,
-  CreateDataMachine
+  CreateDataMachine,
+  showStatusMachine,
+  updateStatusMachine
 } from '../../actions/trainingEquipment';
 import { TrainingEquipmentComponent } from '../../components';
 import picDummy from '../../asset/dummy.jpg'
@@ -24,12 +26,16 @@ class Training_Equipment extends Component {
     page: 0,
     isOpenDialogShowFullDataMachine: false,
     isOpenDialogAddMachine: false,
+    isOpenDialogChangeStatusMachine: false,
     machine_name: '',
     machine_BuyDate: new Date(),
     machine_Price: '',
+    machine_status: '',
     uploadedFile: null,
     imgPreview: picDummy,
     loadingUpload: null,
+    idMachine: '',
+    cate_id: ''
   };
 
   componentDidMount() {
@@ -137,9 +143,9 @@ class Training_Equipment extends Component {
   handleSubmitAddMachine = (cate) => {
     const { machine_name, machine_BuyDate, machine_Price } = this.state;
     const { dispatch } = this.props;
-    this.uploadImg(machine_name, machine_BuyDate, machine_Price, cate,dispatch)
+    this.uploadImg(machine_name, machine_BuyDate, machine_Price, cate, dispatch)
   };
-  uploadImg = (machine_name, machine_BuyDate, machine_Price, cate,dispatch) => {
+  uploadImg = (machine_name, machine_BuyDate, machine_Price, cate, dispatch) => {
     this.setState({
       loadingUpload: false
     });
@@ -161,23 +167,55 @@ class Training_Equipment extends Component {
           pic: `${response.body.public_id}.jpg`
         };
         CreateDataMachine(bodyData).then(result => {
-          console.log(result);
-          dispatch(DataCateMachine(cate))
+          dispatch(DataCateMachine(cate));
           this.setState({
-            isOpenDialogAddMachine: false
+            isOpenDialogAddMachine: false,
+            loadingUpload: true
           })
         })
-        this.setState({
-          loadingUpload: true
-        });
       }
     })
   };
+  //handle Open Dialog Change
+  handleOpenDialogChangeInformMachine = (id) => {
+    this.setState({
+      isOpenDialogChangeStatusMachine: true,
+      idMachine: id
+    });
+    showStatusMachine(id).then((value) => {
+      console.log(value)
+      this.setState({
+        machine_status: value.data.result[0].trainingEquipment_status
+      });
+      // console.log(value.data.result[0].trainingEquipment_status);
+    });
+  };
+  handleCloseDialogChangeInformMachine = () => {
+    this.setState({
+      isOpenDialogChangeStatusMachine: false
+    })
+  };
+  //submit status machine
+  handleSubmitStatusMachine = (cate) => {
+    const { idMachine, machine_status } = this.state;
+    const { dispatch } = this.props;
+    console.log(cate)
+    const bodyData = {
+      status: machine_status
+    }
+    updateStatusMachine(idMachine, bodyData).then(result => {
+      console.log(result)
+      dispatch(DataCateMachine(cate));
+      this.setState({
+        isOpenDialogChangeStatusMachine: false
+      })
+    })
+  }
 
   render() {
     // console.log(this.props.dataInHome);
-    const { dataInHome, dataSumMachineInHome, dataForCateMachine, dataFullMachine } = this.props;
-    const { tabChange, page, rowsPerPage, isOpenDialogShowFullDataMachine, isOpenDialogAddMachine, machine_name, machine_BuyDate, machine_Price, imgPreview, loadingUpload } = this.state;
+    const { dataInHome, dataSumMachineInHome, dataForCateMachine, dataFullMachine, token } = this.props;
+    const { tabChange, page, rowsPerPage, isOpenDialogShowFullDataMachine, isOpenDialogAddMachine, machine_name, machine_BuyDate, machine_Price, imgPreview, loadingUpload, isOpenDialogChangeStatusMachine, machine_status } = this.state;
     let resultDataShowInHome = [];
     let resultDataSumMachineInHome = [];
     let resultDataMachineForCate = [];
@@ -221,7 +259,13 @@ class Training_Equipment extends Component {
           onImageDrop={this.onImageDrop}
           imgPreviewAddMachine={imgPreview}
           onSubmitAddMachine={this.handleSubmitAddMachine}
-          loadingUpload={loadingUpload}/>
+          loadingUpload={loadingUpload}
+          userType={token.userType}
+          isOpenDialogStatusMachine={isOpenDialogChangeStatusMachine}
+          onOpenDialogInformMachine={this.handleOpenDialogChangeInformMachine}
+          onCloseDialogInformMachine={this.handleCloseDialogChangeInformMachine}
+          valueMachineStatus={machine_status}
+          onSubmitStatusMachine={this.handleSubmitStatusMachine}/>
       </div>
     );
   }
@@ -232,7 +276,8 @@ const mapStateToProps = (state) => (
     dataInHome: state.ShowDataInHomeReducer.data,
     dataSumMachineInHome: state.ShowDataSumMachineInHomeReducer.data,
     dataForCateMachine: state.ShowDataCateMachineInHomeReducer.data,
-    dataFullMachine: state.ShowDataFullMachineReducer.data
+    dataFullMachine: state.ShowDataFullMachineReducer.data,
+    token: state.AuthenReducer.token,
   }
 );
 export default connect(mapStateToProps)(Training_Equipment);

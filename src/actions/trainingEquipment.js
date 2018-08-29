@@ -48,3 +48,12 @@ export const CreateDataMachine = (body) =>{
     ...body
   })
 };
+export const showStatusMachine = (id) =>{
+  return axios.get(`${path_API}/training_equipment/statusMachine/${id}`)
+};
+
+export const updateStatusMachine = (id,body) => {
+  return axios.put(`${path_API}/training_equipment/statusMachine/${id}`,{
+    ...body
+  })
+}

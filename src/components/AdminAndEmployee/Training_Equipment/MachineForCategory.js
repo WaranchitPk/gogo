@@ -30,12 +30,12 @@ import {
 } from "@material-ui/core";
 import SearchIcon from '@material-ui/icons/Search';
 import AddIcon from '@material-ui/icons/Add';
+import Config from '@material-ui/icons/ChangeHistory'
 import moment from "moment";
 import { showImgTraining_equip } from '../../../config';
 import DialogShowFullData from './MachineForCate/DialogShowFullData'
 import { DatePicker } from "material-ui-pickers";
 import Dropzone from 'react-dropzone';
-import picDummy from '../../../asset/dummy.jpg'
 import purple from "@material-ui/core/colors/purple";
 
 const Transition = (props) => (
@@ -89,7 +89,13 @@ const MachineForCategory = ({
   imgPreviewAddMachine,
   loadingUpload,
   onSubmitAddMachine,
-  cateMachine
+  cateMachine,
+  userType,
+  isOpenDialogChange,
+  onOpenDialogInformMachine,
+  onCloseDialogInformMachine,
+  valueMachineStatus,
+  onSubmitStatusMachine
 }) => {
   return (
     <div>
@@ -130,6 +136,14 @@ const MachineForCategory = ({
                                 onClick={() => onClickShowFullDataMachine(value.trainingEquipment_id)}>
                           <SearchIcon/>
                         </Button>
+                        {
+                          userType === 1 ? (
+                            <Button variant="fab" mini color="secondary"
+                                    onClick={() => onOpenDialogInformMachine(value.trainingEquipment_id)}>
+                              <Config/>
+                            </Button>
+                          ) : ""
+                        }
                       </TableCell>
                     </TableRow>
                   ))
@@ -221,16 +235,47 @@ const MachineForCategory = ({
         </DialogContent>
         <DialogActions>
           <Button onClick={onCloseDialogAddMachine} color="primary">
-            Disagree
+            ยกเลิก
           </Button>
           <Button onClick={() => onSubmitAddMachine(cateMachine)} color="primary">
-            Agree
+            ตกลง
           </Button>
           {
             loadingUpload === false && (
               <CircularProgress style={{ color: purple[500] }} thickness={7}/>
             )
           }
+        </DialogActions>
+      </Dialog>
+      {/*Change Inform Status Machine*/}
+      <Dialog
+        open={isOpenDialogChange}
+        onClose={onCloseDialogInformMachine}
+        TransitionComponent={Transition}>
+        <DialogTitle>
+          แก้ไขสถานะเครื่องเล่น
+        </DialogTitle>
+        <Divider/>
+        <DialogContent>
+          <DialogContentText>
+            <FormGroup row>
+              <RadioGroup
+                name="machine_status"
+                value={valueMachineStatus}
+                onChange={changeInput}>
+                <FormControlLabel value="พร้อมใช้งาน" control={<Radio/>} label="พร้อมใช้งาน"/>
+                <FormControlLabel value="ไม่พร้อมใช้งาน" control={<Radio/>} label="ไม่พร้อมใช้"/>
+              </RadioGroup>
+            </FormGroup>
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={onCloseDialogInformMachine} color="primary">
+            ยกเลิก
+          </Button>
+          <Button onClick={() => onSubmitStatusMachine(cateMachine)} color="primary">
+            ตกลง
+          </Button>
         </DialogActions>
       </Dialog>
     </div>
