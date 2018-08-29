@@ -18,7 +18,8 @@ import {
   NeutrianContainer,
   ExerciseDiaryContainer,
   EmployeeShowUserForChooseContainer,
-  EmployeeShowUserTrainingContainer
+  EmployeeShowUserTrainingContainer,
+  TrainingEquipmentContainer
 } from '../containers';
 
 import {
@@ -64,6 +65,7 @@ const App = () => (
     <Route path="/neutrian" component={Authenticate(NeutrianContainer)}/>
     {/* History */}
     <Route path='/history' component={Authenticate(HistoryContainer)}/>
+    <Route path='/TrainingEquipment' component={Authenticate(TrainingEquipmentContainer)}/>
     {/*Admin Route*/}
     <Route path='/admin/neutrian' component={Authenticate(AdminNeutrianContainer)}/>
     <Route path='/admin/employee' component={Authenticate(AdminEmployeeContainer)}/>

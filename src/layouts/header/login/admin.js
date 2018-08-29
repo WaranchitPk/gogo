@@ -24,7 +24,7 @@ const admin = ({
 }) => {
   return (
     <div style={styles.root}>
-      <AppBar position="fixed" style={HeaderStyleJs.AppBar}>
+      <AppBar position="static" style={HeaderStyleJs.AppBar}>
         <Toolbar>
           <Typography variant="title" color="inherit" style={styles.flex} component={Link} to='/'>
             GO-GYM

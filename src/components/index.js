@@ -30,3 +30,5 @@ export {default as ExerciseDiaryComponent} from './ExerciseDiary';
 
 export {default as EmployeeShowAllUser} from './Employee/ShowAllUser';
 export {default as EmployeeShowUserTraining} from './Employee/ShowUserTraining';
+
+export {default as TrainingEquipmentComponent} from './AdminAndEmployee/Training_Equipment'

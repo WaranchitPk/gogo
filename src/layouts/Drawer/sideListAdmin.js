@@ -72,6 +72,12 @@ const SideDrawerLogin = ({
         </ListItem>
       </List>
     </Collapse>
+    <ListItem button component={Link} to='/TrainingEquipment'>
+      <ListItemIcon>
+        <SendIcon/>
+      </ListItemIcon>
+      <ListItemText primary="จัดการเครื่องเล่น"/>
+    </ListItem>
     <ListItem button onClick={logout}>
       <ListItemIcon>
         <DraftsIcon/>

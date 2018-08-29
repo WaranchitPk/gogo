@@ -56,3 +56,7 @@ export const loadDataUserForChoose = 'LOAD_DATA_USER_CHOOSE';
 export const loadFindDataUserTraining = "LOAD_DATA_TRAINING";
 
 export const loadFindDataUserDiaryExercise = "LOAD_DATA_EXDIARY";
+
+//Training Equipment
+export const loadDataShowInHome = "LOAD_DATA_HOME";
+export const loadDataSumMachineInHome = "LOAD_DATA_SUM_MACHINE_HOME";

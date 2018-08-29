@@ -27,6 +27,8 @@ import {DataIncome} from './incomes';
 import {DataExpenses,YearSelectExpenses,MonthSelectExpenses} from './expenses';
 import {loadPricingReducer,loadPromotionPriceReducer} from './home';
 
+//training_equipment
+import {ShowDataInHomeReducer,ShowDataSumMachineInHomeReducer} from './trainingEquipment';
 //ExerciseDiary
 import {ExerciseDiaryLoadAllData} from './exerciseDiary';
 const reducers = combineReducers({
@@ -56,6 +58,8 @@ const reducers = combineReducers({
   ExerciseDiaryLoadAllData,
   loadDataUserForChooseReducer,
   loadFindDataUserTrainingReducer,
-  loadFindDataUserDiaryExerciseReducer
+  loadFindDataUserDiaryExerciseReducer,
+  ShowDataInHomeReducer,
+  ShowDataSumMachineInHomeReducer
 });
 export default reducers;
