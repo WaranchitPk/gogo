@@ -202,15 +202,14 @@ class Training_Equipment extends Component {
     console.log(cate)
     const bodyData = {
       status: machine_status
-    }
+    };
     updateStatusMachine(idMachine, bodyData).then(result => {
-      console.log(result)
       dispatch(DataCateMachine(cate));
       this.setState({
         isOpenDialogChangeStatusMachine: false
       })
     })
-  }
+  };
 
   render() {
     // console.log(this.props.dataInHome);

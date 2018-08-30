@@ -28,13 +28,13 @@ const employee = ({
     <div style={styles.root}>
       <AppBar position="static">
         <Toolbar>
-          <Typography variant="title" color="inherit" style={styles.flex}>
+          <Typography variant="title" color="inherit" style={styles.flex} component={Link} to='/'>
             GO-GYM
           </Typography>
           <Toolbar>
-            <Typography variant="title" color="inherit" style={styles.flex}>
-              GO-GYM
-            </Typography>
+            {/*<Typography variant="title" color="inherit" style={styles.flex}>*/}
+              {/*GO-GYM*/}
+            {/*</Typography>*/}
 
 
           </Toolbar>
