@@ -17,7 +17,9 @@ import {
   CLOUDINARY_UPLOAD_PRESET_Training_Equipment,
   CLOUDINARY_UPLOAD_URL
 } from "../../config";
-import { updateData } from "../../actions/users";
+import {
+  findName
+} from "../../actions/users";
 
 class Training_Equipment extends Component {
   state = {
@@ -41,7 +43,8 @@ class Training_Equipment extends Component {
   componentDidMount() {
     const { dispatch } = this.props;
     dispatch(DataInHome());
-    dispatch(DaTaSumMachineInHome())
+    dispatch(DaTaSumMachineInHome());
+    this.props.dispatch(findName());
   }
 
   //change tabs
@@ -113,8 +116,13 @@ class Training_Equipment extends Component {
   // Button Open Dialog Add Machine
   handleOpenDialogAddMachine = () => {
     this.setState({
-      isOpenDialogAddMachine: true
-    })
+      isOpenDialogAddMachine: true,
+      machine_name: '',
+      machine_BuyDate: new Date(),
+      machine_Price: '',
+      uploadedFile: null,
+      imgPreview: picDummy,
+    });
   };
   // Button Close Dialog Add Machine
   handleCloseDialogAddMachine = () => {
@@ -142,10 +150,18 @@ class Training_Equipment extends Component {
   //handleSubmit form ADd machine
   handleSubmitAddMachine = (cate) => {
     const { machine_name, machine_BuyDate, machine_Price } = this.state;
-    const { dispatch } = this.props;
-    this.uploadImg(machine_name, machine_BuyDate, machine_Price, cate, dispatch)
+    const { dispatch, token: { userType }, name: { data: { fullName } } } = this.props;
+    // console.log(userType);
+    // console.log(fullName);
+    let created_by = "";
+    if (userType === 1) {
+      created_by = "admin"
+    } else if (userType === 2) {
+      created_by = fullName
+    }
+    this.uploadImg(machine_name, machine_BuyDate, machine_Price, cate, dispatch,created_by)
   };
-  uploadImg = (machine_name, machine_BuyDate, machine_Price, cate, dispatch) => {
+  uploadImg = (machine_name, machine_BuyDate, machine_Price, cate, dispatch, created_by) => {
     this.setState({
       loadingUpload: false
     });
@@ -163,7 +179,7 @@ class Training_Equipment extends Component {
           price: machine_Price,
           status: "พร้อมใช้งาน",
           category: cate,
-          created_by: "admin",
+          created_by: created_by,
           pic: `${response.body.public_id}.jpg`
         };
         CreateDataMachine(bodyData).then(result => {
@@ -215,6 +231,7 @@ class Training_Equipment extends Component {
     // console.log(this.props.dataInHome);
     const { dataInHome, dataSumMachineInHome, dataForCateMachine, dataFullMachine, token } = this.props;
     const { tabChange, page, rowsPerPage, isOpenDialogShowFullDataMachine, isOpenDialogAddMachine, machine_name, machine_BuyDate, machine_Price, imgPreview, loadingUpload, isOpenDialogChangeStatusMachine, machine_status } = this.state;
+
     let resultDataShowInHome = [];
     let resultDataSumMachineInHome = [];
     let resultDataMachineForCate = [];
@@ -277,6 +294,7 @@ const mapStateToProps = (state) => (
     dataForCateMachine: state.ShowDataCateMachineInHomeReducer.data,
     dataFullMachine: state.ShowDataFullMachineReducer.data,
     token: state.AuthenReducer.token,
+    name: state.findName.data
   }
 );
 export default connect(mapStateToProps)(Training_Equipment);
