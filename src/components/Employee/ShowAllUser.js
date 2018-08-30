@@ -10,7 +10,12 @@ import {
   Button,
   Paper,
   Typography,
-  Checkbox
+  Checkbox,
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  DialogContentText,
+  DialogActions
 } from '@material-ui/core';
 import AddIcon from "@material-ui/icons/Add";
 import moment from "moment";
@@ -35,7 +40,14 @@ const ShowAllUser = ({
   selectUser,
   afterSelect,
   statusSelected,
-  onSubmitSelectUser
+  onSubmitSelectUser,
+  dataEmployee,
+  isOpenDialogShowSelectEmp,
+  onCloseDialogShowSelectEmp,
+  onSelectEmp,
+  isSelectEmp,
+  selectedEmp,
+  onSubmitSelectEmp
 }) => {
   return (
     <div>
@@ -90,6 +102,49 @@ const ShowAllUser = ({
           </Paper>
         </Grid>
       </Grid>
+      <Dialog
+        open={isOpenDialogShowSelectEmp}
+        onClose={onCloseDialogShowSelectEmp}>
+        <DialogTitle>ข้อมูลพนักงาน</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            <Table>
+              <TableHead component="tr">
+                <TableCell component="th">เลือกพนักงาน</TableCell>
+                <TableCell component="th">ชื่อเข้าใช้ระบบ</TableCell>
+                <TableCell component="th">ชื่อพนักงาน</TableCell>
+                <TableCell component="th">จำนวนเด็กในสังกัด</TableCell>
+              </TableHead>
+              <TableBody>
+                {
+                  dataEmployee && dataEmployee.map(value => (
+                    <TableRow
+                      key={value.employee_id}
+                      component="tr"
+                      onClick={(event) => onSelectEmp(event, value.employee_id)}>
+                      <TableCell>
+                        <Checkbox
+                          disableRipple={isSelectEmp}/>
+                      </TableCell>
+                      <TableCell component="td">{value.employee_Username}</TableCell>
+                      <TableCell component="td">{value.employee_Fname}</TableCell>
+                      <TableCell component="td">{value.countUser}</TableCell>
+                    </TableRow>
+                  ))
+                }
+              </TableBody>
+            </Table>
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={onCloseDialogShowSelectEmp} color="primary">
+            ยกเลิก
+          </Button>
+          <Button onClick={onSubmitSelectEmp} color="primary" autoFocus>
+            ตกลง
+          </Button>
+        </DialogActions>
+      </Dialog>
     </div>
   );
 };

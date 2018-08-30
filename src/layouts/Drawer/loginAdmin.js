@@ -13,7 +13,7 @@ const SideList = ({
   onClickOpenNestedIncome
 }) => (
   <div>
-    <Typography variant="display1" align="center" noWrap>Admin</Typography>
+    <Typography variant="display1" align="center" noWrap>ผู้ดูแลระบบ</Typography>
     <Divider/>
     <List>
       <SideDrawer
@@ -31,7 +31,6 @@ const bodyDrawer = ({
   isOpenListNestedIncome,
   onClickOpenNestedIncome
 }) => {
-  console.log('body drawer')
   return (
     <SwipeableDrawer
       open={isOpenDrawer}

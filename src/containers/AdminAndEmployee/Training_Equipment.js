@@ -44,7 +44,7 @@ class Training_Equipment extends Component {
     const { dispatch } = this.props;
     dispatch(DataInHome());
     dispatch(DaTaSumMachineInHome());
-    this.props.dispatch(findName());
+
   }
 
   //change tabs
@@ -123,6 +123,8 @@ class Training_Equipment extends Component {
       uploadedFile: null,
       imgPreview: picDummy,
     });
+    const { dispatch } = this.props;
+    dispatch(findName());
   };
   // Button Close Dialog Add Machine
   handleCloseDialogAddMachine = () => {
@@ -150,18 +152,16 @@ class Training_Equipment extends Component {
   //handleSubmit form ADd machine
   handleSubmitAddMachine = (cate) => {
     const { machine_name, machine_BuyDate, machine_Price } = this.state;
-    const { dispatch, token: { userType }, name: { data: { fullName } } } = this.props;
-    // console.log(userType);
-    // console.log(fullName);
-    let created_by = "";
+    const { dispatch, token: { userType }, name } = this.props;
+    let created_by = '';
     if (userType === 1) {
-      created_by = "admin"
+      created_by = 'admin'
     } else if (userType === 2) {
-      created_by = fullName
+      created_by = name.data.fullName
     }
     this.uploadImg(machine_name, machine_BuyDate, machine_Price, cate, dispatch,created_by)
   };
-  uploadImg = (machine_name, machine_BuyDate, machine_Price, cate, dispatch, created_by) => {
+  uploadImg = (machine_name, machine_BuyDate, machine_Price, cate, dispatch,created_by) => {
     this.setState({
       loadingUpload: false
     });
@@ -231,6 +231,7 @@ class Training_Equipment extends Component {
     // console.log(this.props.dataInHome);
     const { dataInHome, dataSumMachineInHome, dataForCateMachine, dataFullMachine, token } = this.props;
     const { tabChange, page, rowsPerPage, isOpenDialogShowFullDataMachine, isOpenDialogAddMachine, machine_name, machine_BuyDate, machine_Price, imgPreview, loadingUpload, isOpenDialogChangeStatusMachine, machine_status } = this.state;
+
 
     let resultDataShowInHome = [];
     let resultDataSumMachineInHome = [];

@@ -32,18 +32,24 @@ const SideDrawerLogin = ({
 }) => (
   <div>
     {/*<ListItem button component={Link} to='/admin/employee'>*/}
-      {/*<ListItemIcon>*/}
-        {/*<AccountCircleIcon/>*/}
-      {/*</ListItemIcon>*/}
-      {/*<ListItemText primary="ข้อมูลพนักงาน"/>*/}
+    {/*<ListItemIcon>*/}
+    {/*<AccountCircleIcon/>*/}
+    {/*</ListItemIcon>*/}
+    {/*<ListItemText primary="ข้อมูลพนักงาน"/>*/}
     {/*</ListItem>*/}
+    <ListItem button component={Link} to='/employee/showUser'>
+      <ListItemIcon>
+        <DraftsIcon/>
+      </ListItemIcon>
+      <ListItemText primary="รายชื่อสมาชิก"/>
+    </ListItem>
     <ListItem button component={Link} to='/admin/neutrian'>
       <ListItemIcon>
         <SendIcon/>
       </ListItemIcon>
       <ListItemText primary="โภชนาการอาหาร"/>
     </ListItem>
-    <ListItem button onClick={onClickOpenNestedIncome} >
+    <ListItem button onClick={onClickOpenNestedIncome}>
       <ListItemIcon>
         <InboxIcon/>
       </ListItemIcon>

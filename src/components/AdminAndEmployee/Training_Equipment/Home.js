@@ -41,7 +41,7 @@ const TrainingEquipment_Home = ({
       <List>
         <ListItem>
           <ListItemText>
-            <Typography variant="subheading" style={styles.ListTypography}>
+            <Typography variant="title" style={styles.ListTypography}>
               ตารางแสดงรายเอียดเครื่องเล่น (โดยย่อ)
             </Typography>
           </ListItemText>
@@ -57,6 +57,7 @@ const TrainingEquipment_Home = ({
               <TableCell component="th" style={styles.TableHead}>ประเภทเครื่องเล่น</TableCell>
               <TableCell component="th" style={styles.TableHead}>วันที่ซื้อ</TableCell>
               <TableCell component="th" style={styles.TableHead}>ราคาเครื่องเล่น</TableCell>
+              <TableCell component="th" style={styles.TableHead}>ผู้เพิ่มข้อมูล</TableCell>
             </TableHead>
             <TableBody>
               {
@@ -69,6 +70,7 @@ const TrainingEquipment_Home = ({
                       <TableCell component="td">{moment(value.trainingEquipment_dateForBuy)
                         .format('DD-MM-YYYY')}</TableCell>
                       <TableCell component="td">{value.trainingEquipment_price}</TableCell>
+                      <TableCell component="td">{value.created_by}</TableCell>
                     </TableRow>
                   ))
               }
@@ -88,7 +90,7 @@ const TrainingEquipment_Home = ({
       <List>
         <ListItem>
           <ListItemText>
-            <Typography variant="subheading" style={styles.ListTypography}>
+            <Typography variant="title" style={styles.ListTypography}>
               สรุปยอดเครื่องเล่นภายในยิม
             </Typography>
           </ListItemText>
@@ -100,7 +102,7 @@ const TrainingEquipment_Home = ({
           <ListItemText>
             {
               resultSumMachine.map(value => (
-                <Typography variant="body2" style={styles.ListTypography}>
+                <Typography variant="subheading" style={styles.ListTypography}>
                   <b>เครื่องสำหรับเล่น{value.category_name}</b> จำนวน {value.countMachine} เครื่อง
                 </Typography>
               ))

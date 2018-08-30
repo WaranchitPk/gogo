@@ -86,19 +86,19 @@ export const ShowAllUSer = () => (
     })
   }
 );
-export const UpdateStatusTrainingUser = (body, dispatch) => {
+export const UpdateStatusTrainingUser = (body,id, dispatch) => {
   axios.put(`${path_API}/employees/UpdateStatusTraining`, {
     userId: body
   }).then(result => {
     dispatch(ShowAllUSer());
-    InsertUser(body, dispatch)
+    InsertUser(body, id)
   })
 };
-export const InsertUser = (body) => {
+export const InsertUser = (body,id) => {
   if (localStorage.getItem('access-token') === null) {
     return '';
   } else {
-    const empId = jwtDecode(localStorage.getItem('access-token')).userId;
+    const empId = id;
     axios.post(`${path_API}/employees/addUser`, {
       userId: body,
       empId: empId

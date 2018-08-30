@@ -13,12 +13,12 @@ import { Link } from 'react-router-dom';
 
 const SideDrawer = ({ logout }) => (
   <div>
-    <ListItem button component={Link} to='/employee/showUser'>
-      <ListItemIcon>
-        <DraftsIcon/>
-      </ListItemIcon>
-      <ListItemText primary="รายชื่อสมาชิก"/>
-    </ListItem>
+    {/*<ListItem button component={Link} to='/employee/showUser'>*/}
+      {/*<ListItemIcon>*/}
+        {/*<DraftsIcon/>*/}
+      {/*</ListItemIcon>*/}
+      {/*<ListItemText primary="รายชื่อสมาชิก"/>*/}
+    {/*</ListItem>*/}
     <ListItem button component={Link} to='/employee/showUserTraining'>
       <ListItemIcon>
         <DraftsIcon/>

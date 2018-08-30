@@ -120,6 +120,7 @@ const MachineForCategory = ({
               <TableCell component="th" style={styles.TableHead}>ชื่อเครื่องเล่น</TableCell>
               <TableCell component="th" style={styles.TableHead}>สถานะเครื่องเล่น</TableCell>
               <TableCell component="th" style={styles.TableHead}>วันที่ซื้อ</TableCell>
+              <TableCell component="th" style={styles.TableHead}>ผู้เพิ่มข้อมูล</TableCell>
               <TableCell component="th" style={styles.TableHead}>เรียกดู/แก้ไข</TableCell>
             </TableHead>
             <TableBody>
@@ -131,6 +132,7 @@ const MachineForCategory = ({
                       <TableCell component="td">{value.trainingEquipment_status}</TableCell>
                       <TableCell component="td">{moment(value.trainingEquipment_dateForBuy)
                         .format('DD-MM-YYYY')}</TableCell>
+                      <TableCell component="td">{value.created_by}</TableCell>
                       <TableCell component="td">
                         <Button variant="fab" mini color="secondary"
                                 onClick={() => onClickShowFullDataMachine(value.trainingEquipment_id)}>

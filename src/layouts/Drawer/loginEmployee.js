@@ -9,13 +9,15 @@ import SideDrawer from './sideListEmployee';
 
 const SideList = ({ logout, fullName }) => (
   <div>
-    {
-      fullName !== null && fullName !== undefined ? (
-        <Typography variant="display1" align="center" noWrap>{fullName.data.fullName}</Typography>
-      ) : (
-        <Typography variant="display1" align="center" noWrap>Hello</Typography>
-      )
-    }
+    {/*{*/}
+      {/*fullName !== null && fullName !== undefined ? (*/}
+        {/*<Typography variant="display1" align="center" noWrap>{fullName.data.fullName}</Typography>*/}
+      {/*) : (*/}
+        {/*<Typography variant="display1" align="center" noWrap>Hello</Typography>*/}
+      {/*)*/}
+    {/*}*/}
+    <Typography variant="display1" align="center" noWrap>พนักงาน</Typography>
+
     <Divider/>
     <List>
       <SideDrawer logout={logout}/>

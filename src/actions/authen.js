@@ -25,9 +25,7 @@ export const authenUser = ({ username, password, push, userType }) => {
           dispatch({
             type: authen_Success,
             payload: jwtDecode(localStorage.getItem('access-token'))
-
           });
-
         });
         push('/')
       } else {

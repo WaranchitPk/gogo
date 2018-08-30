@@ -12,6 +12,7 @@ import {
 } from "../../index";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import LoginDrawer from "../../Drawer/loginEmployee";
+import {HeaderStyleJs} from '../../../style_js';
 
 const employee = ({
   styles,
@@ -25,8 +26,8 @@ const employee = ({
   isOpenDrawer
 }) => {
   return (
-    <div style={styles.root}>
-      <AppBar position="static">
+    <div style={styles.root} >
+      <AppBar position="static" style={HeaderStyleJs.AppBar}>
         <Toolbar>
           <Typography variant="title" color="inherit" style={styles.flex} component={Link} to='/'>
             GO-GYM
