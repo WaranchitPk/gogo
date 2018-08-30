@@ -104,6 +104,9 @@ class showUser extends Component {
   handleSubmitSelectEmp = () =>{
     console.log('user Selected',this.state.selected,'emp id',this.state.selectedEmp[0]);
     UpdateStatusTrainingUser(this.state.selected,this.state.selectedEmp[0],this.props.dispatch)
+    this.setState({
+      isOpenDialogShowSelectEmp: false
+    })
 
   }
   isSelected = id => this.state.selected.indexOf(id) !== -1;

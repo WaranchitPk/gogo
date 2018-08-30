@@ -134,6 +134,7 @@ class ExerciseDiary extends Component {
       date: moment(diaryDate).format('YYYY-MM-DD'),
       status: diaryStatus,
       details: diaryDetail,
+      created_by: 'ผู้ใช้'
     };
     createData(body, dispatch);
     // console.log(`date: ${diaryDate}, Detail: ${diaryDetail}, Status: ${diaryStatus}`)

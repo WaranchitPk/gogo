@@ -129,7 +129,8 @@ class UserTraining extends Component {
       date: moment(diaryDate).format('YYYY-MM-DD'),
       status: diaryStatus,
       details: diaryDetail,
-      recomend: diaryRecomend
+      recomend: diaryRecomend,
+      created_by: 'พนักงาน'
     };
     createDataUserData(body, dispatch,userId);
     // console.log(`date: ${diaryDate}, Detail: ${diaryDetail}, Status: ${diaryStatus}`)

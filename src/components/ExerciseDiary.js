@@ -68,6 +68,7 @@ const ExerciseDiary = ({
                 <TableCell component="th">รายละเอียดการออกกำลังกาย</TableCell>
                 <TableCell component="th">สถานะการเล่น</TableCell>
                 <TableCell component="th">คำแนะนำจากเทรนเนอร์</TableCell>
+                <TableCell component="th">ผู้สร้าง</TableCell>
                 <TableCell component="th">แก้ไขสถานะการเล่น</TableCell>
                 <TableCell component="th">แก้ไขข้อมูลการเล่น</TableCell>
               </TableHead>
@@ -79,6 +80,7 @@ const ExerciseDiary = ({
                       <TableCell component="td">{result.exDiary_details}</TableCell>
                       <TableCell component="td">{result.exDiary_status}</TableCell>
                       <TableCell component="td">{result.exDiary_recomend}</TableCell>
+                      <TableCell component="td">{result.created_by}</TableCell>
                       <TableCell component="td">
                         <Button variant="outlined" color="secondary"
                                 onClick={() => onChangeStatus(result.exDiary_id)}>แก้ไขสถานะ</Button>
