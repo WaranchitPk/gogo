@@ -26,7 +26,7 @@ import {
   ExerciseRoute,
   NeutrianRoute
 } from '../routes';
-
+import './App.css';
 import { Header } from '../layouts';
 import { Grid } from '@material-ui/core';
 import { hot } from 'react-hot-loader';
@@ -34,7 +34,7 @@ import { Authenticate } from '../libs/AuthenRoute';
 import Promotions from "../containers/Pricing";
 
 const App = () => (
-  <div>
+  <div >
     <Grid container>
       <Grid item sm={12} xs={12}>
         <Header/>

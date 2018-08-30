@@ -31,12 +31,12 @@ const SideDrawerLogin = ({
   classes
 }) => (
   <div>
-    <ListItem button component={Link} to='/admin/employee'>
-      <ListItemIcon>
-        <AccountCircleIcon/>
-      </ListItemIcon>
-      <ListItemText primary="ข้อมูลพนักงาน"/>
-    </ListItem>
+    {/*<ListItem button component={Link} to='/admin/employee'>*/}
+      {/*<ListItemIcon>*/}
+        {/*<AccountCircleIcon/>*/}
+      {/*</ListItemIcon>*/}
+      {/*<ListItemText primary="ข้อมูลพนักงาน"/>*/}
+    {/*</ListItem>*/}
     <ListItem button component={Link} to='/admin/neutrian'>
       <ListItemIcon>
         <SendIcon/>

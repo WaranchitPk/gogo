@@ -136,7 +136,8 @@ const settings = {
   pauseOnHover: true
 };
 const Home = ({
-  classes
+  classes,
+  checktypeUser
 }) => {
   return (
     <div>
@@ -166,7 +167,7 @@ const Home = ({
       <List>
         <ListItem>
           <ListItemText>
-            <Typography variant="display1" color="textSecondary" classes={classes.fontTitle}>ภาพกิจกรรมต่างๆ ภายในยิม</Typography>
+            <Typography variant="display1" color="textSecondary" classes={classes.fontTitle}>กิจกรรมต่างๆ</Typography>
           </ListItemText>
         </ListItem>
         <ListItem>
@@ -175,16 +176,16 @@ const Home = ({
               autoplay={true}
               autoplayInterval={3000}
               width="600px">
-              <img src={Img1} />
-              <img src={Img2} />
-              <img src={Img3} />
-              <img src={Img4} />
-              <img src={Img5} />
-              <img src={Img6} />
-              <img src={Img7} />
-              <img src={Img8} />
-              <img src={Img9} />
-              <img src={Img10} />
+              <img src={Img1}/>
+              <img src={Img2}/>
+              <img src={Img3}/>
+              <img src={Img4}/>
+              <img src={Img5}/>
+              <img src={Img6}/>
+              <img src={Img7}/>
+              <img src={Img8}/>
+              <img src={Img9}/>
+              <img src={Img10}/>
             </Carousel>
           </Grid>
         </ListItem>
@@ -254,6 +255,39 @@ const Home = ({
                 </span>
               </ButtonBase>
             </Grid>
+            {
+              checktypeUser === 1 ? (
+                <Grid item>
+                  <ButtonBase
+                    focusRipple
+                    className={classes.imageOrther}
+                    focusVisibleClassName={classes.focusVisible}
+                    component={Link}
+                    to='/admin/employee'
+                    style={{
+                      width: '600px',
+                    }}>
+                <span
+                  className={classes.imageSrc}
+                  style={{
+                    backgroundImage: `url(${Img5})`,
+                  }}/>
+                    <span className={classes.imageBackdrop}/>
+                    <span className={classes.imageButton}>
+                <Typography
+                  component="span"
+                  variant="display2"
+                  color="inherit"
+                  className={classes.imageTitle}>
+                ข้อมูลพนักงาน
+                <span className={classes.imageMarked}/>
+                </Typography>
+                </span>
+                  </ButtonBase>
+                </Grid>
+              ) : ""
+            }
+
           </Grid>
         </ListItem>
       </List>

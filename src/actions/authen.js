@@ -21,22 +21,24 @@ export const authenUser = ({ username, password, push, userType }) => {
       if (data.isLogin === true) {
         localStorage.setItem('access-token', data.token);
 
-        swal("Login Success!", "Hello User", "success").then(() => {
+        swal("เข้าสู่ระบบสำเร็จ!", "สวัสดีผู้ใช้", "success").then(() => {
           dispatch({
             type: authen_Success,
             payload: jwtDecode(localStorage.getItem('access-token'))
 
           });
-          push('/')
+
         });
+        push('/')
       } else {
-        swal("Login Failed!", "Please Login Again", "error");
+        swal("เข้าสู่ระบบไม่สำเร็จ!", "กรุณาเข้าสู่ระบบใหม่อีกครั้ง", "error");
         dispatch({
           type: authen_Failed,
           payload: data.isLogin
         });
+        // push('/login')
       }
-      push('/')
+
     })
   }
 };
