@@ -9,13 +9,8 @@ import SideDrawer from './sideList';
 
 const SideList = ({ logout, fullName }) => (
   <div>
-    {
-      fullName !== null && fullName !== undefined ? (
-        <Typography variant="display1" align="center" noWrap>{fullName.data.fullName}</Typography>
-      ) : (
-        <Typography variant="display1" align="center" noWrap>Hello</Typography>
-      )
-    }
+    <Typography variant="display1" align="center" noWrap>ผู้ใช้</Typography>
+
     <Divider/>
     <List>
       <SideDrawer logout={logout}/>
