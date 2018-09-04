@@ -84,8 +84,8 @@ const CalculateFoodYouWant = ({
                     <Typography>คำนวนโภชนาการอาหารที่ต้องการ</Typography>
                 </CardContent>
                 <CardActions>
-                    <Button onClick={changeOpenDialog}>
-                        OK
+                    <Button onClick={changeOpenDialog} variant="contained">
+                        คำนวน
                     </Button>
                     <Dialog open={openDialog}
                             onClose={changeCloseDialog}

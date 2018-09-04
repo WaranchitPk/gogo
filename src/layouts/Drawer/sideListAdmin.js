@@ -37,6 +37,12 @@ const SideDrawerLogin = ({
     {/*</ListItemIcon>*/}
     {/*<ListItemText primary="ข้อมูลพนักงาน"/>*/}
     {/*</ListItem>*/}
+    <ListItem button component={Link} to='/register'>
+      <ListItemIcon>
+        <DraftsIcon/>
+      </ListItemIcon>
+      <ListItemText primary="สมัครสมาชิกให้กับผู้ใช้"/>
+    </ListItem>
     <ListItem button component={Link} to='/employee/showUser'>
       <ListItemIcon>
         <DraftsIcon/>
@@ -58,12 +64,12 @@ const SideDrawerLogin = ({
     </ListItem>
     <Collapse in={isOpenListNestedIncome} timeout="auto" unmountOnExit>
       <List component="div" disablePadding className={classes.nested}>
-        <ListItem button>
-          <ListItemIcon>
-            <StarBorder/>
-          </ListItemIcon>
-          <ListItemText inset primary="หน้าหลัก"/>
-        </ListItem>
+        {/*<ListItem button>*/}
+        {/*<ListItemIcon>*/}
+        {/*<StarBorder/>*/}
+        {/*</ListItemIcon>*/}
+        {/*<ListItemText inset primary="หน้าหลัก"/>*/}
+        {/*</ListItem>*/}
         <ListItem button component={Link} to='/admin/incomes_expenses/income'>
           <ListItemIcon>
             <StarBorder/>
@@ -78,6 +84,12 @@ const SideDrawerLogin = ({
         </ListItem>
       </List>
     </Collapse>
+    <ListItem button component={Link} to='/admin/pricing_promotion'>
+      <ListItemIcon>
+        <SendIcon/>
+      </ListItemIcon>
+      <ListItemText primary="จัดการข้อมูลค่าใช้บริการและโปรโมชัน"/>
+    </ListItem>
     <ListItem button component={Link} to='/TrainingEquipment'>
       <ListItemIcon>
         <SendIcon/>

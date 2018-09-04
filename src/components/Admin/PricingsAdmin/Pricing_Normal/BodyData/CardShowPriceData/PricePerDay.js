@@ -4,24 +4,24 @@ import CardHeader from "@material-ui/core/CardHeader";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 
-const ShowPricePerYear = ({
+const ShowPricePerDay = ({
   classes,
   value
 }) => (
   <Card raised>
     <CardHeader
-      title="ต่อปี"
+      title="ต่อวัน"
       titleTypographyProps={{ align: "center" }}
       className={classes.cardHeader}/>
     <CardContent className={classes.cardPricing}>
       <Typography variant="display2" color="textPrimary">
-        {value.pricing_PerYear.toLocaleString()}
+        {value.pricing_PerDay}
       </Typography>
       <Typography variant="title" color="textSecondary">
-        บาท/ ปี
+        บาท/ วัน
       </Typography>
     </CardContent>
   </Card>
 );
 
-export default ShowPricePerYear;
+export default ShowPricePerDay;

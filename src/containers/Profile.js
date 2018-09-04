@@ -114,7 +114,7 @@ class Profile extends Component {
                 email: email,
                 gender: gender,
             };
-            updateData(bodyData, )
+            updateData(bodyData,push)
         } else {
             this.uploadImg(fName, lName, age, email, gender,push);
         }

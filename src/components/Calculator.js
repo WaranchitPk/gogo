@@ -60,23 +60,23 @@ const styles = {
     marginTop: '5%'
   }
 };
-const ExerciseRecomend = ({ bmi }) => {
+const ExerciseRecomend = ({ bmi,userType }) => {
   if (bmi < 18.5) {
     return (
       <div>
-        <MainThin />
+        <MainThin userType={userType}/>
       </div>
     )
   } else if (bmi >= 18.5 && bmi <= 22.9) {
     return (
       <div>
-        <MainSmart />
+        <MainSmart userType={userType}/>
       </div>
     )
   } else if (bmi >= 23.0) {
     return (
       <div>
-        <MainFat />
+        <MainFat userType={userType}/>
       </div>
     )
   }
@@ -94,6 +94,7 @@ const ShowCalculator = ({
   isOpenDialogShowExercise,
   onOpenDialogShowExercise,
   onCloseDialogShowExercise,
+  userType
 }) => {
   return (
     <div>
@@ -130,6 +131,7 @@ const ShowCalculator = ({
                       name="age"
                       label="อายุ"
                       onChange={onChangeInput}
+                      type="number"
                       inputProps={{ pattern: "[0-9]*" }}
                       required/>
                   </FormGroup>
@@ -140,7 +142,8 @@ const ShowCalculator = ({
                       label="ส่วนสูง"
                       onChange={onChangeInput}
                       inputProps={{ pattern: "[0-9]*" }}
-                      required/>
+                      required
+                      type="number"/>
                   </FormGroup>
                   <FormGroup>
                     <TextField
@@ -149,7 +152,8 @@ const ShowCalculator = ({
                       label="น้ำหนัก"
                       onChange={onChangeInput}
                       inputProps={{ pattern: "[0-9]*" }}
-                      required/>
+                      required
+                      type="number"/>
                   </FormGroup>
                   <FormGroup>
                     <InputLabel htmlFor="age-simple">กิจกรรมการออกกำลังกาย</InputLabel>
@@ -344,7 +348,9 @@ const ShowCalculator = ({
               </AppBar>
               <List>
                 <ListItem>
-                  <ExerciseRecomend bmi={resultBmiData}/>
+                  <ExerciseRecomend
+                    bmi={resultBmiData}
+                    userType={userType}/>
                 </ListItem>
               </List>
             </Dialog>

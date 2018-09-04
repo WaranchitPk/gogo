@@ -53,6 +53,7 @@ const FormIncome = ({
                 value={incomeAmount}
                 onChange={onChangeInput}
                 name="incomeAmount"
+                type="number"
                 InputProps={{
                   endAdornment: <InputAdornment position="end">บาท</InputAdornment>,
                 }}

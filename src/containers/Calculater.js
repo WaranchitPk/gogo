@@ -76,6 +76,7 @@ class Calculator extends Component {
       bmiData = resultBMI.data;
       bmiStatus = resultBMI.status;
     }
+
     return (
       <div>
         <CalculatorComponent
@@ -90,7 +91,8 @@ class Calculator extends Component {
           resultBmiStatus={bmiStatus}
           isOpenDialogShowExercise={isOpenDialogShowExercise}
           onOpenDialogShowExercise={this.handleOpenDialogShowExercise}
-          onCloseDialogShowExercise={this.handleCloseDialogShowExercise}/>
+          onCloseDialogShowExercise={this.handleCloseDialogShowExercise}
+          userType={this.props.token.userType}/>
       </div>
     );
   }
@@ -100,7 +102,8 @@ const mapStateToProps = (state) => (
   {
     resultTDEE: state.CalculateReducers.data,
     resultMHR: state.CalculateReducer_MHR.data,
-    resultBMI: state.CalculateReducer_BMI.data
+    resultBMI: state.CalculateReducer_BMI.data,
+    token: state.AuthenReducer.token,
   }
 )
 export default connect(mapStateToProps)(Calculator);

@@ -12,6 +12,7 @@ import {
 } from '../../components';
 import axios from "axios";
 import { path_API } from "../../config";
+import swal from "sweetalert";
 
 class showUser extends Component {
   state = {
@@ -61,12 +62,21 @@ class showUser extends Component {
   //submit user
   handleSubmitSelectUser = () => {
     this.props.dispatch(loadData());
-    axios.get(`${path_API}/employees/findCountUserTrainingEmp`).then((result) => {
-      this.setState({
-        dataEmployee: result.data.result,
-        isOpenDialogShowSelectEmp: true
-      })
-    })
+   if (this.state.selected.length === 0){
+     swal({
+       title: "ผิดพลาด",
+       text: "กรุณาเลือกสมาชิกอย่างน้อย 1 คน",
+       icon: "warning",
+       button: "ตกลง",
+     });
+   } else{
+     axios.get(`${path_API}/employees/findCountUserTrainingEmp`).then((result) => {
+       this.setState({
+         dataEmployee: result.data.result,
+         isOpenDialogShowSelectEmp: true
+       })
+     })
+   }
     // UpdateStatusTrainingUser(this.state.selected,this.props.dispatch)
   };
   handleCloseDialogShowSelectEmp = () => {
@@ -102,11 +112,28 @@ class showUser extends Component {
 
   };
   handleSubmitSelectEmp = () =>{
-    console.log('user Selected',this.state.selected,'emp id',this.state.selectedEmp[0]);
-    UpdateStatusTrainingUser(this.state.selected,this.state.selectedEmp[0],this.props.dispatch)
-    this.setState({
-      isOpenDialogShowSelectEmp: false
-    })
+    if (this.state.selectedEmp.length === 0){
+      swal({
+        title: "ผิดพลาด",
+        text: "กรุณาเลือกพนักงาน",
+        icon: "warning",
+        button: "ตกลง",
+      });
+    } else{
+      if (this.state.selectedEmp.length >1){
+        swal({
+          title: "ผิดพลาด",
+          text: "กรุณาเลือกพนักงาน 1 คน เท่านั้น",
+          icon: "error",
+          button: "ตกลง",
+        });
+      }else{
+        UpdateStatusTrainingUser(this.state.selected,this.state.selectedEmp[0],this.props.dispatch)
+        this.setState({
+          isOpenDialogShowSelectEmp: false
+        })
+      }
+    }
 
   }
   isSelected = id => this.state.selected.indexOf(id) !== -1;

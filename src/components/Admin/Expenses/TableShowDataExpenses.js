@@ -15,6 +15,15 @@ import {
 import AddIcon from "@material-ui/icons/Add";
 import moment from "moment";
 
+const styles = {
+  Button: {
+    marginBottom: '2%',
+    background: 'linear-gradient(45deg, #2196F3 30%, #21CBF3 90%)',
+    boxShadow: '0 3px 5px 2px rgba(33, 203, 243, .3)',
+    color: '#E0F7FA',
+  },
+};
+
 const ShowDataExpenses = ({
   onOpenDialogAdd,
   showDataExpeses,
@@ -34,15 +43,15 @@ const ShowDataExpenses = ({
     <div>
       <Grid container justify="center" className='centered'>
         <Grid item sm={7} xs={10}>
-          <Button variant='fab' color="primary" onClick={onOpenDialogAdd}><AddIcon/></Button>
+          <Button variant='contained' onClick={onOpenDialogAdd} style={styles.Button}>เพิ่มรายจ่าย</Button>
           <Paper elevation={5}>
             <Table>
               <TableHead>
                 <TableRow component="tr">
-                  <TableCell component='th'>income_name</TableCell>
-                  <TableCell component='th'>income_detail</TableCell>
-                  <TableCell component='th'>income_amount</TableCell>
-                  <TableCell component='th'>income_date</TableCell>
+                  <TableCell component='th'>ชื่อรายจ่าย</TableCell>
+                  <TableCell component='th'>รายละเอียดรายจ่าย</TableCell>
+                  <TableCell component='th'>จำนวน(บาท)</TableCell>
+                  <TableCell component='th'>วันที่จ่าย</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>

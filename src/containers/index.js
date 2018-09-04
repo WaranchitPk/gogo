@@ -29,3 +29,4 @@ export {default as EmployeeShowUserForChooseContainer} from './Employee/ShowUser
 export {default as EmployeeShowUserTrainingContainer} from './Employee/ShowUserTraining';
 
 export {default as TrainingEquipmentContainer} from './AdminAndEmployee/Training_Equipment';
+export {default as Pricing_AdminContainer} from './Admin/PricingAdmin';

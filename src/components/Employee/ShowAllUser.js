@@ -98,7 +98,7 @@ const ShowAllUser = ({
               page={page}
               onChangePage={onChangeTablePage}
               onChangeRowsPerPage={onChangeTableRowsPerPage}/>
-            <Button variant="flat" onClick={onSubmitSelectUser}>Go</Button>
+            <Button variant="contained" onClick={onSubmitSelectUser}>เลือกเทรนเนอร์</Button>
           </Paper>
         </Grid>
       </Grid>

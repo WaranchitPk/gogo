@@ -122,17 +122,21 @@ class UserTraining extends Component {
   handleSubmitFormDiary = () => {
     const { diaryDate, diaryDetail, diaryStatus,diaryRecomend,userId } = this.state;
     const { dispatch } = this.props;
-    this.setState({
-      isOpenDialogCreatedData: false
-    });
-    const body = {
-      date: moment(diaryDate).format('YYYY-MM-DD'),
-      status: diaryStatus,
-      details: diaryDetail,
-      recomend: diaryRecomend,
-      created_by: 'พนักงาน'
-    };
-    createDataUserData(body, dispatch,userId);
+    if (diaryDetail === "" || diaryStatus === "" || diaryRecomend === ""){
+      alert('please input')
+    } else{
+      this.setState({
+        isOpenDialogCreatedData: false
+      });
+      const body = {
+        date: moment(diaryDate).format('YYYY-MM-DD'),
+        status: diaryStatus,
+        details: diaryDetail,
+        recomend: diaryRecomend,
+        created_by: 'พนักงาน'
+      };
+      createDataUserData(body, dispatch,userId);
+    }
     // console.log(`date: ${diaryDate}, Detail: ${diaryDetail}, Status: ${diaryStatus}`)
   };
 

@@ -19,7 +19,8 @@ import {
   ExerciseDiaryContainer,
   EmployeeShowUserForChooseContainer,
   EmployeeShowUserTrainingContainer,
-  TrainingEquipmentContainer
+  TrainingEquipmentContainer,
+  Pricing_AdminContainer
 } from '../containers';
 
 import {
@@ -34,7 +35,7 @@ import { Authenticate } from '../libs/AuthenRoute';
 import Promotions from "../containers/Pricing";
 
 const App = () => (
-  <div >
+  <div>
     <Grid container>
       <Grid item sm={12} xs={12}>
         <Header/>
@@ -72,6 +73,7 @@ const App = () => (
     <Route path='/admin/incomes_expenses/income' component={Authenticate(AdminIncomeContainer)}/>
     <Route path='/admin/incomes_expenses/expenses' component={Authenticate(AdminExpensesContainer)}/>
     <Route path='/ExerciseDiary/showData' component={ExerciseDiaryContainer}/>
+    <Route path='/admin/pricing_promotion' component={Pricing_AdminContainer}/>
   </div>
 );
 

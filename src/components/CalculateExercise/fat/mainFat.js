@@ -20,7 +20,9 @@ const styles = {
   }
 }
 
-const ShowSmart = () => {
+const ShowSmart = ({
+  userType
+}) => {
   return (
     <div>
       <Grid container justify="center">
@@ -60,8 +62,14 @@ const ShowSmart = () => {
                 หากท่านต้องการท่าออกกำลังกายหรือคำแนะนำจากเทรนเนอร์ผู้มีประสบการณ์
                 คลิกเพื่อดูรายละเอียด
               </Typography>
-              <Button component={Link} to="/pricing" color="primary" variant="contained">รายละเอียดเพิ่มเติม</Button>
-            </CardContent>
+              {
+                userType === 3 ? (
+                  ""
+                ) : (
+                  <Button component={Link} to="/pricing" color="primary"
+                          variant="contained">รายละเอียดเพิ่มเติม</Button>
+                )
+              }                 </CardContent>
           </Card>
         </Grid>
       </Grid>

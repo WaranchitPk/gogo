@@ -30,16 +30,18 @@ const TableShowFnameLnameStatus = ({
   return (
     <Grid container justify="center" className='centeredCardShowDataFnameLname'>
       <Grid item sm={7} xs={10}>
-        <Button variant='fab' color="primary" onClick={onOpenDialogAdd}><AddIcon/></Button>
+        <Button variant='contained' color="primary" onClick={onOpenDialogAdd}>เพิ่มข้อมูล</Button>
         <Paper elevation={5}>
           <Table>
             <TableHead>
               <TableRow component="tr">
-                <TableCell component='th'>employee_id</TableCell>
-                <TableCell component='th'>employee_Fname</TableCell>
-                <TableCell component='th'>employee_Lname</TableCell>
-                <TableCell component='th'>employee_Gender</TableCell>
-                <TableCell component='th'>action</TableCell>
+                <TableCell component='th'>รหัสพนักงาน</TableCell>
+                <TableCell component='th'>ชื่อพนักงาน</TableCell>
+                <TableCell component='th'>นามสกุลพนักงาน</TableCell>
+                <TableCell component='th'>เพศ</TableCell>
+                <TableCell component='th'>ดูข้อมูล</TableCell>
+                <TableCell component='th'>แก้ไขข้อมูล</TableCell>
+                <TableCell component='th'>ลบข้อมูล</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -51,11 +53,16 @@ const TableShowFnameLnameStatus = ({
                     <TableCell component='td'>{result.employee_Lname}</TableCell>
                     <TableCell component='td'>{result.employee_gender}</TableCell>
                     <TableCell component='td'>
-                      <Button variant="fab" color="primary"
+                      <Button variant="contained" color="primary"
                               onClick={() => onClickShowData(result.employee_id)}><SearchIcon/></Button>
-                      <Button variant="fab" size="small" color='primary'
+
+                    </TableCell>
+                    <TableCell component="td">
+                      <Button variant="contained"  color='primary'
                               onClick={() => onClickFormChange(result.employee_id)}><ChangeIcon/></Button>
-                      <Button variant="fab" size="small" color="secondary"
+                    </TableCell>
+                    <TableCell component="td">
+                      <Button variant="contained"  color="secondary"
                               onClick={() => onDeleteDataEmp(result.employee_id)}><DeleteIcon/></Button>
                     </TableCell>
                   </TableRow>

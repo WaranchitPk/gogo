@@ -33,13 +33,13 @@ const Expenses = ({
   return (
     <div>
       {/*Chart Show Data Expenses*/}
-      <ChartShowDataExpenses
-        year={yearSelect}
-        month={monthSelect}
-        onSelectYear={onSelectYear}
-        onSelectMonth={onSelectMonth}
-        dataYearSelectExpenses={dataYearSelectExpenses}
-        dataMonthSelectExpenses={dataMonthSelectExpenses}/>
+      {/*<ChartShowDataExpenses*/}
+        {/*year={yearSelect}*/}
+        {/*month={monthSelect}*/}
+        {/*onSelectYear={onSelectYear}*/}
+        {/*onSelectMonth={onSelectMonth}*/}
+        {/*dataYearSelectExpenses={dataYearSelectExpenses}*/}
+        {/*dataMonthSelectExpenses={dataMonthSelectExpenses}/>*/}
       {/*Table Show Data Expenses*/}
       <ShowDataExpenses
         onOpenDialogAdd={onOpenDialogAdd}

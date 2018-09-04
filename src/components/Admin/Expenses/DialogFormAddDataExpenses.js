@@ -36,7 +36,7 @@ const FormExpenses = ({
         onClose={onCloseDialogAdd}
         TransitionComponent={Traisition}>
         <DialogTitle id="alert-dialog-slide-title">
-          เพิ่มรายการ: รายรับ
+          เพิ่มรายการ: รายจ่าย
         </DialogTitle>
         <Divider/>
         <DialogContent>
@@ -56,7 +56,7 @@ const FormExpenses = ({
                 InputProps={{
                   endAdornment: <InputAdornment position="end">บาท</InputAdornment>,
                 }}
-              />
+              type="number"/>
             </FormControl>
             <FormControl component='p' margin="normal" required fullWidth>
               <DatePicker

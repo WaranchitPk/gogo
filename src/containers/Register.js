@@ -17,17 +17,11 @@ class Register extends Component {
     });
   };
   handleSubmit = () => {
-    const {
-      history: {
-        push
-      }
-    } = this.props;
+    const { history: { push } } = this.props;
     const body = {
       ...this.state
     };
-    this
-      .props
-      .dispatch(createUser(body, push));
+    this.props.dispatch(createUser(body, push));
   };
 
   render() {

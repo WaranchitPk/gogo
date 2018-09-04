@@ -33,7 +33,7 @@ const admin = ({
             {/*isOpen={isOpen}*/}
             {/*stateOpen={stateOpen}*/}
             {/*isClose={isClose}/>*/}
-          <Button color="inherit" component={Link} to='/register'>Register</Button>
+          {/*<Button color="inherit" component={Link} to='/register'>Register</Button>*/}
           {/*<Button color="inherit" onClick={onLogout}>Logout</Button>*/}
           <Button variant="fab" color="secondary" onClick={openDrawer}>AD</Button>
           <LoginDrawer

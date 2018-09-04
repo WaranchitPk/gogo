@@ -151,15 +151,19 @@ class Training_Equipment extends Component {
   };
   //handleSubmit form ADd machine
   handleSubmitAddMachine = (cate) => {
-    const { machine_name, machine_BuyDate, machine_Price } = this.state;
+    const { machine_name, machine_BuyDate, machine_Price,imgPreview} = this.state;
     const { dispatch, token: { userType }, name } = this.props;
-    let created_by = '';
-    if (userType === 1) {
-      created_by = 'admin'
-    } else if (userType === 2) {
-      created_by = name.data.fullName
+    if (machine_name === "" || machine_Price === "" ){
+      alert('empty')
+    } else{
+      let created_by = '';
+      if (userType === 1) {
+        created_by = 'admin'
+      } else if (userType === 2) {
+        created_by = name.data.fullName
+      }
+      this.uploadImg(machine_name, machine_BuyDate, machine_Price, cate, dispatch,created_by)
     }
-    this.uploadImg(machine_name, machine_BuyDate, machine_Price, cate, dispatch,created_by)
   };
   uploadImg = (machine_name, machine_BuyDate, machine_Price, cate, dispatch,created_by) => {
     this.setState({

@@ -10,6 +10,7 @@ import {
 import { connect } from 'react-redux';
 import { AdminEmployeeComponent } from '../../components';
 import moment from 'moment';
+import swal from "sweetalert";
 
 class Employee extends Component {
   state = {
@@ -74,20 +75,29 @@ class Employee extends Component {
   handleSubmitAddEmp = () => {
     const { empUsername, empPassword, empFname, empLname, empBirthDate, empAge, empAddress, empTel, empSalary, empStartDate } = this.state;
     const { dispatch } = this.props;
-    const bodyEmp = {
-      user: empUsername,
-      pass: empPassword,
-      fName: empFname,
-      lName: empLname,
-      birthDate: moment(empStartDate).format('YYYY-MM-DD'),
-      age: empAge,
-      address: empAddress,
-      tel: empTel,
-      salary: empSalary,
-      startDate: moment(empBirthDate).format('YYYY-MM-DD'),
-      status: 'พนักงาน'
-    };
-    createDate(bodyEmp, dispatch, this.clearStateAfterSubmit())
+    if (empUsername === "" || empPassword === "" || empFname === "" || empLname === "" || empAge === "" || empAddress === "" || empTel === "" || empSalary === "") {
+      swal({
+        title: "ข้อมูลพนักงานไม่ครบ",
+        text: "กรุณากรอกข้อมูลให้ครบ",
+        icon: "warning",
+        button: "ตกลง",
+      });
+    } else {
+      const bodyEmp = {
+        user: empUsername,
+        pass: empPassword,
+        fName: empFname,
+        lName: empLname,
+        birthDate: moment(empStartDate).format('YYYY-MM-DD'),
+        age: empAge,
+        address: empAddress,
+        tel: empTel,
+        salary: empSalary,
+        startDate: moment(empBirthDate).format('YYYY-MM-DD'),
+        status: 'พนักงาน'
+      };
+      createDate(bodyEmp, dispatch, this.clearStateAfterSubmit())
+    }
   };
   //Clikc Show All Data - Emp
   handleClickShowDataEmp = (id) => {
@@ -146,11 +156,11 @@ class Employee extends Component {
 
     };
     //update data - action
-    UpdateDataEmp(bodyEmp, userId,this.props.dispatch)
+    UpdateDataEmp(bodyEmp, userId, this.props.dispatch)
   };
   //click to delete data employee
   handleDeleteDataEmp = (id) => {
-    DeleteDataEmp(id,this.props.dispatch)
+    DeleteDataEmp(id, this.props.dispatch)
   };
   clearStateAfterSubmit = () => {
     this.setState({

@@ -62,7 +62,7 @@ export const createUser = (body, push) => {
       dispatch({
         type: user_create
       });
-      swal('Register Success', '', 'success').then(() => {
+      swal('ลงทะเบียนสำเร็จ', '', 'success').then(() => {
         push('/')
       })
     })

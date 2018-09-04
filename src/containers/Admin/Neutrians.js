@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import { AdminNeutrianComponent } from '../../components';
 import { connect } from 'react-redux';
-import { loadNeutrianShowCate,createData } from '../../actions/nutrian';
+import {
+  loadNeutrianShowCate,
+  createData
+} from '../../actions/nutrian';
 import axios from "axios";
 import { path_API } from "../../config";
+import swal from 'sweetalert';
 
 class AdminNeutrian extends Component {
   state = {
@@ -50,18 +54,30 @@ class AdminNeutrian extends Component {
   //Submit Form After Input
   handleSubmitFormInput = () => {
     const { foodName, foodCal, foodProtein, foodFat, foodCarb, foodPerUnit, valueCate, valueMenu } = this.state;
-    const bodyFood = {
-      foodName: foodName,
-      foodCal: foodCal,
-      foodProtein: foodProtein,
-      foodFat: foodFat,
-      foodCarb: foodCarb,
-      foodPerUnit: foodPerUnit,
-      valueCate: valueCate,
-      valueMenu: valueMenu
-    };
-    const {dispatch} = this.props;
-  createData(bodyFood,dispatch)
+
+    if (foodName === "" || foodCal === "" || foodProtein === "" || foodFat === "" || foodCarb === "" || foodPerUnit === "") {
+      swal({
+        title: "ข้อมูลโภชนาการไม่ครบ",
+        text: "กรุณากรอกข้อมูลให้ครบ",
+        icon: "warning",
+        button: "ตกลง",
+      });
+    } else {
+      const bodyFood = {
+        foodName: foodName,
+        foodCal: foodCal,
+        foodProtein: foodProtein,
+        foodFat: foodFat,
+        foodCarb: foodCarb,
+        foodPerUnit: foodPerUnit,
+        valueCate: valueCate,
+        valueMenu: valueMenu
+      };
+      const { dispatch } = this.props;
+      createData(bodyFood, dispatch)
+    }
+
+
   };
 
   render() {

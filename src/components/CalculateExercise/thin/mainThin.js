@@ -13,13 +13,16 @@ import Ex3 from './Cable_Push_Down';
 import Ex4 from './Cable_Seated_Row';
 import Ex5 from './Crunch';
 import { Link } from "react-router-dom";
+
 const styles = {
   divider: {
     marginTop: '2%',
     marginBottom: '3%'
   }
 }
-const ShowThin = () => {
+const ShowThin = ({
+  userType
+}) => {
   return (
     <div>
       <Grid container justify="center">
@@ -58,7 +61,14 @@ const ShowThin = () => {
                 หากท่านต้องการท่าออกกำลังกายหรือคำแนะนำจากเทรนเนอร์ผู้มีประสบการณ์
                 คลิกเพื่อดูรายละเอียด
               </Typography>
-              <Button component={Link} to="/pricing" color="primary" variant="contained">รายละเอียดเพิ่มเติม</Button>
+              {
+                userType === 3 ? (
+                  ""
+                ) : (
+                  <Button component={Link} to="/pricing" color="primary"
+                          variant="contained">รายละเอียดเพิ่มเติม</Button>
+                )
+              }
             </CardContent>
           </Card>
         </Grid>

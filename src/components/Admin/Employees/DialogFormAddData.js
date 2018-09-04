@@ -59,10 +59,10 @@ const FormAddData = ({
               onChange={onChangeBirthDate}
               animateYearScrolling={false}
             />
-            <TextField label="อายุ" value={empAge} onChange={onChangeInput} name="empAge"/>
+            <TextField label="อายุ" value={empAge} onChange={onChangeInput} name="empAge" type="number"/>
             <TextField label="ที่อยู่" value={empAddress} onChange={onChangeInput} name="empAddress"/>
-            <TextField label="เบอร์โทรศัพ" value={empTel} onChange={onChangeInput} name="empTel"/>
-            <TextField label="เงืนเดือน" value={empSalary} onChange={onChangeInput} name="empSalary"/>
+            <TextField label="เบอร์โทรศัพ" value={empTel} onChange={onChangeInput} name="empTel" type="number"/>
+            <TextField label="เงืนเดือน" value={empSalary} onChange={onChangeInput} name="empSalary" type="number"/>
             <DatePicker
               label="วันที่เริ่มงาน"
               format="DD/MM/YYYY"

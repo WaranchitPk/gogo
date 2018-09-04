@@ -56,21 +56,30 @@ class Incomes extends Component {
   handleSubmitFormAddIncome = () => {
     const { incomeName, incomeDetail, incomeAmount, incomeDate } = this.state;
     const { dispatch } = this.props;
-    // swal("รายรับ", "เพิ่มข้อมูลรายรับสำเร็จ", "success").then(() => {
-    //   this.setState({
-    //     isOpenDialogAddIncome: false
-    //   });
-    //   const body = {
-    //     IncomeName: incomeName,
-    //     IncomeDetail: incomeDetail,
-    //     IncomeAmount: incomeAmount,
-    //     IncomeDate: incomeDate
-    //   };
-    //   createIncome(body).then((result) => {
-    //     console.log(result);
-    //     dispatch(dataIncome())
-    //   })
-    // })
+    if (incomeName === "" || incomeDetail === "" || incomeAmount === "") {
+      swal({
+        title: "ข้อมูลรายรับไม่ครบ",
+        text: "กรุณากรอกข้อมูลให้ครบ",
+        icon: "warning",
+        button: "ตกลง",
+      });
+    } else {
+      swal("รายรับ", "เพิ่มข้อมูลรายรับสำเร็จ", "success").then(() => {
+        this.setState({
+          isOpenDialogAddIncome: false
+        });
+        const body = {
+          IncomeName: incomeName,
+          IncomeDetail: incomeDetail,
+          IncomeAmount: incomeAmount,
+          IncomeDate: incomeDate
+        };
+        createIncome(body).then((result) => {
+          console.log(result);
+          dispatch(dataIncome())
+        })
+      })
+    }
   };
 
   render() {

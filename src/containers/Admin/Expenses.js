@@ -67,12 +67,12 @@ class Expenses extends Component {
       isOpenDialogAddExpenses: false
     })
   };
-  handleSelectYear = ({target: {value}}) =>{
+  handleSelectYear = ({ target: { value } }) => {
     this.setState({
       yearSelect: value
     })
   };
-  handleSelectMonth = ({target: {value}}) =>{
+  handleSelectMonth = ({ target: { value } }) => {
     this.setState({
       monthSelect: value
     })
@@ -81,25 +81,34 @@ class Expenses extends Component {
   handleSubmitFormAddExpenses = () => {
     const { expensesName, expensesDetail, expensesAmount, expensesDate } = this.state;
     const { dispatch } = this.props;
-    swal("รายจ่าย", "เพิ่มข้อมูลรายจ่ายสำเร็จ", "success").then(() => {
-      this.setState({
-        isOpenDialogAddExpenses: false
+    if (expensesName === "" || expensesDetail === "" || expensesAmount === "") {
+      swal({
+        title: "ข้อมูลรายจ่ายไม่ครบ",
+        text: "กรุณากรอกข้อมูลให้ครบ",
+        icon: "warning",
+        button: "ตกลง",
       });
-      const body = {
-        ExpensesName: expensesName,
-        ExpensesDetail: expensesDetail,
-        ExpensesAmount: expensesAmount,
-        ExpensesDate: expensesDate
-      };
-      createDataExpenses(body).then((result) => {
-        console.log(result);
-        dispatch(dataExpenses())
+    } else {
+      swal("รายจ่าย", "เพิ่มข้อมูลรายจ่ายสำเร็จ", "success").then(() => {
+        this.setState({
+          isOpenDialogAddExpenses: false
+        });
+        const body = {
+          ExpensesName: expensesName,
+          ExpensesDetail: expensesDetail,
+          ExpensesAmount: expensesAmount,
+          ExpensesDate: expensesDate
+        };
+        createDataExpenses(body).then((result) => {
+          console.log(result);
+          dispatch(dataExpenses())
+        })
       })
-    })
+    }
   };
 
   render() {
-    const { LoadExpensesData,yearSelect,monthSelect} = this.props;
+    const { LoadExpensesData, yearSelect, monthSelect } = this.props;
     let receiveDataExpenses = [];
     let receiveDataExpensesLength = '';
     let receiveYearSelect = [];

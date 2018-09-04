@@ -129,7 +129,7 @@ const Profile = ({
           value={valueAge}
           onChange={changeInput}
           endAdornment={<InputAdornment position="end">ปี</InputAdornment>}
-        />
+          type="number"/>
         <FormHelperText>อายุ</FormHelperText>
       </FormControl>
       <FormGroup className={classes.Gender} row>
@@ -149,7 +149,7 @@ const Profile = ({
           label="อีเมลล์"
           helperText="เช่น example@ggg.com"
           className={classes.textField}
-        />
+          type="email"/>
       </Typography>
       <Button variant="contained" color="primary" className={classes.button} onClick={submitValue}>
         <SaveIcon className={classes.SaveIcon}/>

@@ -138,7 +138,7 @@ const UserTraining = ({
           </ListItem>
         </List>
         <List>
-          <Button variant='fab' color="primary" onClick={onOpenDialogFormCreateDataDiary}><AddIcon/></Button>
+          <Button variant='contained' color="primary" onClick={onOpenDialogFormCreateDataDiary}>เพิ่มบันทึกการออกกำลังกาย</Button>
           <Table>
             <TableHead component="tr">
               <TableCell component="th">วันที่ออกกำลังกาย</TableCell>

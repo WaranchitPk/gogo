@@ -24,7 +24,7 @@ const foods = ({ data, page, rowPerPage, onChangePage, onChangeRow }) => {
             <TableCell><Typography variant='subheading'>โปรตีน (กรัม)</Typography></TableCell>
             <TableCell><Typography variant='subheading'>ไขมัน (กรัม)</Typography></TableCell>
             <TableCell><Typography variant='subheading'>คาร์โบไฮเดรต (กรัม)</Typography></TableCell>
-            <TableCell><Typography variant='subheading'>ปริมาณ</Typography></TableCell>
+            <TableCell><Typography variant='subheading'>ปริมาณ/กรัม</Typography></TableCell>
           </TableHead>
           <TableBody className="bodyTable">
             {data.result

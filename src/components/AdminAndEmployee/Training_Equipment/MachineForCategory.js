@@ -64,6 +64,12 @@ const styles = {
   },
   formAddMachine: {
     marginBottom: '8%'
+  },
+  Btconfig: {
+    backgroundColor: '#CFD229'
+  },
+  BtShow: {
+    backgroundColor: 'green'
   }
 };
 const MachineForCategory = ({
@@ -112,8 +118,8 @@ const MachineForCategory = ({
 
       <Grid container justify="center" style={styles.root}>
         <Grid item xs={10} sm={9}>
-          <Button variant="fab" mini color="secondary" style={styles.BtAdd} onClick={onOpenDialogAddMachine}>
-            <AddIcon/>
+          <Button variant="contained" mini color="secondary" style={styles.BtAdd} onClick={onOpenDialogAddMachine}>
+            เพิ่มเครื่องเล่น
           </Button>
           <Table>
             <TableHead component="tr">
@@ -121,7 +127,8 @@ const MachineForCategory = ({
               <TableCell component="th" style={styles.TableHead}>สถานะเครื่องเล่น</TableCell>
               <TableCell component="th" style={styles.TableHead}>วันที่ซื้อ</TableCell>
               <TableCell component="th" style={styles.TableHead}>ผู้เพิ่มข้อมูล</TableCell>
-              <TableCell component="th" style={styles.TableHead}>เรียกดู/แก้ไข</TableCell>
+              <TableCell component="th" style={styles.TableHead}>เรียกดูข้อมูล</TableCell>
+              <TableCell component="th" style={styles.TableHead}>แก้ไขข้อมูล</TableCell>
             </TableHead>
             <TableBody>
               {
@@ -134,19 +141,23 @@ const MachineForCategory = ({
                         .format('DD-MM-YYYY')}</TableCell>
                       <TableCell component="td">{value.created_by}</TableCell>
                       <TableCell component="td">
-                        <Button variant="fab" mini color="secondary"
-                                onClick={() => onClickShowFullDataMachine(value.trainingEquipment_id)}>
-                          <SearchIcon/>
+                        <Button variant="contained" color="secondary"
+                                onClick={() => onClickShowFullDataMachine(value.trainingEquipment_id)}
+                                style={styles.BtShow}>
+                          ค้นหา
                         </Button>
-                        {
-                          userType === 1 ? (
-                            <Button variant="fab" mini color="secondary"
-                                    onClick={() => onOpenDialogInformMachine(value.trainingEquipment_id)}>
-                              <Config/>
-                            </Button>
-                          ) : ""
-                        }
                       </TableCell>
+                      {
+                        userType === 1 ? (
+                          <TableCell component="td">
+                            <Button variant="contained" color="secondary"
+                                    onClick={() => onOpenDialogInformMachine(value.trainingEquipment_id)}
+                                    style={styles.Btconfig}>
+                              แก้ไข
+                            </Button>
+                          </TableCell>
+                        ) : ""
+                      }
                     </TableRow>
                   ))
               }
@@ -178,10 +189,9 @@ const MachineForCategory = ({
         keepMounted
         onClose={onCloseDialogAddMachine}>
         <DialogTitle>
-          เพิ่มเครื่องเล่นเครื่องเล่น
+          เพิ่มเครื่องเล่น
         </DialogTitle>
         <Divider/>
-
         <Grid container justify="center">
           <Dropzone
             onDrop={onImageDrop}
@@ -229,7 +239,7 @@ const MachineForCategory = ({
                     onChange={changeInput}
                     label="ราคาเครื่องเล่น"
                     helperText="เช่น 100 บาท"
-                  />
+                    type="number"/>
                 </Typography>
               </FormControl>
             </FormGroup>

@@ -39,7 +39,7 @@ const employee = ({
 
 
           </Toolbar>
-          <Button color="inherit" component={Link} to='/register'>Register</Button>
+          {/*<Button color="inherit" component={Link} to='/register'>Register</Button>*/}
           <Button variant="fab" color="secondary" onClick={openDrawer}>
             {
               name !== null && name !== undefined ? name.data.name : (<AccountCircleIcon/>)
