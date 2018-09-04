@@ -15,9 +15,12 @@ import {
   Radio,
   Select,
   MenuItem,
-  Divider
+  Divider,
+  TextField,
+  InputAdornment
 } from '@material-ui/core';
 import '../style/register.css'
+import { RegisterComponent } from "./index";
 
 const styles = {
   Button: {
@@ -37,7 +40,15 @@ const styles = {
   }
 };
 
-const Register = ({ valueGender, valueMonth, handleChange, handleSubmit }) => (
+const Register = ({
+  valueGender,
+  valueMonth,
+  handleChange,
+  handleSubmit,
+  valueFname,
+  valueLname,
+  valueTel
+}) => (
   <div>
     <Grid container justify='center' className="layout">
       <Grid item xs={10} sm={4}>
@@ -62,15 +73,49 @@ const Register = ({ valueGender, valueMonth, handleChange, handleSubmit }) => (
             <br/>
             <FormGroup>
               <FormControl>
+                <TextField
+                  label="ชื่อ"
+                  onChange={handleChange}
+                  name="fName"/>
+              </FormControl>
+            </FormGroup>
+            <FormGroup>
+              <FormControl>
+                <TextField
+                  label="นามสกุล"
+                  onChange={handleChange}
+                  name="lName"/>
+              </FormControl>
+            </FormGroup>
+            <FormGroup>
+              <FormControl>
+                <TextField
+                  label="อายุ"
+                  onChange={handleChange}
+                  name="age"
+                  type="number"/>
+              </FormControl>
+            </FormGroup>
+            <FormGroup>
+              <FormControl>
+                <TextField
+                  label="เบอร์โทรศัพท์"
+                  onChange={handleChange}
+                  name="tel"
+                type="number"/>
+              </FormControl>
+            </FormGroup>
+            <br/>
+            <FormGroup>
+              <FormControl>
                 <FormLabel component="legend">เพศ</FormLabel>
                 <RadioGroup
                   aria-label="gender"
                   name="gender"
                   value={valueGender}
-                  onChange={handleChange}
-                >
-                  <FormControlLabel value="male" control={<Radio/>} label="Male"/>
-                  <FormControlLabel value="female" control={<Radio/>} label="Female"/>
+                  onChange={handleChange}>
+                  <FormControlLabel value="male" control={<Radio/>} label="ชาย"/>
+                  <FormControlLabel value="female" control={<Radio/>} label="หญิง"/>
                 </RadioGroup>
               </FormControl>
             </FormGroup>

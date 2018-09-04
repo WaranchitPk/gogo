@@ -76,7 +76,12 @@ class Calculator extends Component {
       bmiData = resultBMI.data;
       bmiStatus = resultBMI.status;
     }
-
+    let type = "";
+    if (this.props.token === null || this.props.token === undefined){
+      type = "";
+    } else{
+      type = this.props.token.userType
+    }
     return (
       <div>
         <CalculatorComponent
@@ -92,7 +97,7 @@ class Calculator extends Component {
           isOpenDialogShowExercise={isOpenDialogShowExercise}
           onOpenDialogShowExercise={this.handleOpenDialogShowExercise}
           onCloseDialogShowExercise={this.handleCloseDialogShowExercise}
-          userType={this.props.token.userType}/>
+          userType={type}/>
       </div>
     );
   }

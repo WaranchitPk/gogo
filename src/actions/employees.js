@@ -59,21 +59,21 @@ export const UpdateDataEmp = (body, id, dispatch) => {
 //delete data employee
 export const DeleteDataEmp = (id, dispatch) => {
   swal({
-    title: "Are you sure?",
-    text: "Once deleted, you will not be able to recover this imaginary file!",
+    title: "ยืนยันการลบ?",
+    text: "ลบข้อมูลสมาชิก",
     icon: "warning",
     buttons: true,
     dangerMode: true,
   })
     .then((willDelete) => {
       if (willDelete) {
-        swal("Poof! Your imaginary file has been deleted!", {
+        swal("ยกเลิกการลบข้อมูล", {
           icon: "success",
         });
         axios.delete(`${path_API}/employees/${id}`)
           .then(() => dispatch(loadData()))
       } else {
-        swal("Your imaginary file is safe!");
+        swal("ยกเลิกการลบข้อมูล");
       }
     });
 };

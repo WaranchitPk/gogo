@@ -9,6 +9,10 @@ class Register extends Component {
     username: '',
     password: '',
     gender: 'male',
+    fName: '',
+    lName: '',
+    age: '',
+    tel: '',
     month: 1
   };
   handleChange = (event) => {
@@ -17,11 +21,17 @@ class Register extends Component {
     });
   };
   handleSubmit = () => {
-    const { history: { push } } = this.props;
-    const body = {
-      ...this.state
-    };
-    this.props.dispatch(createUser(body, push));
+    const {username,password,fName,lName,tel,age} = this.state;
+    if (username === "" || password === "" || fName === "" || lName === "" || tel === "" || age === ""){
+      alert('empty')
+    } else{
+      const { history: { push } } = this.props;
+      const body = {
+        ...this.state
+      };
+      this.props.dispatch(createUser(body, push));
+    }
+
   };
 
   render() {
@@ -31,6 +41,9 @@ class Register extends Component {
         <RegisterComponent
           valueGender={this.state.gender}
           valueMonth={this.state.month}
+          valueFname={this.state.fName}
+          valueLname={this.state.lName}
+          valueTel={this.state.tel}
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}/>
       </div>

@@ -48,7 +48,17 @@ class Employee extends Component {
   //open Dialog Add Employee
   handleOpenDialogAdd = () => {
     this.setState({
-      isOpenDialogAdd: true
+      isOpenDialogAdd: true,
+      empUsername: '',
+      empPassword: '',
+      empFname: '',
+      empLname: '',
+      empBirthDate: new Date(),
+      empAge: '',
+      empAddress: '',
+      empTel: '',
+      empSalary: '',
+      empStartDate: new Date(),
     })
   };
   //close Dialog Add Employee
