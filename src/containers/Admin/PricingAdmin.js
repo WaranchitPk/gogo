@@ -134,6 +134,12 @@ class PricingAdmin extends Component {
     // } else {
     //   userType = ""
     // }
+    let type = "";
+    if (this.props.token === null || this.props.token === undefined){
+      type = "";
+    } else{
+      type = this.props.token.userType
+    }
     const { token: { userType } } = this.props;
     console.log(userType)
     return (

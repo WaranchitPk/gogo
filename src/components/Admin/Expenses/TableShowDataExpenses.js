@@ -61,7 +61,7 @@ const ShowDataExpenses = ({
                       <TableCell component='td'>{result.expenses_names}</TableCell>
                       <TableCell component='td'>{result.expenses_details}</TableCell>
                       <TableCell component='td'>{result.expenses_amount.toLocaleString()}</TableCell>
-                      <TableCell component='td'>{moment(result.expenses_date).format('YYYY-MM-DD')}</TableCell>
+                      <TableCell component='td'>{moment(result.expenses_date).format('DD-MM-YYYY')}</TableCell>
                     </TableRow>
                   ))
                 }

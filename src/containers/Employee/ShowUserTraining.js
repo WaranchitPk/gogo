@@ -87,7 +87,10 @@ class UserTraining extends Component {
   };
   handleOpenDialogCreated = () => {
     this.setState({
-      isOpenDialogCreatedData: true
+      isOpenDialogCreatedData: true,
+      diaryDetail: '',
+      diaryRecomend: '',
+      diaryStatus: '',
     })
   };
   handleCloseDialogCreated = () => {
@@ -121,7 +124,7 @@ class UserTraining extends Component {
   };
   handleSubmitFormDiary = () => {
     const { diaryDate, diaryDetail, diaryStatus,diaryRecomend,userId } = this.state;
-    const { dispatch } = this.props;
+    const { dispatch,token} = this.props;
     if (diaryDetail === "" || diaryStatus === "" || diaryRecomend === ""){
       alert('please input')
     } else{
@@ -133,7 +136,8 @@ class UserTraining extends Component {
         status: diaryStatus,
         details: diaryDetail,
         recomend: diaryRecomend,
-        created_by: 'พนักงาน'
+        created_by: token.userId,
+        by_name: 'เทรนเนอร์'
       };
       createDataUserData(body, dispatch,userId);
     }
@@ -190,7 +194,8 @@ class UserTraining extends Component {
 const mapStateToProps = (state) => (
   {
     dataUserTraining: state.loadFindDataUserTrainingReducer.data,
-    dataUserExerciseDiary: state.loadFindDataUserDiaryExerciseReducer.data
+    dataUserExerciseDiary: state.loadFindDataUserDiaryExerciseReducer.data,
+    token: state.AuthenReducer.token,
   }
 );
 export default connect(mapStateToProps)(UserTraining);

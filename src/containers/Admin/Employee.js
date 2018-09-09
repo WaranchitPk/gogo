@@ -23,7 +23,9 @@ class Employee extends Component {
     empFname: '',
     empLname: '',
     empBirthDate: new Date(),
+    empId: '',
     empAge: '',
+    empIdCard: '',
     empAddress: '',
     empTel: '',
     empSalary: '',
@@ -54,7 +56,9 @@ class Employee extends Component {
       empFname: '',
       empLname: '',
       empBirthDate: new Date(),
+      empId: '',
       empAge: '',
+      empIdCard: '',
       empAddress: '',
       empTel: '',
       empSalary: '',
@@ -83,9 +87,9 @@ class Employee extends Component {
   };
   //submit form Add
   handleSubmitAddEmp = () => {
-    const { empUsername, empPassword, empFname, empLname, empBirthDate, empAge, empAddress, empTel, empSalary, empStartDate } = this.state;
+    const { empId,empUsername, empPassword, empFname, empLname, empBirthDate, empAge,empIdCard, empAddress, empTel, empSalary, empStartDate } = this.state;
     const { dispatch } = this.props;
-    if (empUsername === "" || empPassword === "" || empFname === "" || empLname === "" || empAge === "" || empAddress === "" || empTel === "" || empSalary === "") {
+    if (empId === "" || empUsername === "" || empPassword === "" || empFname === "" || empLname === "" || empAge === "" || empIdCard === "" || empAddress === "" || empTel === "" || empSalary === "") {
       swal({
         title: "ข้อมูลพนักงานไม่ครบ",
         text: "กรุณากรอกข้อมูลให้ครบ",
@@ -93,20 +97,36 @@ class Employee extends Component {
         button: "ตกลง",
       });
     } else {
-      const bodyEmp = {
-        user: empUsername,
-        pass: empPassword,
-        fName: empFname,
-        lName: empLname,
-        birthDate: moment(empStartDate).format('YYYY-MM-DD'),
-        age: empAge,
-        address: empAddress,
-        tel: empTel,
-        salary: empSalary,
-        startDate: moment(empBirthDate).format('YYYY-MM-DD'),
-        status: 'พนักงาน'
-      };
-      createDate(bodyEmp, dispatch, this.clearStateAfterSubmit())
+      let empIdNoSame = ''
+      let findSameEmpId = this.props.showFnameLname.data.result.find(value => value.employee_id === +empId);
+      // this.props.showFnameLname.data.result.map(result =>{
+      //   if (result.employee_id === +empId){
+      //     alert('empId Same')
+      //   }
+      // })
+      if (findSameEmpId){
+        alert('EmpId Is Same')
+      }else{
+        const bodyEmp = {
+          id: empId,
+          user: empUsername,
+          pass: empPassword,
+          fName: empFname,
+          lName: empLname,
+          birthDate: moment(empStartDate).format('YYYY-MM-DD'),
+          age: empAge,
+          idCard: empIdCard,
+          address: empAddress,
+          tel: empTel,
+          salary: empSalary,
+          startDate: moment(empBirthDate).format('YYYY-MM-DD'),
+          status: 'พนักงาน'
+        };
+        createDate(bodyEmp, dispatch, this.clearStateAfterSubmit())
+      }
+      // employee_id
+
+
     }
   };
   //Clikc Show All Data - Emp
@@ -153,7 +173,8 @@ class Employee extends Component {
     const { userId, empFname, empLname, empBirthDate, empAge, empAddress, empTel, empSalary, empStartDate } = this.state;
     this.setState({
       isOpenFormChange: false
-    })
+    });
+
     const bodyEmp = {
       fName: empFname,
       lName: empLname,
@@ -201,7 +222,7 @@ class Employee extends Component {
     if (showAllData !== null && showAllData !== undefined) {
       dataShowAllEmp = showAllData.data.result
     }
-    // console.log('showAll Data',showAllData);
+    // console.log('showAll Data',showFnameLname);
     return (
       <div>
         <AdminEmployeeComponent

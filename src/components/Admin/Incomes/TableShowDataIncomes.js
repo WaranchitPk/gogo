@@ -51,7 +51,7 @@ const ShowDataIncome = ({
                       <TableCell component='td'>{result.incomes_name}</TableCell>
                       <TableCell component='td'>{result.incomes_details}</TableCell>
                       <TableCell component='td'>{result.incomes_amount.toLocaleString()}</TableCell>
-                      <TableCell component='td'>{moment(result.incomes_date).format('YYYY-MM-DD')}</TableCell>
+                      <TableCell component='td'>{moment(result.incomes_date).format('DD-MM-YYYY')}</TableCell>
                     </TableRow>
                   ))
                 }

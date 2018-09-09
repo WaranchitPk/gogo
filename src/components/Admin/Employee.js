@@ -30,7 +30,9 @@ const Employee = ({
   empFname,
   empLname,
   empBirthDate,
+  empId,
   empAge,
+  empIdCard,
   empAddress,
   empTel,
   empSalary,
@@ -75,6 +77,8 @@ const Employee = ({
         empBirthDate={empBirthDate}
         onChangeBirthDate={onChangeBirthDate}
         empAge={empAge}
+        empId={empId}
+        empIdCard={empIdCard}
         empAddress={empAddress}
         empTel={empTel}
         empSalary={empSalary}

@@ -40,6 +40,7 @@ const ShowAllUser = ({
   selectUser,
   afterSelect,
   statusSelected,
+  statusEmpSelected,
   onSubmitSelectUser,
   dataEmployee,
   isOpenDialogShowSelectEmp,
@@ -117,20 +118,26 @@ const ShowAllUser = ({
               </TableHead>
               <TableBody>
                 {
-                  dataEmployee && dataEmployee.map(value => (
-                    <TableRow
-                      key={value.employee_id}
-                      component="tr"
-                      onClick={(event) => onSelectEmp(event, value.employee_id)}>
-                      <TableCell>
-                        <Checkbox
-                          disableRipple={isSelectEmp}/>
-                      </TableCell>
-                      <TableCell component="td">{value.employee_Username}</TableCell>
-                      <TableCell component="td">{value.employee_Fname}</TableCell>
-                      <TableCell component="td">{value.countUser}</TableCell>
-                    </TableRow>
-                  ))
+                  dataEmployee && dataEmployee.map(value => {
+                    const isSelectedEmp = statusEmpSelected(value.employee_id);
+                    return (
+                      (
+                        <TableRow
+                          key={value.employee_id}
+                          component="tr"
+                          onClick={(event) => onSelectEmp(event, value.employee_id)}
+                          tabIndex={-1}
+                          selected={isSelectedEmp}>
+                          <TableCell>
+                            <Checkbox checked={isSelectedEmp}/>
+                          </TableCell>
+                          <TableCell component="td">{value.employee_Username}</TableCell>
+                          <TableCell component="td">{value.employee_Fname}</TableCell>
+                          <TableCell component="td">{value.countUser}</TableCell>
+                        </TableRow>
+                      )
+                    )
+                  })
                 }
               </TableBody>
             </Table>

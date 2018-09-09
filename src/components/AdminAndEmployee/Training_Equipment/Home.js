@@ -70,7 +70,7 @@ const TrainingEquipment_Home = ({
                       <TableCell component="td">{moment(value.trainingEquipment_dateForBuy)
                         .format('DD-MM-YYYY')}</TableCell>
                       <TableCell component="td">{value.trainingEquipment_price}</TableCell>
-                      <TableCell component="td">{value.created_by}</TableCell>
+                      <TableCell component="td">{value.created_by_name}</TableCell>
                     </TableRow>
                   ))
               }

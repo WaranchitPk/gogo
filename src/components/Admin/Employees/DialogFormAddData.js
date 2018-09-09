@@ -24,6 +24,8 @@ const FormAddData = ({
   empBirthDate,
   onChangeBirthDate,
   empAge,
+  empId,
+  empIdCard,
   empAddress,
   empTel,
   empSalary,
@@ -43,11 +45,21 @@ const FormAddData = ({
       <DialogContent>
         <DialogContentText>
           <FormControl component='p'>
+            <TextField
+              label="รหัสพนักงาน"
+              value={empId}
+              onChange={onChangeInput}
+              name="empId"
+              inputProps={{ maxLength: 10, }}
+              type="number"
+              autoFocus/>
             <TextField label="ยูเซอร์เนม" value={empUsername} onChange={onChangeInput} name="empUsername"/>
             <TextField label="พาสเวิร์ด" type="password" value={empPassword} onChange={onChangeInput}
                        name="empPassword"/>
             <TextField label="ชื่อ" value={empFname} onChange={onChangeInput} name="empFname"/>
             <TextField label="นามสกุล" value={empLname} onChange={onChangeInput} name="empLname"/>
+            <TextField label="รหัสบัตรประชาชน" value={empIdCard} onChange={onChangeInput} name="empIdCard"
+                       type="number"/>
             <DatePicker
               label="วันเกิด"
               format="DD/MM/YYYY"

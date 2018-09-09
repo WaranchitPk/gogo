@@ -126,7 +126,7 @@ class ExerciseDiary extends Component {
   //On Submit form Diary
   handleSubmitFormDiary = () => {
     const { diaryDate, diaryDetail, diaryStatus } = this.state;
-    const { dispatch } = this.props;
+    const { dispatch ,token: { userId },name} = this.props;
     this.setState({
       isOpenDialogForm: false
     });
@@ -134,8 +134,10 @@ class ExerciseDiary extends Component {
       date: moment(diaryDate).format('YYYY-MM-DD'),
       status: diaryStatus,
       details: diaryDetail,
-      created_by: 'ผู้ใช้'
+      created_by: userId,
+      by_name: 'ผู้ใช้'
     };
+    console.log(body)
     createData(body, dispatch);
     // console.log(`date: ${diaryDate}, Detail: ${diaryDetail}, Status: ${diaryStatus}`)
   };
@@ -183,7 +185,9 @@ class ExerciseDiary extends Component {
 
 const mapStateToProps = (state) => (
   {
-    AllData: state.ExerciseDiaryLoadAllData.data
+    AllData: state.ExerciseDiaryLoadAllData.data,
+    token: state.AuthenReducer.token,
+    name: state.findName.data
   }
 );
 export default connect(mapStateToProps)(ExerciseDiary);

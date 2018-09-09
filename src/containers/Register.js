@@ -5,37 +5,40 @@ import { RegisterComponent } from '../components';
 import { withRouter } from 'react-router-dom';
 
 class Register extends Component {
+
   state = {
+    userId: '',
     username: '',
     password: '',
     gender: 'male',
     fName: '',
     lName: '',
     age: '',
+    userIdCard: '',
     tel: '',
     month: 1
   };
+
   handleChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value
     });
   };
+
   handleSubmit = () => {
-    const {username,password,fName,lName,tel,age} = this.state;
-    if (username === "" || password === "" || fName === "" || lName === "" || tel === "" || age === ""){
+    const { userId, username, password, fName, lName, tel, age, userIdCard } = this.state;
+    if (userId === "", username === "" || password === "" || fName === "" || lName === "" || tel === "" || age === "", userIdCard === "") {
       alert('empty')
-    } else{
+    } else {
       const { history: { push } } = this.props;
       const body = {
         ...this.state
       };
       this.props.dispatch(createUser(body, push));
     }
-
   };
 
   render() {
-    console.log(this.props);
     return (
       <div>
         <RegisterComponent

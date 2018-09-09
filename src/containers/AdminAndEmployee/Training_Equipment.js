@@ -151,21 +151,24 @@ class Training_Equipment extends Component {
   };
   //handleSubmit form ADd machine
   handleSubmitAddMachine = (cate) => {
-    const { machine_name, machine_BuyDate, machine_Price,imgPreview} = this.state;
-    const { dispatch, token: { userType }, name } = this.props;
-    if (machine_name === "" || machine_Price === "" ){
+    const { machine_name, machine_BuyDate, machine_Price, imgPreview } = this.state;
+    const { dispatch, token: { userType, userId }, name } = this.props;
+    if (machine_name === "" || machine_Price === "") {
       alert('empty')
-    } else{
+    } else {
       let created_by = '';
+      let created_by_name = '';
       if (userType === 1) {
-        created_by = 'admin'
+        created_by = userId;
+        created_by_name = 'admin';
       } else if (userType === 2) {
-        created_by = name.data.fullName
+        created_by = userId;
+        created_by_name = name.data.fullName;
       }
-      this.uploadImg(machine_name, machine_BuyDate, machine_Price, cate, dispatch,created_by)
+      this.uploadImg(machine_name, machine_BuyDate, machine_Price, cate, dispatch,created_by,created_by_name,userType)
     }
   };
-  uploadImg = (machine_name, machine_BuyDate, machine_Price, cate, dispatch,created_by) => {
+  uploadImg = (machine_name, machine_BuyDate, machine_Price, cate, dispatch, created_by,created_by_name,userType) => {
     this.setState({
       loadingUpload: false
     });
@@ -184,7 +187,9 @@ class Training_Equipment extends Component {
           status: "พร้อมใช้งาน",
           category: cate,
           created_by: created_by,
-          pic: `${response.body.public_id}.jpg`
+          pic: `${response.body.public_id}.jpg`,
+          by_name: created_by_name,
+          typeCreated: userType
         };
         CreateDataMachine(bodyData).then(result => {
           dispatch(DataCateMachine(cate));

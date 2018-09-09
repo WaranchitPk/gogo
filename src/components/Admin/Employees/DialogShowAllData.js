@@ -40,6 +40,10 @@ const ShowAllData = ({
               <div key={result.employee_id}>
                 <ListItem>
                   <ListItemIcon><PeopleIcon/></ListItemIcon>
+                  <ListItemText primary={'รหัสพนักงาน'} secondary={result.employee_id}/>
+                </ListItem>
+                <ListItem>
+                  <ListItemIcon><PeopleIcon/></ListItemIcon>
                   <ListItemText primary={'ชื่อ'} secondary={result.employee_Fname}/>
                 </ListItem>
                 <ListItem>
@@ -49,11 +53,15 @@ const ShowAllData = ({
                 <ListItem>
                   <ListItemIcon><DateIcon/></ListItemIcon>
                   <ListItemText primary={'วัน/เดือน/ปี เกิด'}
-                                secondary={moment(result.employee_Birthdate).format("YYYY-MM-DD")}/>
+                                secondary={moment(result.employee_Birthdate).format("DD-MM-YYYY")}/>
                 </ListItem>
                 <ListItem>
                   <ListItemIcon><PeopleIcon/></ListItemIcon>
                   <ListItemText primary={'อายุ'} secondary={result.employee_Age}/>
+                </ListItem>
+                <ListItem>
+                  <ListItemIcon><PeopleIcon/></ListItemIcon>
+                  <ListItemText primary={'รหัสบัตรประชาชน'} secondary={result.employee_idCard}/>
                 </ListItem>
                 <ListItem>
                   <ListItemIcon><PeopleIcon/></ListItemIcon>
@@ -65,12 +73,12 @@ const ShowAllData = ({
                 </ListItem>
                 <ListItem>
                   <ListItemIcon><MoneyIcon/></ListItemIcon>
-                  <ListItemText primary={'เงินเดือน'} secondary={result.employee_Salary}/>
+                  <ListItemText primary={'เงินเดือน'} secondary={result.employee_Salary.toLocaleString()}/>
                 </ListItem>
                 <ListItem>
                   <ListItemIcon><DateIcon/></ListItemIcon>
                   <ListItemText primary={'วันที่เริ่มทำงาน'}
-                                secondary={moment(result.employee_Start).format("YYYY-MM-DD")}/>
+                                secondary={moment(result.employee_Start).format("DD-MM-YYYY")}/>
                 </ListItem>
                 <ListItem>
                   <ListItemIcon><InboxIcon/></ListItemIcon>

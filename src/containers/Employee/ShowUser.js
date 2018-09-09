@@ -62,21 +62,23 @@ class showUser extends Component {
   //submit user
   handleSubmitSelectUser = () => {
     this.props.dispatch(loadData());
-   if (this.state.selected.length === 0){
-     swal({
-       title: "ผิดพลาด",
-       text: "กรุณาเลือกสมาชิกอย่างน้อย 1 คน",
-       icon: "warning",
-       button: "ตกลง",
-     });
-   } else{
-     axios.get(`${path_API}/employees/findCountUserTrainingEmp`).then((result) => {
-       this.setState({
-         dataEmployee: result.data.result,
-         isOpenDialogShowSelectEmp: true
-       })
-     })
-   }
+    if (this.state.selected.length === 0) {
+      swal({
+        title: "ผิดพลาด",
+        text: "กรุณาเลือกสมาชิกอย่างน้อย 1 คน",
+        icon: "warning",
+        button: "ตกลง",
+      });
+      console.log('selected member', this.state.selected);
+    } else {
+
+      axios.get(`${path_API}/employees/findCountUserTrainingEmp`).then((result) => {
+        this.setState({
+          dataEmployee: result.data.result,
+          isOpenDialogShowSelectEmp: true
+        })
+      })
+    }
     // UpdateStatusTrainingUser(this.state.selected,this.props.dispatch)
   };
   handleCloseDialogShowSelectEmp = () => {
@@ -85,7 +87,7 @@ class showUser extends Component {
     })
   };
 
-  handleSelectEmp = (event,id) =>{
+  handleSelectEmp = (event, id) => {
     const { selectedEmp } = this.state;
     const selectedIndex = selectedEmp.indexOf(id);
     let newSelected = [];
@@ -111,37 +113,41 @@ class showUser extends Component {
     this.setState({ selectedEmp: newSelected });
 
   };
-  handleSubmitSelectEmp = () =>{
-    if (this.state.selectedEmp.length === 0){
+  handleSubmitSelectEmp = () => {
+    if (this.state.selectedEmp.length === 0) {
       swal({
         title: "ผิดพลาด",
         text: "กรุณาเลือกพนักงาน",
         icon: "warning",
         button: "ตกลง",
       });
-    } else{
-      if (this.state.selectedEmp.length >1){
+    } else {
+      if (this.state.selectedEmp.length > 1) {
         swal({
           title: "ผิดพลาด",
           text: "กรุณาเลือกพนักงาน 1 คน เท่านั้น",
           icon: "error",
           button: "ตกลง",
         });
-      }else{
-        UpdateStatusTrainingUser(this.state.selected,this.state.selectedEmp[0],this.props.dispatch)
+      } else {
+        console.log(`Selectd emp : ${this.state.selected} Selected Employee : ${this.state.selectedEmp}`)
+        UpdateStatusTrainingUser(this.state.selected, this.state.selectedEmp, this.props.dispatch)
         this.setState({
-          isOpenDialogShowSelectEmp: false
+          isOpenDialogShowSelectEmp: false,
+          selected: [],
+          selectedEmp: []
         })
       }
     }
 
   }
   isSelected = id => this.state.selected.indexOf(id) !== -1;
+  isSelectedEmp = id => this.state.selectedEmp.indexOf(id) !== -1;
 
   render() {
 
     const { dataUser, showAllData } = this.props;
-    const { page, rowsPerPage, selected, dataEmployee,isOpenDialogShowSelectEmp,isSelectEmp,selectedEmp } = this.state;
+    const { page, rowsPerPage, selected, dataEmployee, isOpenDialogShowSelectEmp, isSelectEmp, selectedEmp } = this.state;
     let resultShowUser = [];
     let resultShowUserLength = "";
     // if (selectedEmp.length === 0){
@@ -153,6 +159,7 @@ class showUser extends Component {
       resultShowUser = dataUser.data.result;
       resultShowUserLength = dataUser.data.result.length
     }
+    console.log('selected member', this.state.selected);
     return (
       <div>
         <EmployeeShowAllUser
@@ -172,7 +179,8 @@ class showUser extends Component {
           onSelectEmp={this.handleSelectEmp}
           isSelectEmp={isSelectEmp}
           selectedEmp={selectedEmp}
-          onSubmitSelectEmp={this.handleSubmitSelectEmp}/>
+          onSubmitSelectEmp={this.handleSubmitSelectEmp}
+          statusEmpSelected={this.isSelectedEmp}/>
       </div>
     );
   }

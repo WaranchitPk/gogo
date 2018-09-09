@@ -80,7 +80,7 @@ const ExerciseDiary = ({
                       <TableCell component="td">{result.exDiary_details}</TableCell>
                       <TableCell component="td">{result.exDiary_status}</TableCell>
                       <TableCell component="td">{result.exDiary_recomend}</TableCell>
-                      <TableCell component="td">{result.created_by}</TableCell>
+                      <TableCell component="td">{result.created_by_name}</TableCell>
                       <TableCell component="td">
                         <Button variant="outlined" color="secondary"
                                 onClick={() => onChangeStatus(result.exDiary_id)}>แก้ไขสถานะ</Button>

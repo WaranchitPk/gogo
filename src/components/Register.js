@@ -41,13 +41,15 @@ const styles = {
 };
 
 const Register = ({
+  userId,
   valueGender,
   valueMonth,
   handleChange,
   handleSubmit,
   valueFname,
   valueLname,
-  valueTel
+  valueTel,
+  userIdCard
 }) => (
   <div>
     <Grid container justify='center' className="layout">
@@ -58,6 +60,12 @@ const Register = ({
           </Typography>
           <Divider/>
           <CardContent>
+            <FormGroup>
+              <FormControl>
+                <InputLabel>รหัสผู้ใช้</InputLabel>
+                <Input type='text' name='userId' onChange={handleChange}/>
+              </FormControl>
+            </FormGroup>
             <FormGroup>
               <FormControl>
                 <InputLabel>username</InputLabel>
@@ -102,7 +110,7 @@ const Register = ({
                   label="เบอร์โทรศัพท์"
                   onChange={handleChange}
                   name="tel"
-                type="number"/>
+                  type="number"/>
               </FormControl>
             </FormGroup>
             <br/>
@@ -117,6 +125,15 @@ const Register = ({
                   <FormControlLabel value="male" control={<Radio/>} label="ชาย"/>
                   <FormControlLabel value="female" control={<Radio/>} label="หญิง"/>
                 </RadioGroup>
+              </FormControl>
+            </FormGroup>
+            <FormGroup>
+              <FormControl>
+                <TextField
+                  label="รหัสบัตรประชาชน"
+                  onChange={handleChange}
+                  name="userIdCard"
+                  type="number"/>
               </FormControl>
             </FormGroup>
             <FormGroup>
