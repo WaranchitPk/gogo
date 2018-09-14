@@ -178,7 +178,7 @@ class Employee extends Component {
     const bodyEmp = {
       fName: empFname,
       lName: empLname,
-      birthDate: moment(empStartDate).format('YYYY-MM-DD'),
+      birthDate: moment(empBirthDate).format('YYYY-MM-DD'),
       age: empAge,
       address: empAddress,
       tel: empTel,
