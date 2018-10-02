@@ -8,9 +8,12 @@ import {
   DialogTitle,
   Divider,
   FormControl,
-  TextField
+  TextField,
+  Icon
 } from "@material-ui/core";
 import { DatePicker } from "material-ui-pickers";
+import RightKeyboard from '@material-ui/icons/KeyboardArrowRight';
+import LeftKeyboard from '@material-ui/icons/KeyboardArrowLeft';
 const FormChange = ({
   isOpenDialogFormChange,
   onCloseDialogFormChange,
@@ -52,7 +55,8 @@ const FormChange = ({
               disableOpenOnEnter
               onChange={onChangeBirthDate}
               animateYearScrolling={false}
-            />
+              leftArrowIcon={<Icon><LeftKeyboard/> </Icon>}
+              rightArrowIcon={<Icon> <RightKeyboard/> </Icon>}/>
             <TextField label="อายุ" value={empAge} onChange={onChangeInput} name="empAge"/>
             <TextField label="ที่อยู่" value={empAddress} onChange={onChangeInput} name="empAddress"/>
             <TextField label="เบอร์โทรศัพ" value={empTel} onChange={onChangeInput} name="empTel"/>
@@ -66,7 +70,9 @@ const FormChange = ({
               mask={value => (value ? [/\d/, /\d/, '/', /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/] : [])}
               disableOpenOnEnter
               onChange={onChangeStartDate}
-              animateYearScrolling={false}/>
+              animateYearScrolling={false}
+              leftArrowIcon={<Icon><LeftKeyboard/> </Icon>}
+              rightArrowIcon={<Icon> <RightKeyboard/> </Icon>}/>
           </FormControl>
         </DialogContentText>
       </DialogContent>

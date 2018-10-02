@@ -26,7 +26,8 @@ import {
   RadioGroup,
   FormControlLabel,
   Radio,
-  Paper
+  Paper,
+  Icon
 } from "@material-ui/core";
 import SearchIcon from '@material-ui/icons/Search';
 import AddIcon from '@material-ui/icons/Add';
@@ -37,7 +38,8 @@ import DialogShowFullData from './MachineForCate/DialogShowFullData'
 import { DatePicker } from "material-ui-pickers";
 import Dropzone from 'react-dropzone';
 import purple from "@material-ui/core/colors/purple";
-
+import RightKeyboard from '@material-ui/icons/KeyboardArrowRight';
+import LeftKeyboard from '@material-ui/icons/KeyboardArrowLeft';
 const Transition = (props) => (
   <Slide direction="up" {...props}/>
 );
@@ -231,7 +233,9 @@ const MachineForCategory = ({
                   mask={value => (value ? [/\d/, /\d/, '/', /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/] : [])}
                   disableOpenOnEnter
                   onChange={onChangeDateMachine}
-                  animateYearScrolling={false}/>
+                  animateYearScrolling={false}
+                  leftArrowIcon={<Icon><LeftKeyboard/> </Icon>}
+                  rightArrowIcon={<Icon> <RightKeyboard/> </Icon>}/>
               </FormControl>
             </FormGroup>
             <FormGroup style={styles.formAddMachine}>

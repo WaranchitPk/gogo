@@ -17,7 +17,7 @@ const member = ({ styles, onLogout, isOpen, stateOpen, isClose, name, openDrawer
     <div style={styles.root}>
       <AppBar position="static" style={HeaderStyleJs.AppBar}>
         <Toolbar>
-          <Typography variant="title" color="inherit" style={styles.flex}>
+          <Typography variant="title" color="inherit" style={styles.flex} component={Link} to='/'>
             GO-GYM
           </Typography>
           {/*<Button color="inherit" component={Link} to='/' style={styles.flex}>GO-GYM</Button>*/}

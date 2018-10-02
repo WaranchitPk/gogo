@@ -93,7 +93,7 @@ const ShowPricingPromotion = ({
                 ยกเลิก
               </Button>
               <Button onClick={handleSubmitPromotion} color="primary" autoFocus>
-                Agree
+                ตกลง
               </Button>
             </DialogActions>
           </div>

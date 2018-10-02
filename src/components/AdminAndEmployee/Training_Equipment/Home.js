@@ -49,7 +49,7 @@ const TrainingEquipment_Home = ({
       </List>
       <Divider/>
       <Grid container justify="center" style={styles.root}>
-        <Grid item xs={10} sm={9}>
+        <Grid item xs={10} sm={10}>
           <Table>
             <TableHead component="tr">
               <TableCell component="th" style={styles.TableHead}>ชื่อเครื่องเล่น</TableCell>
@@ -69,7 +69,7 @@ const TrainingEquipment_Home = ({
                       <TableCell component="td">{value.category_name}</TableCell>
                       <TableCell component="td">{moment(value.trainingEquipment_dateForBuy)
                         .format('DD-MM-YYYY')}</TableCell>
-                      <TableCell component="td">{value.trainingEquipment_price}</TableCell>
+                      <TableCell component="td">{value.trainingEquipment_price.toLocaleString()}</TableCell>
                       <TableCell component="td">{value.created_by_name}</TableCell>
                     </TableRow>
                   ))

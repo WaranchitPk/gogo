@@ -76,9 +76,9 @@ const Login = ({ handleChange, onSubmit, username, password, userType, classes }
                 value={userType}
                 onChange={handleChange}
                 name='userType'>
-                <MenuItem value={1}>Admin</MenuItem>
-                <MenuItem value={2}>Employee</MenuItem>
-                <MenuItem value={3}>Member</MenuItem>
+                <MenuItem value={1}>ผู้ดูแลระบบ</MenuItem>
+                <MenuItem value={2}>พนักงาน</MenuItem>
+                <MenuItem value={3}>สมาชิก</MenuItem>
               </Select>
             </FormControl>
           </CardContent>

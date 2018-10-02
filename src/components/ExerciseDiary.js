@@ -20,13 +20,15 @@ import {
   Radio,
   RadioGroup,
   FormControlLabel,
-  FormLabel
+  FormLabel,
+  Icon
 } from '@material-ui/core';
 import moment from 'moment'
 import AddIcon from "@material-ui/icons/Add";
 import { DatePicker } from "material-ui-pickers";
 import Slide from '@material-ui/core/Slide';
-
+import RightKeyboard from '@material-ui/icons/KeyboardArrowRight';
+import LeftKeyboard from '@material-ui/icons/KeyboardArrowLeft';
 const Transition = (props) => (
   <Slide direction="up" {...props} />
 );
@@ -109,7 +111,7 @@ const ExerciseDiary = ({
         open={isOpenDialogFormUpdate}
         onClose={onCloseDialogFormUpdate}
         TransitionComponent={Transition}>
-        <DialogTitle>เพิ่มบันทึกการออกกำลังกาย</DialogTitle>
+        <DialogTitle>แก้ไขข้อมูลการเล่น</DialogTitle>
         <DialogContent>
           <DialogContentText>
             <FormControl component='p' margin="normal" required fullWidth>
@@ -122,7 +124,9 @@ const ExerciseDiary = ({
                 mask={value => (value ? [/\d/, /\d/, '/', /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/] : [])}
                 disableOpenOnEnter
                 onChange={onDateFormDiary}
-                animateYearScrolling={false}/>
+                animateYearScrolling={false}
+                leftArrowIcon={<Icon><LeftKeyboard/> </Icon>}
+                rightArrowIcon={<Icon> <RightKeyboard/> </Icon>}/>
             </FormControl>
             <FormControl component='p' margin="normal" required fullWidth>
               <TextField label="รายละเอียด" value={diaryDetail} onChange={onChangeDataForm} name="diaryDetail"/>
@@ -146,7 +150,7 @@ const ExerciseDiary = ({
         <DialogContent>
           <DialogContentText>
             <FormControl component='p' margin="normal" required fullWidth>
-              <FormLabel component="legend">เพศ</FormLabel>
+              <FormLabel component="legend">สถานะการเล่น</FormLabel>
               <RadioGroup
                 name="diaryStatus"
                 value={diaryStatus}
@@ -183,7 +187,9 @@ const ExerciseDiary = ({
                 mask={value => (value ? [/\d/, /\d/, '/', /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/] : [])}
                 disableOpenOnEnter
                 onChange={onDateFormDiary}
-                animateYearScrolling={false}/>
+                animateYearScrolling={false}
+                leftArrowIcon={<Icon><LeftKeyboard/> </Icon>}
+                rightArrowIcon={<Icon> <RightKeyboard/> </Icon>}/>
             </FormControl>
             <FormControl component='p' margin="normal" required fullWidth>
               <TextField label="รายละเอียด" value={diaryDetail} onChange={onChangeDataForm} name="diaryDetail"/>

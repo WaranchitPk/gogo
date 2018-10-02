@@ -102,7 +102,7 @@ const ShowFooterPrice = ({
                   ยกเลิก
                 </Button>
                 <Button onClick={handleSubmitPricing} color="primary" autoFocus>
-                  Agree
+                  ตกลง
                 </Button>
               </DialogActions>
             </div>

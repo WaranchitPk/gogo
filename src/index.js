@@ -12,7 +12,7 @@ import {getTokenInStorage} from './libs';
 import {authen_Success} from '../src/actions/types';
 import jwtDecode from 'jwt-decode';
 import MuiPickersUtilsProvider from 'material-ui-pickers/utils/MuiPickersUtilsProvider';
-
+import MomentUtils from 'material-ui-pickers/utils/moment-utils';
 import DateFnsUtils from 'material-ui-pickers/utils/date-fns-utils';
 
 const store = createStore(reducers,applyMiddleware(promiseMiddleware(),thunk));
@@ -32,7 +32,7 @@ if (checkIsLogin) {
 ReactDOM.render(
     <Provider store={store}>
         <Router>
-            <MuiPickersUtilsProvider utils={DateFnsUtils}>
+            <MuiPickersUtilsProvider utils={MomentUtils}>
                 <App/>
             </MuiPickersUtilsProvider>
         </Router>

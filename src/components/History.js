@@ -15,12 +15,14 @@ import {
     TableHead,
     TableRow,
     TablePagination,
-    Typography
+    Typography,
+    Icon
 } from '@material-ui/core';
 import moment from 'moment'
 import {DateTimePicker} from 'material-ui-pickers';
 import '../style/history.css';
-
+import RightKeyboard from '@material-ui/icons/KeyboardArrowRight';
+import LeftKeyboard from '@material-ui/icons/KeyboardArrowLeft';
 const History = ({isOpen, handleOpen, handleClose, dateNow, handleDateChange, Detail, handleChangeText, handleOnSubmit, data, page, rowPerPage, onChangePage, onChangeRow}) => {
     return (
         <Grid container className='centered' alignItems='center' justify='center'>
@@ -31,11 +33,11 @@ const History = ({isOpen, handleOpen, handleClose, dateNow, handleDateChange, De
                             <Button
                                 variant="contained"
                                 color="primary"
-                                onClick={handleOpen}>Add</Button>
+                                onClick={handleOpen}>เพิ่ม</Button>
                             <Dialog
                                 open={isOpen}
                                 onClose={handleClose}>
-                                <DialogTitle>History</DialogTitle>
+                                <DialogTitle>ประวัติการเข้าใช้ยิม</DialogTitle>
                                 <DialogContent>
                                     <DialogContentText>
                                         <DateTimePicker
@@ -45,7 +47,8 @@ const History = ({isOpen, handleOpen, handleClose, dateNow, handleDateChange, De
                                             value={dateNow}
                                             onChange={handleDateChange}
                                             label="24h clock"
-                                        />
+                                            leftArrowIcon={<Icon><LeftKeyboard/> </Icon>}
+                                            rightArrowIcon={<Icon> <RightKeyboard/> </Icon>}/>
                                         <form>
                                             <TextField
                                                 id="name"
@@ -59,10 +62,10 @@ const History = ({isOpen, handleOpen, handleClose, dateNow, handleDateChange, De
                                 </DialogContent>
                                 <DialogActions>
                                     <Button onClick={handleClose} color="primary">
-                                        Disagree
+                                        ยกเลิก
                                     </Button>
                                     <Button onClick={handleOnSubmit} color="primary" autoFocus>
-                                        Agree
+                                        ตกลง
                                     </Button>
                                 </DialogActions>
                             </Dialog>

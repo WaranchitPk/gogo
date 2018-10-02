@@ -9,11 +9,13 @@ import {
   Divider,
   FormControl,
   TextField,
-  InputAdornment
+  InputAdornment,
+  Icon
 } from "@material-ui/core";
 import { DatePicker } from "material-ui-pickers";
 import Slide from "@material-ui/core/Slide";
-
+import RightKeyboard from '@material-ui/icons/KeyboardArrowRight';
+import LeftKeyboard from '@material-ui/icons/KeyboardArrowLeft';
 const Traisition = (props) => {
   return <Slide direction="up" {...props}/>
 };
@@ -69,7 +71,9 @@ const FormIncome = ({
                 mask={value => (value ? [/\d/, /\d/, '/', /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/] : [])}
                 disableOpenOnEnter
                 onChange={onChangeDateIncome}
-                animateYearScrolling={false}/>
+                animateYearScrolling={false}
+                leftArrowIcon={<Icon><LeftKeyboard/> </Icon>}
+                rightArrowIcon={<Icon> <RightKeyboard/> </Icon>}/>
             </FormControl>
           </DialogContentText>
         </DialogContent>

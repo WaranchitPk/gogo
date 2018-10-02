@@ -26,7 +26,8 @@ import {
   FormLabel,
   RadioGroup,
   FormControlLabel,
-  Radio
+  Radio,
+  Icon
 } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import { EmployeeShowUserTraining } from "../index";
@@ -35,7 +36,8 @@ import Slide from "@material-ui/core/Slide";
 import moment from "moment";
 import { DatePicker } from "material-ui-pickers";
 import AddIcon from "@material-ui/icons/Add";
-
+import RightKeyboard from '@material-ui/icons/KeyboardArrowRight';
+import LeftKeyboard from '@material-ui/icons/KeyboardArrowLeft';
 const Transition = (props) => (
   <Slide direction="up" {...props} />
 );
@@ -252,7 +254,9 @@ const UserTraining = ({
                 mask={value => (value ? [/\d/, /\d/, '/', /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/] : [])}
                 disableOpenOnEnter
                 onChange={onDateFormDiary}
-                animateYearScrolling={false}/>
+                animateYearScrolling={false}
+                leftArrowIcon={<Icon><LeftKeyboard/> </Icon>}
+                rightArrowIcon={<Icon> <RightKeyboard/> </Icon>}/>
             </FormControl>
             <FormControl component='p' margin="normal" required fullWidth>
               <TextField label="รายละเอียด" value={diaryDetail} onChange={onChangeDataForm} name="diaryDetail"/>

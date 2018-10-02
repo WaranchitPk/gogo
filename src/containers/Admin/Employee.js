@@ -105,7 +105,12 @@ class Employee extends Component {
       //   }
       // })
       if (findSameEmpId){
-        alert('EmpId Is Same')
+        swal({
+          title: "รหัสพนักงานซ้ำ",
+          text: "กรุณากรอกรหัสพนักงานใหม่อีกครั้ง",
+          icon: "warning",
+          button: "ตกลง",
+        });
       }else{
         const bodyEmp = {
           id: empId,
@@ -113,14 +118,15 @@ class Employee extends Component {
           pass: empPassword,
           fName: empFname,
           lName: empLname,
-          birthDate: moment(empStartDate).format('YYYY-MM-DD'),
+          birthDate: moment(empBirthDate).format('YYYY-MM-DD'),
           age: empAge,
           idCard: empIdCard,
           address: empAddress,
           tel: empTel,
           salary: empSalary,
-          startDate: moment(empBirthDate).format('YYYY-MM-DD'),
-          status: 'พนักงาน'
+          startDate: moment(empStartDate).format('YYYY-MM-DD'),
+          status: 'พนักงาน',
+          userType: 2
         };
         createDate(bodyEmp, dispatch, this.clearStateAfterSubmit())
       }
@@ -178,12 +184,12 @@ class Employee extends Component {
     const bodyEmp = {
       fName: empFname,
       lName: empLname,
-      birthDate: moment(empStartDate).format('YYYY-MM-DD'),
+      birthDate: moment(empBirthDate).format('YYYY-MM-DD'),
       age: empAge,
       address: empAddress,
       tel: empTel,
       salary: empSalary,
-      startDate: moment(empBirthDate).format('YYYY-MM-DD'),
+      startDate: moment(empStartDate).format('YYYY-MM-DD'),
 
     };
     //update data - action
