@@ -1,13 +1,13 @@
 import React from 'react';
-import {Tab, Tabs, Paper, Grid,AppBar} from '@material-ui/core';
+import {Tab, Tabs, Paper, Grid, AppBar} from '@material-ui/core';
 import {AdminHomeIncomeExpensesContainer, AdminIncomeContainer, AdminExpensesContainer} from '../../containers';
-
+import '../../style/Admin/home.css'
 const MainIncomeExpenses = ({
                                 valueTabs,
                                 onChangeTabs
                             }) => {
     return (
-        <div>
+        <div id="rootHomePaperShowChart">
             <Grid container={true} justify={"center"}>
                 <Grid item xs={11} sm={10} md={10} lg={11} xl={11}>
                     <Paper elevation={5}>

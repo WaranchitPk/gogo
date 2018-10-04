@@ -55,14 +55,13 @@ const SideDrawerLogin = ({
             </ListItemIcon>
             <ListItemText primary="โภชนาการอาหาร"/>
         </ListItem>
-        <ListItem button onClick={onClickOpenNestedIncome}>
-            <ListItemIcon>
-                <InboxIcon/>
-            </ListItemIcon>
-            <ListItemText inset primary="รายรับ-รายจ่าย"/>
-            {isOpenListNestedIncome ? <ExpandLess/> : <ExpandMore/>}
-        </ListItem>
-
+        {/*<ListItem button onClick={onClickOpenNestedIncome}>*/}
+            {/*<ListItemIcon>*/}
+                {/*<InboxIcon/>*/}
+            {/*</ListItemIcon>*/}
+            {/*<ListItemText inset primary="รายรับ-รายจ่าย"/>*/}
+            {/*{isOpenListNestedIncome ? <ExpandLess/> : <ExpandMore/>}*/}
+        {/*</ListItem>*/}
         <ListItem button component={Link} to='/admin/income-express/main'>
             <ListItemIcon>
                 <SendIcon/>

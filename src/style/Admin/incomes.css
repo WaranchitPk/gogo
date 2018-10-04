@@ -5,3 +5,28 @@
     /* bring your own prefixes */
     transform: translate(-50%, -50%);
 }
+
+#searchCate{
+    width: 200px;
+}
+#searchCateMarginTop{
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+#title{
+    margin-top: 2%;
+    margin-bottom: 0.5%;
+}
+
+
+#marginBtSearch{
+    margin-top: 3%;
+}
+#marginBtAdd{
+    margin-top: 2%;
+    margin-left: 2%;
+}
+#tableShow{
+    margin-bottom: 2%;
+}

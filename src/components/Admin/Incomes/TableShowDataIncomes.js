@@ -15,10 +15,14 @@ import {
     CardContent,
     Divider,
     Typography,
-    Select
+    Select,
+    InputLabel,
+    FormControl,
 } from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
 import moment from "moment";
+import '../../../style/Admin/incomes.css'
+import Add from '@material-ui/icons/Add'
 
 const styles = {
     Button: {
@@ -42,41 +46,72 @@ const ShowDataIncome = ({
                             changeCate,
                             onOpenDialocDay
                         }) => {
-    console.log('incomes_cateId', DataIncomesCate)
     return (
         <div>
-            <Grid container={true} justify={"center"}>
+            <Typography
+                color={"textSecondary"}
+                variant={"display1"}
+                align={"center"}
+                id="title">
+                เรียกดูข้อมูลรายรับตามประเภทที่ต้องการ
+            </Typography>
+            <Divider/>
+            <Grid container={true} justify={"center"} id="searchCateMarginTop">
                 <Card>
                     <CardContent>
                         <Typography color="textSecondary">
                             เลือกประเภทรายรับ
                         </Typography>
-                        <Select
-                            value={changeCate}
-                            onChange={onChangeCate}>
-                            {
-                                DataIncomesCate.map((cate) => (
-                                    <MenuItem key={cate.incomes_cateId}
-                                              value={cate.incomes_cateId}>{cate.incomes_cateName}</MenuItem>
-                                ))
-                            }
-                        </Select>
+                        <FormControl id="searchCate">
+                            <InputLabel>รายการรายรับ</InputLabel>
+                            <Select
+                                value={changeCate}
+                                onChange={onChangeCate}
+                            >
+                                {
+                                    DataIncomesCate.map((cate) => (
+                                        <MenuItem key={cate.incomes_cateId}
+                                                  value={cate.incomes_cateId}>{cate.incomes_cateName}</MenuItem>
+                                    ))
+                                }
+                            </Select>
+                        </FormControl>
                         <br/>
-                        <Button variant='contained' color="primary" onClick={onsubmitCate}
-                                style={styles.Button}>เรียกดู</Button>
+                        <Button variant='contained'
+                                color="primary"
+                                onClick={onsubmitCate}
+                                style={styles.Button}
+                                id="marginBtSearch">เรียกดู</Button>
                     </CardContent>
                 </Card>
             </Grid>
             <Divider/>
+            <Typography
+                color={"textSecondary"}
+                variant={"display1"}
+                align={"center"}
+                id="title">
+                ตารางแสดงรายละเอียด: รายรับ
+            </Typography>
+            <Divider/>
             <Grid container justify="center">
-
                 <Grid item sm={7} xs={10}>
-                    <Button variant='contained' color="primary" onClick={onOpenDialogAdd}
-                            style={styles.Button}>เพิ่มรายรับ: อาหารและเครื่องดื่ม</Button>
-                    <Button variant='contained' color="primary" onClick={onOpenDialocDay}
-                            style={styles.Button}>เพิ่มรายรับ: ค่าสมาชิกรายวัน</Button>
-                    <Paper elevation={5}>
-                        <Table>
+                    <Button variant='contained'
+                            color="primary"
+                            onClick={onOpenDialogAdd}
+                            style={styles.Button}
+                            id="marginBtAdd">
+                        <Add/>
+                        เพิ่มรายรับ: อาหารและเครื่องดื่ม</Button>
+                    <Button variant='contained'
+                            color="primary"
+                            onClick={onOpenDialocDay}
+                            style={styles.Button}
+                            id="marginBtAdd">
+                        <Add/>
+                        เพิ่มรายรับ: ค่าสมาชิกรายวัน</Button>
+                    <Paper elevation={5} id="tableShow">
+                        <Table i>
                             <TableHead>
                                 <TableRow component="tr">
                                     <TableCell component='th'>ชื่อรายรับ</TableCell>

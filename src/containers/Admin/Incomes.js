@@ -24,7 +24,7 @@ class Incomes extends Component {
         isOpenDialogAddIncome: false,
         isOpenDialogAddIncomeDay: false,
         rowsPerPage: 5,
-        changeCate: [0],
+        changeCate: '',
         page: 0,
         inComeDay: ''
     };
@@ -134,7 +134,7 @@ class Incomes extends Component {
                     IncomeDetail: incomeDetail,
                     IncomeAmount: incomeAmount,
                     IncomeDate: incomeDate,
-                    IncomeCate: incomeCate
+                    IncomeCate: 3
                 };
                 createIncome(body).then((result) => {
                     console.log(result);

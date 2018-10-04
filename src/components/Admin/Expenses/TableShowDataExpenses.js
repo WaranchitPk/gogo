@@ -1,7 +1,7 @@
 import React from 'react';
 import {
-    Button, Card, CardContent,
-    Grid,
+    Button, Card, CardContent, Divider, FormControl,
+    Grid, InputLabel,
     MenuItem,
     Paper,
     Select,
@@ -13,7 +13,9 @@ import {
     TableRow, Typography
 } from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
+
 import moment from "moment";
+import '../../../style/Admin/incomes.css'
 
 const styles = {
     Button: {
@@ -45,34 +47,61 @@ const ShowDataExpenses = ({
                           }) => {
     return (
         <div>
-            <Grid container={true} justify={"center"}>
+            <Typography
+                color={"textSecondary"}
+                variant={"display1"}
+                align={"center"}
+                id="title">
+                เรียกดูข้อมูลรายจ่ายตามประเภทที่ต้องการ
+            </Typography>
+            <Divider/>
+            <Grid container={true} justify={"center"} id="searchCateMarginTop">
                 <Card>
                     <CardContent>
                         <Typography color="textSecondary">
                             เลือกประเภทรายรับ
                         </Typography>
-                        <Select
-                            value={expensesCateToShow}
-                            onChange={onChangeCateToShowData}>
-                            {
-                                dataExpensesCate.map((cate) => (
-                                    <MenuItem key={cate.expenses_cateId}
-                                              value={cate.expenses_cateId}>{cate.expenses_cateName}</MenuItem>
-                                ))
-                            }
-                        </Select>
+                        <FormControl id="searchCate">
+                            <InputLabel>รายการรายจ่าย</InputLabel>
+                            <Select
+                                value={expensesCateToShow}
+                                onChange={onChangeCateToShowData}>
+                                {
+                                    dataExpensesCate.map((cate) => (
+                                        <MenuItem key={cate.expenses_cateId}
+                                                  value={cate.expenses_cateId}>{cate.expenses_cateName}</MenuItem>
+                                    ))
+                                }
+                            </Select>
+                        </FormControl>
                         <br/>
                         <Button variant='contained'
                                 color="primary"
                                 style={styles.Button}
-                                onClick={onSubmitShowDataForCate}>เรียกดู</Button>
+                                onClick={onSubmitShowDataForCate}
+                                id="marginBtSearch">เรียกดู</Button>
                     </CardContent>
                 </Card>
             </Grid>
-            <Grid container justify="center" className='centered'>
+            <Divider/>
+            <Typography
+                color={"textSecondary"}
+                variant={"display1"}
+                align={"center"}
+                id="title">
+                ตารางแสดงรายละเอียด: รายจ่าย
+            </Typography>
+            <Divider/>
+            <Grid container justify="center">
                 <Grid item sm={7} xs={10}>
-                    <Button variant='contained' onClick={onOpenDialogAdd} style={styles.Button}>เพิ่มรายจ่าย</Button>
-                    <Paper elevation={5}>
+                    <Button
+                        variant='contained'
+                        onClick={onOpenDialogAdd}
+                        style={styles.Button}
+                        id="marginBtAdd">
+                        <AddIcon/>
+                        เพิ่มรายจ่าย</Button>
+                    <Paper elevation={5} id="tableShow">
                         <Table>
                             <TableHead>
                                 <TableRow component="tr">
