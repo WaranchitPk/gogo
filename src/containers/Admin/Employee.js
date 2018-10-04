@@ -14,7 +14,7 @@ import swal from "sweetalert";
 
 class Employee extends Component {
   state = {
-    userId: '',
+    userId: 20000 + Math.floor(Math.random() * 10000),
     rowsPerPage: 5,
     page: 0,
     isOpenDialogAdd: false,
@@ -23,7 +23,7 @@ class Employee extends Component {
     empFname: '',
     empLname: '',
     empBirthDate: new Date(),
-    empId: '',
+    empId: 222,
     empAge: '',
     empIdCard: '',
     empAddress: '',
@@ -56,7 +56,7 @@ class Employee extends Component {
       empFname: '',
       empLname: '',
       empBirthDate: new Date(),
-      empId: '',
+      empId: 20000 + Math.floor(Math.random() * 10000),
       empAge: '',
       empIdCard: '',
       empAddress: '',
@@ -228,7 +228,6 @@ class Employee extends Component {
     if (showAllData !== null && showAllData !== undefined) {
       dataShowAllEmp = showAllData.data.result
     }
-    // console.log('showAll Data',showFnameLname);
     return (
       <div>
         <AdminEmployeeComponent
