@@ -3,7 +3,8 @@ import {
     loadYearSelect,
     loadMonthSelect,
     loadDataExpensesCate,
-    loadDataExpensesCateChange
+    loadDataExpensesCateChange,
+    loadDataExpensesTrends
 } from '../actions/types';
 
 export const DataExpenses = (state = {}, action) => {
@@ -63,6 +64,28 @@ export const DataExpensesCateChange = (state = {}, action) => {
                 data: action.payload
             };
         case `${loadDataExpensesCateChange}_REJECTED`:
+            return {
+                ...state,
+                data: null,
+                err: 'err'
+            };
+        default:
+            return state;
+    }
+};
+export const DataExpensesTrends = (state = {}, action) => {
+    switch (action.type) {
+        case `${loadDataExpensesTrends}_PENDING`:
+            return {
+                ...state,
+                data: null
+            };
+        case `${loadDataExpensesTrends}_FULFILLED`:
+            return {
+                ...state,
+                data: action.payload
+            };
+        case `${loadDataExpensesTrends}_REJECTED`:
             return {
                 ...state,
                 data: null,

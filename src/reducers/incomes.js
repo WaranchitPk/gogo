@@ -1,7 +1,8 @@
 import {
     loadDataIncome,
     loadDataIncomeCate,
-    loadDataIncomeCateChange
+    loadDataIncomeCateChange,
+    loadDataIncomeTrends
 } from '../actions/types';
 
 export const DataIncome = (state = {}, action) => {
@@ -71,4 +72,27 @@ export const DataIncomeCateChange = (state = {}, action) => {
         default:
             return state;
     }
-}
+};
+
+export const DataIncomeTrends = (state = {}, action) => {
+    switch (action.type) {
+        case `${loadDataIncomeTrends}_PENDING`:
+            return {
+                ...state,
+                data: null
+            };
+        case `${loadDataIncomeTrends}_FULFILLED`:
+            return {
+                ...state,
+                data: action.payload
+            };
+        case `${loadDataIncomeTrends}_REJECTED`:
+            return {
+                ...state,
+                data: null,
+                err: 'err'
+            };
+        default:
+            return state;
+    }
+};

@@ -29,13 +29,14 @@ import {
     loadFindDataUserTrainingReducer,
     loadFindDataUserDiaryExerciseReducer
 } from './employees';
-import {DataIncome, DataIncomeCate,DataIncomeCateChange} from './incomes';
+import {DataIncome, DataIncomeCate,DataIncomeCateChange,DataIncomeTrends} from './incomes';
 import {
     DataExpenses,
     YearSelectExpenses,
     MonthSelectExpenses,
     DataExpensesCate,
-    DataExpensesCateChange
+    DataExpensesCateChange,
+    DataExpensesTrends
 } from './expenses';
 import {
     loadPricingReducer,
@@ -87,6 +88,8 @@ const reducers = combineReducers({
     ShowDataFullMachineReducer,
     DataIncomeCateChange,
     DataExpensesCate,
-    DataExpensesCateChange
+    DataExpensesCateChange,
+    DataIncomeTrends,
+    DataExpensesTrends
 });
 export default reducers;

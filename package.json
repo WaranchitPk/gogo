@@ -33,6 +33,7 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "react-hot-loader": "^4.3.4"
+    "react-hot-loader": "^4.3.4",
+    "recharts": "^1.3.1"
   }
 }

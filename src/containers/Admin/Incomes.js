@@ -4,11 +4,12 @@ import {
     dataIncome,
     dataIncomeCate,
     createIncome,
-    dataIncomeCateChange
+    dataIncomeCateChange,
+    dataIncomeTrends
 } from '../../actions/IncomesExpenses';
 import {connect} from 'react-redux';
 import swal from 'sweetalert';
-import {DataIncomeCateChange} from "../../reducers/incomes";
+
 import moment from "moment";
 import axios from "axios";
 import {createUser} from "../../actions/users";
@@ -26,7 +27,6 @@ class Incomes extends Component {
         changeCate: [0],
         page: 0,
         inComeDay: ''
-
     };
 
     componentDidMount() {
@@ -145,12 +145,12 @@ class Incomes extends Component {
     };
 
     render() {
-        const {LoadIncomeData, LoadIncomeCateData, LoadIncomeCateChangeData} = this.props;
-        console.log('data cate', this.state.inComeDay)
+        const {LoadIncomeData, LoadIncomeCateData, LoadIncomeCateChangeData,LoadIncomeDataTrend} = this.props;
 
         let receiveDataIncomes = [];
         let receiveDataIncomesLength = '';
         let receiveDataIncomeCate = [];
+        let receiveDataIncomeTrends = [];
         if (LoadIncomeData !== null && LoadIncomeData !== undefined) {
             receiveDataIncomes = LoadIncomeData.data.result;
             receiveDataIncomesLength = LoadIncomeData.data.result.length
@@ -162,6 +162,7 @@ class Incomes extends Component {
             receiveDataIncomes = LoadIncomeCateChangeData.data.result;
             receiveDataIncomesLength = LoadIncomeCateChangeData.data.result.length
         }
+
         return (
             <div>
                 <AdminIncomeComponent
@@ -191,7 +192,7 @@ const mapStateToProps = (state) => (
     {
         LoadIncomeData: state.DataIncome.data,
         LoadIncomeCateData: state.DataIncomeCate.data,
-        LoadIncomeCateChangeData: state.DataIncomeCateChange.data
+        LoadIncomeCateChangeData: state.DataIncomeCateChange.data,
     }
 )
 export default connect(mapStateToProps)(Incomes);

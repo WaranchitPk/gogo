@@ -37,10 +37,13 @@ export const loadAllDataEmployee = 'LOAD_ALLDATA_EMPLOYEE';
 export const loadDataIncome = 'LOAD_DATA_INCOME';
 export const loadDataIncomeCate = 'LOAD_DATA_INCOME_CATE';
 export const loadDataIncomeCateChange = 'LOAD_DATA_INCOME_CATE_CHANGE';
+export const loadDataIncomeTrends = 'LOAD_DATA_INCOMES_TRENDS';
 //load Data Expenses
 export const loadDataExpenses = 'LOAD_DATA_EXPENSES';
 export const loadDataExpensesCate = 'LOAD_DATA_EXPENSES_CATE';
 export const loadDataExpensesCateChange = 'LOAD_DATA_Expenses_CATE_CHANGE';
+export const loadDataExpensesTrends = 'LOAD_DATA_Expenses_TRENDS';
+
 //load select year
 export const loadYearSelect = 'LOAD_YEAR_SELECT';
 //load month select

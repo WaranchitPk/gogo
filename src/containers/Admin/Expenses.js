@@ -66,7 +66,11 @@ class Expenses extends Component {
     //open dialog add data incomes-expenses
     handleOpenDialogAddExpenses = () => {
         this.setState({
-            isOpenDialogAddExpenses: true
+            isOpenDialogAddExpenses: true,
+            expensesName: '',
+            expensesDetail: '',
+            expensesAmount: '',
+            expensesCateFormAdd: ''
         })
     };
     //close dialog add data incomes-expenses

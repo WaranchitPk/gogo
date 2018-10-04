@@ -6,7 +6,9 @@ import {
     loadDataIncomeCate,
     loadDataIncomeCateChange,
     loadDataExpensesCate,
-    loadDataExpensesCateChange
+    loadDataExpensesCateChange,
+    loadDataIncomeTrends,
+    loadDataExpensesTrends
 } from './types';
 import axios from 'axios';
 import {path_API} from '../config';
@@ -40,7 +42,14 @@ export const createIncome = (body) => {
         ...body
     })
 };
-
+export const dataIncomeTrends = (year) => (
+    dispatch => {
+        dispatch({
+            type: loadDataIncomeTrends,
+            payload: axios.get(`${path_API}/income-expenses/incomes/trends/${year}`)
+        })
+    }
+);
 export const dataExpenses = () => (
     dispatch => {
         dispatch({
@@ -70,6 +79,14 @@ export const createDataExpenses = (body) => {
         ...body
     })
 };
+export const dataExpensesTrends = (year) => (
+    dispatch => {
+        dispatch({
+            type: loadDataExpensesTrends,
+            payload: axios.get(`${path_API}/income-expenses/expenses/trends/${year}`)
+        })
+    }
+);
 export const yearSelect = () => (
     dispatch => {
         dispatch({
