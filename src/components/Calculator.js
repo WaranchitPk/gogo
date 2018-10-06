@@ -133,6 +133,9 @@ const ShowCalculator = ({
                       onChange={onChangeInput}
                       type="number"
                       inputProps={{ pattern: "[0-9]*" }}
+                      onInput={(e) =>{
+                          e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,3)
+                      }}
                       required/>
                   </FormGroup>
                   <FormGroup>
@@ -142,6 +145,9 @@ const ShowCalculator = ({
                       label="ส่วนสูง"
                       onChange={onChangeInput}
                       inputProps={{ pattern: "[0-9]*" }}
+                      onInput={(e) =>{
+                          e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,4)
+                      }}
                       required
                       type="number"/>
                   </FormGroup>
@@ -152,6 +158,9 @@ const ShowCalculator = ({
                       label="น้ำหนัก"
                       onChange={onChangeInput}
                       inputProps={{ pattern: "[0-9]*" }}
+                      onInput={(e) =>{
+                          e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,3)
+                      }}
                       required
                       type="number"/>
                   </FormGroup>
