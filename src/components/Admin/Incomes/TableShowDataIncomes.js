@@ -95,7 +95,7 @@ const ShowDataIncome = ({
             </Typography>
             <Divider/>
             <Grid container justify="center">
-                <Grid item sm={7} xs={10}>
+                <Grid item sm={8} xs={10}>
                     <Button variant='contained'
                             color="primary"
                             onClick={onOpenDialogAdd}
@@ -111,7 +111,7 @@ const ShowDataIncome = ({
                         <Add/>
                         เพิ่มรายรับ: ค่าสมาชิกรายวัน</Button>
                     <Paper elevation={5} id="tableShow">
-                        <Table i>
+                        <Table>
                             <TableHead>
                                 <TableRow component="tr">
                                     <TableCell component='th'>ชื่อรายรับ</TableCell>

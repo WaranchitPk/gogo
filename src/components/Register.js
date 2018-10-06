@@ -92,6 +92,7 @@ const Register = ({
                                 <TextField
                                     label="นามสกุล"
                                     onChange={handleChange}
+
                                     name="lName"/>
                             </FormControl>
                         </FormGroup>
@@ -101,7 +102,10 @@ const Register = ({
                                     label="อายุ"
                                     onChange={handleChange}
                                     name="age"
-                                    type="number"/>
+                                    type="number"
+                                    onInput={(e) =>{
+                                        e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,3)
+                                    }}/>
                             </FormControl>
                         </FormGroup>
                         <FormGroup>
@@ -110,7 +114,10 @@ const Register = ({
                                     label="เบอร์โทรศัพท์"
                                     onChange={handleChange}
                                     name="tel"
-                                    type="number"/>
+                                    type="number"
+                                    onInput={(e) =>{
+                                        e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,10)
+                                    }}/>
                             </FormControl>
                         </FormGroup>
                         <br/>
@@ -133,7 +140,10 @@ const Register = ({
                                     label="รหัสบัตรประชาชน"
                                     onChange={handleChange}
                                     name="userIdCard"
-                                    type="number"/>
+                                    type="number"
+                                    onInput={(e) =>{
+                                        e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,13)
+                                    }}/>
                             </FormControl>
                         </FormGroup>
                         <FormGroup>

@@ -7,6 +7,7 @@ import {createIncome, dataIncome} from "../actions/IncomesExpenses";
 import axios from "axios";
 import moment from 'moment'
 import {path_API} from "../config";
+import swal from "sweetalert";
 class Register extends Component {
 
     state = {
@@ -33,7 +34,12 @@ class Register extends Component {
         const {userId, username, password, fName, lName, tel, age, userIdCard,month} = this.state;
 
         if (userId === "", username === "" || password === "" || fName === "" || lName === "" || tel === "" || age === "", userIdCard === "") {
-            alert('empty')
+            swal({
+                title: "กรอกข้อมูลไม่ครบ",
+                text: "กรุณากรอกใหม่อีกครั้ง",
+                icon: "warning",
+                button: "ตกลง",
+            });
         } else {
             const {history: {push}} = this.props;
             const body = {

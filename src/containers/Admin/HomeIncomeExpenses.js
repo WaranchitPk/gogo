@@ -21,10 +21,60 @@ class HomeIncomeExpenses extends Component {
         let receiveDataIncomeTrends = [];
         let receiveDataExpensesTrends = [];
         if (LoadIncomeDataTrend !== null && LoadIncomeDataTrend !== undefined) {
-            receiveDataIncomeTrends = LoadIncomeDataTrend.data.result;
+            LoadIncomeDataTrend.data.result.map(result => {
+                //    result.incomeMonth
+                if (result.incomeMonth === 6) {
+                    result.incomeMonth = "มิ.ย"
+                }
+                if (result.incomeMonth === 7) {
+
+                    result.incomeMonth = "ก.ค"
+                }
+                if (result.incomeMonth === 8) {
+                    result.incomeMonth = "ส.ค"
+                }
+                if (result.incomeMonth === 9) {
+                    result.incomeMonth = "ก.ย"
+                }
+                if (result.incomeMonth === 10) {
+                    result.incomeMonth = "ต.ค"
+                }
+                if (result.incomeMonth === 11) {
+                    result.incomeMonth = "พ.ย"
+                }
+                if (result.incomeMonth === 12) {
+                    result.incomeMonth = "ธ.ค"
+                }
+                receiveDataIncomeTrends = LoadIncomeDataTrend.data.result;
+
+            })
         }
         if (LoadExpensesDataTrend !== null && LoadExpensesDataTrend !== undefined) {
-            receiveDataExpensesTrends = LoadExpensesDataTrend.data.result;
+            LoadExpensesDataTrend.data.result.map(result =>{
+                if (result.expensesMonth === 6) {
+                    result.expensesMonth = "มิ.ย"
+                }
+                if (result.expensesMonth === 7) {
+
+                    result.expensesMonth = "ก.ค"
+                }
+                if (result.expensesMonth === 8) {
+                    result.expensesMonth = "ส.ค"
+                }
+                if (result.expensesMonth === 9) {
+                    result.expensesMonth = "ก.ย"
+                }
+                if (result.expensesMonth === 10) {
+                    result.expensesMonth = "ต.ค"
+                }
+                if (result.expensesMonth === 11) {
+                    result.expensesMonth = "พ.ย"
+                }
+                if (result.expensesMonth === 12) {
+                    result.expensesMonth = "ธ.ค"
+                }
+                receiveDataExpensesTrends = LoadExpensesDataTrend.data.result;
+            })
         }
 
         return (
