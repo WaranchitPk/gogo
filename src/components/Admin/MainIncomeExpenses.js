@@ -18,8 +18,8 @@ const MainIncomeExpenses = ({
                             textColor="primary"
                             centered>
                             <Tab value={1} label="หน้าหลัก"/>
-                            <Tab value={2} label="รายรับ"/>
-                            <Tab value={3} label="รายจ่าย"/>
+                            <Tab value={2} label="รายรับ" />
+                            <Tab value={3} label="รายจ่าย" />
                         </Tabs>
                         {valueTabs === 1 && <AdminHomeIncomeExpensesContainer/>}
                         {valueTabs === 2 && <AdminIncomeContainer/>}

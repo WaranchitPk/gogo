@@ -38,6 +38,7 @@ const ShowDataExpenses = ({
                               onChangeCateToShowData,
                               expensesCateToShow,
                               onSubmitShowDataForCate,
+                              receiveDataExpensesCateChoose,
                               year,
                               month,
                               onSelectYear,
@@ -67,7 +68,7 @@ const ShowDataExpenses = ({
                                 value={expensesCateToShow}
                                 onChange={onChangeCateToShowData}>
                                 {
-                                    dataExpensesCate.map((cate) => (
+                                    receiveDataExpensesCateChoose.map((cate) => (
                                         <MenuItem key={cate.expenses_cateId}
                                                   value={cate.expenses_cateId}>{cate.expenses_cateName}</MenuItem>
                                     ))
@@ -93,7 +94,7 @@ const ShowDataExpenses = ({
             </Typography>
             <Divider/>
             <Grid container justify="center">
-                <Grid item sm={7} xs={10}>
+                <Grid item sm={10} xs={10}>
                     <Button
                         variant='contained'
                         onClick={onOpenDialogAdd}
@@ -105,25 +106,25 @@ const ShowDataExpenses = ({
                         <Table>
                             <TableHead>
                                 <TableRow component="tr">
-                                    <TableCell component='th'>ชื่อรายจ่าย</TableCell>
-                                    <TableCell component='th'>รายละเอียดรายจ่าย</TableCell>
-                                    <TableCell component='th'>จำนวน(บาท)</TableCell>
-                                    <TableCell component='th'>วันที่จ่าย</TableCell>
-                                    <TableCell component='th'>ประเภทรายจ่าย</TableCell>
+                                    <TableCell component='th'><Typography variant={"title"}>ชื่อรายจ่าย</Typography></TableCell>
+                                    <TableCell component='th'><Typography variant={"title"}>รายละเอียดรายจ่าย</Typography></TableCell>
+                                    <TableCell component='th'><Typography variant={"title"}>จำนวน(บาท)</Typography></TableCell>
+                                    <TableCell component='th'><Typography variant={"title"}>วันที่จ่าย</Typography></TableCell>
+                                    <TableCell component='th'><Typography variant={"title"}>ประเภทรายจ่าย</Typography></TableCell>
                                 </TableRow>
                             </TableHead>
                             <TableBody>
                                 {
                                     showDataExpeses.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map(result => (
                                         <TableRow component="tr" key={result.expenses_id}>
-                                            <TableCell component='td'>{result.expenses_names}</TableCell>
-                                            <TableCell component='td'>{result.expenses_details}</TableCell>
+                                            <TableCell component='td'><Typography variant={"subheading"}>{result.expenses_names}</Typography></TableCell>
+                                            <TableCell component='td'><Typography variant={"subheading"}>{result.expenses_details}</Typography></TableCell>
                                             <TableCell
-                                                component='td'>{result.expenses_amount.toLocaleString()}</TableCell>
+                                                component='td'><Typography variant={"subheading"}>{result.expenses_amount.toLocaleString()}</Typography></TableCell>
                                             <TableCell
-                                                component='td'>{moment(result.expenses_date).format('DD-MM-YYYY')}</TableCell>
+                                                component='td'><Typography variant={"subheading"}>{moment(result.expenses_date).format('DD-MM-YYYY')}</Typography></TableCell>
                                             <TableCell
-                                                component='td'>{result.expenses_cateName}</TableCell>
+                                                component='td'><Typography variant={"subheading"}>{result.expenses_cateName}</Typography></TableCell>
                                         </TableRow>
                                     ))
                                 }

@@ -100,12 +100,12 @@ class Expenses extends Component {
             });
         } else {
             // console.log(this.state.expensesCateToShow)
-            console.log(typeof(this.state.expensesCateToShow))
-           if (this.state.expensesCateToShow === 0){
-                this.props.dispatch(dataExpenses());
-           } else{
-               this.props.dispatch(dataExpensesCateChange(this.state.expensesCateToShow))
-           }
+            this.props.dispatch(dataExpensesCateChange(this.state.expensesCateToShow))
+            // if (this.state.expensesCateToShow === 0){
+           //      this.props.dispatch(dataExpenses());
+           // } else{
+           //     this.props.dispatch(dataExpensesCateChange(this.state.expensesCateToShow))
+           // }
         }
     }
     //submit form data income
@@ -146,8 +146,7 @@ class Expenses extends Component {
         let receiveYearSelect = [];
         let receiveMonthSelect = [];
         let receiveDataExpensesCate = [];
-
-
+        let receiveDataExpensesCateChoose = [];
         if (LoadExpensesData !== null && LoadExpensesData !== undefined) {
             receiveDataExpenses = LoadExpensesData.data.result;
             receiveDataExpensesLength = LoadExpensesData.data.result.length
@@ -166,7 +165,7 @@ class Expenses extends Component {
                 expenses_cateName: 'รวมทุกประเภท'
             }
             let resultArr = newarr.concat(arr,receiveDataExpensesCate)
-            receiveDataExpensesCate = resultArr
+            receiveDataExpensesCateChoose = resultArr
         }
         if (loadDatasExpensesCateChange !== null && loadDatasExpensesCateChange !== undefined) {
             receiveDataExpenses = loadDatasExpensesCateChange.data.result;
@@ -191,7 +190,8 @@ class Expenses extends Component {
                     dataMonthSelectExpenses={receiveMonthSelect}
                     dataExpensesCate={receiveDataExpensesCate}
                     onChangeCateToShowData={this.handleChangeCateFormShowExpenses}
-                    onSubmitShowDataForCate={this.handleSubmitShowDataForCate}/>
+                    onSubmitShowDataForCate={this.handleSubmitShowDataForCate}
+                    receiveDataExpensesCateChoose={receiveDataExpensesCateChoose}/>
             </div>
         );
     }

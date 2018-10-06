@@ -33,7 +33,8 @@ const Incomes = ({
                      onCloseDialogDay,
                      onChangeDay,
                      onsubmitFormAddDay,
-                     inComeDay
+                     inComeDay,
+                     receiveDataIncomeCateChange
                  }) => {
     return (
         <div>
@@ -51,7 +52,8 @@ const Incomes = ({
                 onChangeCate={onChangeCate}
                 onsubmitCate={onsubmitCate}
                 changeCate={changeCate}
-                onOpenDialocDay={onOpenDialocDay}/>
+                onOpenDialocDay={onOpenDialocDay}
+                receiveDataIncomeCateChange={receiveDataIncomeCateChange}/>
 
             {/*Dialog Form Incomes*/}
             <FormIncomes

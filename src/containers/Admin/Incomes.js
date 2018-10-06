@@ -56,14 +56,23 @@ class Incomes extends Component {
     //open dialog add data incomes-expenses
     handleOpenDialogAddIncome = () => {
         this.setState({
-            isOpenDialogAddIncome: true
+            isOpenDialogAddIncome: true,
+            incomeName: '',
+            incomeDetail: '',
+            incomeAmount: '',
+            incomeDate: new Date(),
         })
 
     };
     //open dialog add data incomes-expenses
     handleOpenDialogAddIncomeDay = () => {
         this.setState({
-            isOpenDialogAddIncomeDay: true
+            isOpenDialogAddIncomeDay: true,
+            incomeName: '',
+            incomeDetail: '',
+            incomeAmount: '',
+            inComeDay: '',
+            incomeDate: new Date(),
         })
     };
     //close dialog add data incomes-expenses
@@ -151,12 +160,20 @@ class Incomes extends Component {
         let receiveDataIncomesLength = '';
         let receiveDataIncomeCate = [];
         let receiveDataIncomeTrends = [];
+        let receiveDataIncomeCateChange = [];
         if (LoadIncomeData !== null && LoadIncomeData !== undefined) {
             receiveDataIncomes = LoadIncomeData.data.result;
             receiveDataIncomesLength = LoadIncomeData.data.result.length
         }
         if (LoadIncomeCateData !== null && LoadIncomeCateData !== undefined) {
             receiveDataIncomeCate = LoadIncomeCateData.data.result;
+            let newarr = []
+            let arr = {
+                incomes_cateId: 0,
+                incomes_cateName: 'รวมทุกประเภท'
+            }
+            let resultArr = newarr.concat(arr,receiveDataIncomeCate)
+            receiveDataIncomeCateChange = resultArr
         }
         if (LoadIncomeCateChangeData !== null && LoadIncomeCateChangeData !== undefined) {
             receiveDataIncomes = LoadIncomeCateChangeData.data.result;
@@ -182,7 +199,8 @@ class Incomes extends Component {
                     onsubmitCate={this.handleSubmitSearchCate}
                     onCloseDialogDay={this.handleCloseDialogAddIncomeDay}
                     onChangeDay={this.handleChangeDayAmount}
-                    onsubmitFormAddDay={this.handleSubmitFormAddInComeDay}/>
+                    onsubmitFormAddDay={this.handleSubmitFormAddInComeDay}
+                    receiveDataIncomeCateChange={receiveDataIncomeCateChange}/>
             </div>
         );
     }

@@ -10,7 +10,7 @@ import {
     FormControl,
     TextField,
     InputAdornment,
-    Icon, Select, MenuItem, CardContent
+    Icon, Select, MenuItem, CardContent,InputLabel
 } from "@material-ui/core";
 import {DatePicker} from "material-ui-pickers";
 import Slide from "@material-ui/core/Slide";
@@ -78,6 +78,8 @@ const FormExpenses = ({
                                 leftArrowIcon={<Icon><LeftKeyboard/> </Icon>}
                                 rightArrowIcon={<Icon> <RightKeyboard/> </Icon>}/>
                         </FormControl>
+                        <InputLabel>ประเภทรายรับ</InputLabel>
+                        <br/>
                         <Select
                             value={expensesCateFormAdd}
                             onChange={onChangeInput}

@@ -44,13 +44,14 @@ const ShowDataIncome = ({
                             onChangeCate,
                             onsubmitCate,
                             changeCate,
-                            onOpenDialocDay
+                            onOpenDialocDay,
+                            receiveDataIncomeCateChange
                         }) => {
     return (
         <div>
             <Typography
                 color={"textSecondary"}
-                variant={"display1"}
+                variant={"display3"}
                 align={"center"}
                 id="title">
                 เรียกดูข้อมูลรายรับตามประเภทที่ต้องการ
@@ -66,10 +67,9 @@ const ShowDataIncome = ({
                             <InputLabel>รายการรายรับ</InputLabel>
                             <Select
                                 value={changeCate}
-                                onChange={onChangeCate}
-                            >
+                                onChange={onChangeCate}>
                                 {
-                                    DataIncomesCate.map((cate) => (
+                                    receiveDataIncomeCateChange.map((cate) => (
                                         <MenuItem key={cate.incomes_cateId}
                                                   value={cate.incomes_cateId}>{cate.incomes_cateName}</MenuItem>
                                     ))
@@ -88,14 +88,14 @@ const ShowDataIncome = ({
             <Divider/>
             <Typography
                 color={"textSecondary"}
-                variant={"display1"}
+                variant={"display2"}
                 align={"center"}
                 id="title">
                 ตารางแสดงรายละเอียด: รายรับ
             </Typography>
             <Divider/>
             <Grid container justify="center">
-                <Grid item sm={8} xs={10}>
+                <Grid item sm={10} xs={10}>
                     <Button variant='contained'
                             color="primary"
                             onClick={onOpenDialogAdd}
@@ -114,24 +114,24 @@ const ShowDataIncome = ({
                         <Table>
                             <TableHead>
                                 <TableRow component="tr">
-                                    <TableCell component='th'>ชื่อรายรับ</TableCell>
-                                    <TableCell component='th'>รายละเอียดรายรับ</TableCell>
-                                    <TableCell component='th'>จำนวน(บาท)</TableCell>
-                                    <TableCell component='th'>วันที่รับ</TableCell>
-                                    <TableCell component='th'>ประเภทรายรับ</TableCell>
+                                    <TableCell component='th'><Typography variant={"title"}>ชื่อรายรับ</Typography></TableCell>
+                                    <TableCell component='th'><Typography variant={"title"}>รายละเอียดรายรับ</Typography></TableCell>
+                                    <TableCell component='th'><Typography variant={"title"}>จำนวน(บาท)</Typography></TableCell>
+                                    <TableCell component='th'><Typography variant={"title"}>วันที่รับ</Typography></TableCell>
+                                    <TableCell component='th'><Typography variant={"title"}>ประเภทรายรับ</Typography></TableCell>
                                 </TableRow>
                             </TableHead>
                             <TableBody>
                                 {
                                     showDataIncomes.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map(result => (
                                         <TableRow component="tr" key={result.incomes_id}>
-                                            <TableCell component='td'>{result.incomes_name}</TableCell>
-                                            <TableCell component='td'>{result.incomes_details}</TableCell>
+                                            <TableCell component='td'><Typography variant={"subheading"}>{result.incomes_name}</Typography></TableCell>
+                                            <TableCell component='td'><Typography variant={"subheading"}>{result.incomes_details}</Typography></TableCell>
                                             <TableCell
-                                                component='td'>{result.incomes_amount.toLocaleString()}</TableCell>
+                                                component='td'><Typography variant={"subheading"}>{result.incomes_amount.toLocaleString()}</Typography></TableCell>
                                             <TableCell
-                                                component='td'>{moment(result.incomes_date).format('DD-MM-YYYY')}</TableCell>
-                                            <TableCell component='td'>{result.incomes_cateName}</TableCell>
+                                                component='td'><Typography variant={"subheading"}>{moment(result.incomes_date).format('DD-MM-YYYY')}</Typography></TableCell>
+                                            <TableCell component='td'><Typography variant={"subheading"}>{result.incomes_cateName}</Typography></TableCell>
                                         </TableRow>
                                     ))
                                 }

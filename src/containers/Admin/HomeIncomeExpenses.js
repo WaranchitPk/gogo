@@ -6,8 +6,11 @@ import {connect} from 'react-redux'
 class HomeIncomeExpenses extends Component {
     state = {
         yearTrends: 2018,
-        yearTrendsExpenses: 2018
-
+        yearTrendsExpenses: 2018,
+        yearSelectIncome: 2018,
+        yearSelectExpenses: 2018,
+        yearShowTrendIncome: 2018,
+        yearShowTrendExpenses: 2018
     }
 
     componentDidMount() {
@@ -15,14 +18,53 @@ class HomeIncomeExpenses extends Component {
         this.props.dispatch(dataExpensesTrends(this.state.yearTrendsExpenses))
     }
 
+    handleSelectYearIncome = ({target: {value}}) => {
+        this.setState({
+            yearSelectIncome: value
+        })
+    }
+    handleSelectYearExpenses = ({target: {value}}) => {
+        this.setState({
+            yearSelectExpenses: value
+        })
+    }
+    handleSubmitYearSelectIncome = () => {
+        const {yearSelectIncome} = this.state;
+        this.props.dispatch(dataIncomeTrends(yearSelectIncome))
+
+    }
+    handleSubmitYearSelectExpenses = () => {
+        const {yearSelectExpenses} = this.state;
+        this.props.dispatch(dataExpensesTrends(yearSelectExpenses))
+    }
+
     render() {
         const {LoadIncomeDataTrend, LoadExpensesDataTrend} = this.props;
-        const {yearTrends, yearTrendsExpenses} = this.state;
+        const {yearTrends, yearTrendsExpenses, yearSelectIncome, yearSelectExpenses, yearShowTrendIncome,yearShowTrendExpenses} = this.state;
         let receiveDataIncomeTrends = [];
         let receiveDataExpensesTrends = [];
         if (LoadIncomeDataTrend !== null && LoadIncomeDataTrend !== undefined) {
             LoadIncomeDataTrend.data.result.map(result => {
                 //    result.incomeMonth
+                if (result.incomeMonth === 1) {
+                    result.incomeMonth = "ม.ค"
+                }
+                if (result.incomeMonth === 2) {
+
+                    result.incomeMonth = "ก.พ"
+                }
+                if (result.incomeMonth === 3) {
+                    result.incomeMonth = "มี.ค"
+                }
+                if (result.incomeMonth === 4) {
+                    result.incomeMonth = "เม.ย"
+                }
+                if (result.incomeMonth === 5) {
+                    result.incomeMonth = "พ.ค"
+                }
+                if (result.incomeMonth === 6) {
+                    result.incomeMonth = "มิ.ย"
+                }
                 if (result.incomeMonth === 6) {
                     result.incomeMonth = "มิ.ย"
                 }
@@ -50,7 +92,23 @@ class HomeIncomeExpenses extends Component {
             })
         }
         if (LoadExpensesDataTrend !== null && LoadExpensesDataTrend !== undefined) {
-            LoadExpensesDataTrend.data.result.map(result =>{
+            LoadExpensesDataTrend.data.result.map(result => {
+                if (result.expensesMonth === 1) {
+                    result.expensesMonth = "ม.ค"
+                }
+                if (result.expensesMonth === 2) {
+
+                    result.expensesMonth = "ก.พ"
+                }
+                if (result.expensesMonth === 3) {
+                    result.expensesMonth = "มี.ค"
+                }
+                if (result.expensesMonth === 4) {
+                    result.expensesMonth = "เม.ย"
+                }
+                if (result.expensesMonth === 5) {
+                    result.expensesMonth = "พ.ค"
+                }
                 if (result.expensesMonth === 6) {
                     result.expensesMonth = "มิ.ย"
                 }
@@ -83,7 +141,15 @@ class HomeIncomeExpenses extends Component {
                     dataIncomeTrends={receiveDataIncomeTrends}
                     valueYearTrends={yearTrends}
                     dataExpensesTrends={receiveDataExpensesTrends}
-                    valueYearTrendsExpenses={yearTrendsExpenses}/>
+                    valueYearTrendsExpenses={yearTrendsExpenses}
+                    yearSelectIncome={yearSelectIncome}
+                    yearSelectExpenses={yearSelectExpenses}
+                    onSelectYearIncome={this.handleSelectYearIncome}
+                    onSelectYearExpenses={this.handleSelectYearExpenses}
+                    onSubmitSelectIncome={this.handleSubmitYearSelectIncome}
+                    onSubmitSelectExpenses={this.handleSubmitYearSelectExpenses}
+                    yearShowTrendIncome={yearShowTrendIncome}
+                    yearShowTrendExpenses={yearShowTrendExpenses}/>
             </div>
         );
     }

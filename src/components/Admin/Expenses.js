@@ -33,7 +33,8 @@ const Expenses = ({
                       onChangeCateToShowData,
                       expensesCateToShow,
                       onSubmitShowDataForCate,
-                      expensesCateFormAdd
+                      expensesCateFormAdd,
+                      receiveDataExpensesCateChoose
                   }) => {
     return (
         <div>
@@ -63,7 +64,8 @@ const Expenses = ({
                 dataExpensesCate={dataExpensesCate}
                 onChangeCateToShowData={onChangeCateToShowData}
                 expensesCateToShow={expensesCateToShow}
-                onSubmitShowDataForCate={onSubmitShowDataForCate}/>
+                onSubmitShowDataForCate={onSubmitShowDataForCate}
+                receiveDataExpensesCateChoose={receiveDataExpensesCateChoose}/>
 
             {/*Dialog Form Expenses*/}
             <FormExpenses
